@@ -71,8 +71,8 @@ public:
 
     bool is_empty() const;
     
-	DLLNode<T>* head_node() const;
-	DLLNode<T>* tail_node() const;
+    DLLNode<T>* head_node() const;
+    DLLNode<T>* tail_node() const;
     T head_val() const;
     T tail_val() const;
 
@@ -393,16 +393,16 @@ DLList<T>& DLList<T>::operator=(const DLList<T>& other)
 
 template<class T>
 ostream& operator<<(ostream& out, const DLList<T>& list) {
-	out << "[";
+    out << "[";
 
-	DLLNode<T>* curr = list.head_node();
-	while (curr != nullptr) {
-		out << curr->get_val();
-		if (curr->get_next() != nullptr)
-			out << ", ";
-		curr = curr->get_next();
-	}
-	out << "]";
+    DLLNode<T>* curr = list.head_node();
+    while (curr != nullptr) {
+        out << curr->get_val();
+        if (curr->get_next() != nullptr)
+            out << ", ";
+        curr = curr->get_next();
+    }
+    out << "]";
 
-	return out;
+    return out;
 }
