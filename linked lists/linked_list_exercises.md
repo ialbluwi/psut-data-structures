@@ -13,11 +13,10 @@ Linked List Exercises
 6. **Singly-Linked List:** `void reverse()` 
 7. **Doubly-Linked List:** `void reverse()` 
 8. **Doubly-Linked List:** `T get_at_index(int index) const` 
-9. **Doubly-Linked List:** `void remove_all(const T& val)` 
-10. **Doubly-Linked List:** `DLList find_common(const DLList& other) const`   
-11. **Doubly-Linked List:** `void remove(int index1, int index2)`  
-12. **Doubly-Linked List:** `DLList<T> sublist(int index1, int index2)`
-13. **Doubly-Linked List:** `void swap_halves()`
+9. **Doubly-Linked List:** `DLList<T> sublist(int index1, int index2)`
+10. **Doubly-Linked List:** `void remove(int index1, int index2)`  
+11. **Doubly-Linked List:** `void remove_all(const T& val)` 
+12. **Doubly-Linked List:** `DLList find_common(const DLList& other) const`   
 
 
 
@@ -359,6 +358,101 @@ void DLList<T>::get_at_index(int index) const
 Exercise 9
 ----------
 
+Implement the following member function of class `DLList`, which returns the values in the nodes between the given indices (inclusive). 
+
+```cpp
+DLList sublist(int index1, int index2) const;
+```
+
+The function should throw an exception if any of the indices is invalid. If `index2` is larger than or equal to the number of nodes in the list, return all the values from `index1` to the `tail`.
+
+#### *Solution*
+
+```cpp
+template <class T>
+DLList<T> DLList<T>::sublist(int index1, int index2) const 
+{
+	if (index1 < 0 || index2 < 0 || index1 > index2) {
+		throw "Error: Invalid index passed to sublist()";
+	
+  // get to index1
+	int count = 0;
+	DLLNode<T>* curr = head;
+	while (curr != nullptr) {
+        if (count == index1)
+            break;
+		curr = curr->next;
+		count++;
+	}
+	
+  // if null is reached before reaching index1 
+  if (curr == nullptr)
+    throw "Error: Invalid index passed to sublist()";
+    
+  // collect all the values in the nodes between index1
+  // and index2 (stop if the end of the list is reached
+  // before reaching index2)
+  DLList<T> result;
+  while (curr != nullptr && count <= index2) {
+    result.add_to_tail(curr->val);
+    curr = curr->next;
+    count++;
+  }
+    
+  return result;
+}
+```
+
+#### 
+
+Exercise 10
+----------
+
+Implement the following member function of class `DLList`, which removes the nodes between the given indices (inclusive). 
+
+```cpp
+void remove(int index1, int index2);
+```
+
+The function should throw an exception if any of the indices is invalid. If `index2` is larger than or equal to the number of nodes in the list, remove all the nodes from `index1` to the `tail`.
+
+#### *Solution*
+
+```cpp
+template <class T>
+void DLList<T>::remove(int index1, int index2) const 
+{
+	if (index1 < 0 || index2 < 0 || index1 > index2) {
+		throw "Error: Invalid index passed to sublist()";
+	
+  DLList<T> new_list;
+    
+  // get all the nodes that are not between index1 and index2 inclusive.
+  int count = 0;
+	DLLNode<T>* curr = head;
+	while (curr != nullptr) {
+        if (count <= index1 || count >= index2)
+			    new_list.add_to_tail(curr->val);
+    
+		curr = curr->next;
+		count++;
+	}
+    
+  // if curr == nullptr and count <= index1, then index1
+  // is outside the range of valid indices.
+  if (count <= index1)
+		throw "Error: Invalid index passed to sublist()";
+    
+  clear();
+  append(new_list);
+}
+```
+
+#### 
+
+Exercise 11
+----------
+
 Implement the following member function of class `DLList`, which removes all the occurrences of the given value from the doubly-linked list.
 
 ```cpp
@@ -400,7 +494,7 @@ void DLList<T>::remove_all(const T& val) {
 
 #### 
 
-Exercise 10
+Exercise 12
 ----------
 
 Implement the following member function of class `DLList`, which returns all the common values between the current doubly-linked list and the reived doubly-linked list.
@@ -411,7 +505,7 @@ DLList find_common(const DLList& other) const;
 
 **Note 1.** that no value appears in the same list more than once.
 
-**Note 2.** An $O(n^2)$ solution is fine.
+**Note 2.** An `O(n^2)` solution is fine.
 
 #### *Solution*
 
@@ -420,7 +514,18 @@ template <class T>
 DLList<T> DLList<T>::find_common(const DLList<T>& other) const {
   DLList<T> result;
   
-    
+  if (is_empty() || other.is_empty())
+    return result;
+  
+  for (Node* ptr1 = head; ptr1 != nullptr; ptr1 = ptr1->next) {
+    // search for ptr1->val in the other list
+    for (Node* ptr2 = other.head; ptr2 != nullptr; ptr2 = ptr2->next) {
+      if (ptr1->val == ptr2->val) {
+        result.add_to_tail(ptr1->val);
+        break;
+      }
+    }
+  }
   
   return result;
 }
