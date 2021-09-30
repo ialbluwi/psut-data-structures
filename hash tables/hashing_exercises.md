@@ -5,7 +5,7 @@ Hash Table Exercises
 
 ## Contents
 
-1.  `T max() const`  
+1. `T max() const`  
 2. `bool has_duplicates() const`
 3. `void remove_duplicates()`
 4. ` bool equals(const HashTable& other) const` 
@@ -29,23 +29,24 @@ T max() const;
 template <class T>
 T HashTable<T>::max() const 
 {
-  if (is_empty())
-    throw "Error: Attempting to retrieve the max from an empty hash table."
+    if (is_empty())
+        throw "Error: Attempting to retrieve the max from an empty hash table."
   
-  DLLNode<T>* max_node = nullptr;
-  for (int i = 0; i < m; i++) {
-    DLLNode<T>* curr = table[i].head_node();
-    while (curr != nullptr) {
-      if (max_node == nullptr || curr->get_val() > max_node->get_val())
-        max_node = curr;
-      curr = curr->get_next();
+    DLLNode<T>* max_node = nullptr;
+    for (int i = 0; i < m; i++) {
+        DLLNode<T>* curr = table[i].head_node();
+        while (curr != nullptr) {
+            if (max_node == nullptr || curr->get_val() > max_node->get_val())
+                max_node = curr;
+            curr = curr->get_next();
+        }
     }
-  }
   
-  return max_node->get_val();
+    return max_node->get_val();
 }
 
-// NOTE. This could be made simpler by calling the elements() function and then iterating over the returned linked list.
+// NOTE. This could be made simpler by calling the elements() 
+// function and then iterating over the returned linked list.
 ```
 
 
@@ -65,18 +66,18 @@ bool has_duplicates() const;
 template <class T>
 bool HashTable<T>::has_duplicates() const
 {
-  HashTable<T> temp_table;
-  DLList<T> temp_list = elements();
+    HashTable<T> temp_table;
+    DLList<T> temp_list = elements();
   
-  DLLNode<T>* curr = temp_list.head_node();
-  while (curr != nullptr) {
-    if (temp_table.contains(curr->get_val()))
-      return true;
-    temp_table.insert(curr->get_val());
-    curr = curr->get_next();
-  }
+    DLLNode<T>* curr = temp_list.head_node();
+    while (curr != nullptr) {
+        if (temp_table.contains(curr->get_val()))
+            return true;
+        temp_table.insert(curr->get_val());
+        curr = curr->get_next();
+    }
   
-	return false;
+    return false;
 }
 ```
 
@@ -97,26 +98,26 @@ void remove_duplicates();
 template <class T>
 void HashTable<T>::remove_duplicates()
 {
-  HashTable<T> temp_table;
-  DLList<T> temp_list = elements();
+    HashTable<T> temp_table;
+    DLList<T> temp_list = elements();
   
-  // insert into temp_table only distinct elements
-  DLLNode<T>* curr = temp_list.head_node();
-  while (curr != nullptr) {
-    if (!temp_table.contains(curr->get_val()))
-	    temp_table.insert(curr->get_val());
-    curr = curr->get_next();
-  }
+    // insert into temp_table only distinct elements
+    DLLNode<T>* curr = temp_list.head_node();
+    while (curr != nullptr) {
+        if (!temp_table.contains(curr->get_val()))
+            temp_table.insert(curr->get_val());
+        curr = curr->get_next();
+    }
   
-  clear();
+    clear();
   
-  // insert back the elements from temp_table
-  temp_list = temp_table.elements();
-  curr = temp_list.head_node(); 
-  while (curr != nullptr) {
-    insert(curr->get_val());
-    curr = curr->get_next();
-  }
+    // insert back the elements from temp_table
+    temp_list = temp_table.elements();
+    curr = temp_list.head_node(); 
+    while (curr != nullptr) {
+        insert(curr->get_val());
+        curr = curr->get_next();
+    }
 }
 ```
 
@@ -139,17 +140,17 @@ For simplicity, assume that the elements in both tables are distinct (i.e. a sit
 template <class T>
 bool HashTable<T>::equals(const HashTable<T>& other) const
 {
-  if (n != other.n)
-    return false;
-  
-  for (int i = 0; i < m; i++) {
-    DLLNode<T>* curr = table[i].head_node();
-    while (curr != nullptr)
-      if (!other.contains(curr->get_val()))
+    if (n != other.n)
         return false;
-  }
   
-  return true;
+    for (int i = 0; i < m; i++) {
+        DLLNode<T>* curr = table[i].head_node();
+        while (curr != nullptr)
+            if (!other.contains(curr->get_val()))
+                return false;
+    }
+  
+    return true;
 }
 ```
 
@@ -167,24 +168,25 @@ bool has_long_chains() const;
 #### *Solution*
 
 ```cpp
-template <class T>
-bool HashTable<T>::has_long_chains() const
-{
-  double avg_length = (double) n / m;
-  
-  for (int i = 0; i < m; i++) {
-    int count = 0;
-    DLLNode<T>* curr = table[i].head_node();
-    while (curr != nullptr) {
-      count++;
-      curr = curr->get_next();
+template <class T>bool 
+HashTable<T>::has_long_chains() const
+{  
+    double avg_length = (double) n / m;
+
+    for (int i = 0; i < m; i++) {
+        int count = 0;
+        DLLNode<T>* curr = table[i].head_node();
+
+        while (curr != nullptr) {
+            count++;
+            curr = curr->get_next();
+        }
+        
+        if (count > 2 * avg_length)
+            return true;
     }
     
-    if (count > 2 * avg_length)
-      return true;
-  }
-  
-  return false;
+    return false;
 }
 ```
 
@@ -196,15 +198,7 @@ Exercise 6
 Implement the following member function of class `HashTable`, which prints the hash table to the standard output according to the format shown below.
 
 ```cpp
-void print() const;
-
-// EXAMPLE FOR PRINTING A TABLE WITH 5 CHAINS
-// [0] {20, 10, 40}
-// [1] {11}
-// [2] {2, 12, 7, 2, 2, 27}
-// [3] {}
-// [4] {9, 19}
-
+void print() const;// EXAMPLE FOR PRINTING A TABLE WITH 5 CHAINS// [0] {20, 10, 40}// [1] {11}// [2] {2, 12, 7, 2, 2, 27}// [3] {}// [4] {9, 19}
 ```
 
 #### *Solution*
@@ -212,19 +206,21 @@ void print() const;
 ```cpp
 template <class T>
 void HashTable<T>::print() const
-{
-	for (int i = 0; i < m; i++) {
-    cout << "[" << i << "] ";
-    cout << "{";
-    DLLNode<T>* curr = table[i].head_node();
-    while (curr != nullptr) {
-      cout << curr->get_val();
-      if (curr != table[i].tail_node())
-        cout << ", ";
-      curr = curr->get_next();
+{ 
+    for (int i = 0; i < m; i++) {
+        cout << "[" << i << "] ";
+        cout << "{";
+
+        DLLNode<T>* curr = table[i].head_node();
+        while (curr != nullptr) {
+            cout << curr->get_val();
+            if (curr != table[i].tail_node())
+                cout << ", ";      
+
+            curr = curr->get_next();
+        }
+
+        cout << "}" << endl;
     }
-    cout << "}" << endl;
-  }
 }
 ```
-

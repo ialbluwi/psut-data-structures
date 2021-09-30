@@ -34,14 +34,14 @@ bool print_reverse() const;
 ```cpp
 bool List::is_sorted() const 
 {
-  if (is_empty())
+    if (is_empty())
+        return true;
+
+    for (Node* curr = head; curr->next != nullptr; curr = curr->next)
+        if (curr->val > curr->next->val)
+            return false;
+
     return true;
-  
-  for (Node* curr = head; curr->next != nullptr; curr = curr->next)
-    if (curr->val > curr->next->val)
-      return false;
-  
-  return true;
 }
 ```
 
@@ -61,15 +61,15 @@ int get_max() const;
 ```cpp
 int List::get_max() const 
 {
-  if (is_empty())
-  	throw "Error: Attempting to get the max in an empty list";
+    if (is_empty())
+        throw "Error: Attempting to get the max in an empty list";
   
-  Node* max_node = head;
-  for (Node* curr = head->next; curr != nullptr; curr = curr->next)
-    if (curr->val > max_node->val)
-      max_node = curr;
+    Node* max_node = head;
+    for (Node* curr = head->next; curr != nullptr; curr = curr->next)
+        if (curr->val > max_node->val)
+            max_node = curr;
   
-  return max_node->val;
+    return max_node->val;
 }
 ```
 
@@ -95,10 +95,10 @@ print_reverse(head);
 ```cpp
 void List::print_reverse(Node* node) 
 {
-  if (node == nullptr)
-    return;
-  print_reverse(node->next);
-  cout << node->val << " ";
+    if (node == nullptr)
+        return;
+    print_reverse(node->next);
+    cout << node->val << " ";
 }
 ```
 
@@ -118,18 +118,19 @@ void selection_sort();
 ```cpp
 void List::selection_sort() 
 {
-  if (head == tail) // 0 or 1 nodes
-    return;
-  
-  for (Node* ptr1 = head; ptr1 != tail; ptr1 = ptr1->next) {
-    // find the minimum from ptr1 to the tail
-    Node* min_ptr = ptr1;
-    for (Node* ptr2 = ptr1->next; ptr2 != nullptr; ptr2 = ptr2->next) {
-      if (ptr2->val < min_ptr->val)
-        min_ptr = ptr2;
+    if (head == tail) // 0 or 1 nodes
+        return;
+
+    for (Node* ptr1 = head; ptr1 != tail; ptr1 = ptr1->next) {
+        // find the minimum from ptr1 to the tail
+        Node* min_ptr = ptr1;
+        for (Node* ptr2 = ptr1->next; ptr2 != nullptr; ptr2 = ptr2->next) {
+            if (ptr2->val < min_ptr->val)
+                min_ptr = ptr2;
+        }
+
+        swap(ptr1->val, min_ptr->val);  
     }
-    swap(ptr1->val, min_ptr->val);
-  }
 }
 ```
 
@@ -147,42 +148,42 @@ void remove_all(int val);
 #### *Solution*
 
 ```cpp
-void List::remove_all(int val) 
-{
-  if (is_empty())
-    return;
+void List::remove_all(int val) {
+    if (is_empty())
+        return;  
 
-  // remove val from the beginning of the list
-  while (head->val == val) {
-    remove_head();
-    if (head == nullptr)
-      return;
-  }
-  
-  // If we reach here, we know for sure that the 
-  // list has a head node that is not val
-  
-  // remove val from the end of the list
-  while (tail->val == val)
-    remove_tail();
-  
-  // If we get here, we know for sure that:
-  // - The list has at least one node.
-  // - The value to be deleted is not in the head or the tail.
-  
-  Node* prev = head;
-  Node* curr = head->next;
-  
-  while (curr != nullptr) {
-    if (curr->val == val) {
-      prev->next = curr->next;
-      delete curr;
-      curr = prev->next;
-    } else {
-      prev = curr;
-      curr = curr->next;
+    // remove val from the beginning of the list
+    while (head->val == val) {
+        remove_head();
+        if (head == nullptr)
+            return;  
     }
-  }
+
+    // If we reach here, we know for sure that the   
+    // list has a head node that is not val
+
+    // remove val from the end of the list
+    while (tail->val == val)
+        remove_tail();
+
+    // If we get here, we know for sure that:
+    // - The list has at least one node.
+    // - The value to be deleted is not in the head or the tail.
+
+    Node* prev = head;
+    Node* curr = head->next;
+
+    while (curr != nullptr) {
+        if (curr->val == val) {
+            prev->next = curr->next;
+            delete curr;
+            curr = prev->next;
+        } 
+        else {
+            prev = curr;
+            curr = curr->next;
+        }
+    }
 }
 ```
 
@@ -200,18 +201,17 @@ void reverse();
 #### *Solution* # 1
 
 ```cpp
-void List::reverse() 
-{
+void List::reverse() {
     List temp_list;
-  
+
     while (!is_empty()) {
         temp_list.add_to_head(head->val);
         remove_head();
     }
 
     while (!temp_list.is_empty()) {
-      add_to_tail(temp_list.head->val);
-      temp_list.remove_head();
+        add_to_tail(temp_list.head->val);
+        temp_list.remove_head();
     }
 }
 ```
@@ -219,8 +219,7 @@ void List::reverse()
 #### *Solution* # 2
 
 ```cpp
-void List::reverse() 
-{  
+void List::reverse() {
     Node* prev = nullptr;
     Node* curr = head;
 
@@ -231,15 +230,14 @@ void List::reverse()
         curr = temp;
     }
 
-    swap(head, tail);
-}
+    swap(head, tail);}
 ```
 
 #### *Solution* # 3 
 
 ```cpp
 void List::reverse(Node* first) 
-{  
+{
     if (first == nullptr || first == tail)
         return;
 
@@ -249,8 +247,8 @@ void List::reverse(Node* first)
     delete first;
 }
 
-void List::reverse() {  
-  reverse(head);
+void List::reverse() {
+    reverse(head);
 }
 ```
 
@@ -268,15 +266,16 @@ void List::reverse(Node *prev, Node *curr)
         return;
     }
     else
-        reverse(prev->next, curr->next);
+        reverse(prev->next, curr->next);    
 
     curr->next = prev;
 }
 
-void List::reverse() {  
-  if (head == tail)
-    return;
-  reverse(head, head->next)
+void List::reverse() 
+{
+    if (head == tail)
+        return;
+    reverse(head, head->next)
 }
 ```
 
@@ -297,21 +296,20 @@ void reverse();
 template <class T>
 void DLList<T>::reverse() 
 {
-	if (head == tail) // 0 or 1 nodes
-		return;
-  
-  DLLNode<T>* ptr1 = head;
-  DLLNode<T>* ptr2 = tail;
+    if (head == tail) // 0 or 1 nodes
+        return;
 
-  //     (odd size)        (even size)
-  while (ptr1 != ptr2 && ptr1->prev != ptr2) {
-    T temp = ptr1->val;
-    ptr1->val = ptr2->val;
-    ptr2->val = temp;
-    
-    ptr1 = ptr1->next;
-    ptr2 = ptr2->prev;
-  }
+    DLLNode<T>* ptr1 = head;
+    DLLNode<T>* ptr2 = tail;  
+
+    //     (odd size)        (even size)  
+    while (ptr1 != ptr2 && ptr1->prev != ptr2) {
+        T temp = ptr1->val;    
+        ptr1->val = ptr2->val;
+        ptr2->val = temp;
+        ptr1 = ptr1->next;
+        ptr2 = ptr2->prev;
+    }
 }
 ```
 
@@ -333,23 +331,22 @@ If the index is invalid, the function should throw an exception.
 ```cpp
 template <class T>
 T DLList<T>::get_at_index(int index) const 
-{
-	if (index < 0)
-		throw "Error: Invalid index passed to get_at_index()";
-	
-	int count = 0;
-	DLLNode<T>* curr = head;
-	
-	while (curr != nullptr) {
+{  
+    if (index < 0)
+        throw "Error: Invalid index passed to get_at_index()";
+    
+    int count = 0;
+    DLLNode<T>* curr = head;
+    while (curr != nullptr) {
         if (count == index)
             return curr->val;
-		curr = curr->next;
-		count++;
-	}
-	
-  // if execution reaches here, then index is larger than
-  // the last index in the list
-	throw "Error: Invalid index passed to get_at_index()";
+        curr = curr->next;
+        count++;
+    }
+
+    // if execution reaches here, then index is larger than
+    // the last index in the list    
+    throw "Error: Invalid index passed to get_at_index()";
 }
 ```
 
@@ -371,35 +368,35 @@ The function should throw an exception if any of the indices is invalid. If `ind
 ```cpp
 template <class T>
 DLList<T> DLList<T>::sublist(int index1, int index2) const 
-{
-	if (index1 < 0 || index2 < 0 || index1 > index2)
-		throw "Error: Invalid index passed to sublist()";
-	
-  // get to index1
-	int count = 0;
-	DLLNode<T>* curr = head;
-	while (curr != nullptr) {
+{  
+    if (index1 < 0 || index2 < 0 || index1 > index2)
+        throw "Error: Invalid index passed to sublist()";
+
+    // get to index1  
+    int count = 0;  
+    DLLNode<T>* curr = head;
+    while (curr != nullptr) {
         if (count == index1)
             break;
-		curr = curr->next;
-		count++;
-	}
-	
-  // if null is reached before reaching index1 
-  if (curr == nullptr)
-    throw "Error: Invalid index passed to sublist()";
-    
-  // collect all the values in the nodes between index1
-  // and index2 (stop if the end of the list is reached
-  // before reaching index2)
-  DLList<T> result;
-  while (curr != nullptr && count <= index2) {
-    result.add_to_tail(curr->val);
-    curr = curr->next;
-    count++;
-  }
-    
-  return result;
+        curr = curr->next;
+        count++;
+    }
+
+    // if null is reached before reaching index1
+    if (curr == nullptr)
+        throw "Error: Invalid index passed to sublist()";
+
+    // collect all the values in the nodes between index1  
+    // and index2 (stop if the end of the list is reached  
+    // before reaching index2)  
+    DLList<T> result;  
+    while (curr != nullptr && count <= index2) {
+        result.add_to_tail(curr->val);
+        curr = curr->next;
+        count++;  
+    }
+
+    return result;
 }
 ```
 
@@ -421,30 +418,29 @@ The function should throw an exception if any of the indices is invalid. If `ind
 ```cpp
 template <class T>
 void DLList<T>::remove(int index1, int index2) 
-{
-	if (index1 < 0 || index2 < 0 || index1 > index2)
-		throw "Error: Invalid index passed to sublist()";
-	
-  DLList<T> new_list;
-    
-  // get all the nodes that are not between index1 and index2 inclusive.
-  int count = 0;
-	DLLNode<T>* curr = head;
-	while (curr != nullptr) {
+{  
+    if (index1 < 0 || index2 < 0 || index1 > index2)        
+        throw "Error: Invalid index passed to sublist()";     
+
+    DLList<T> new_list;      
+
+    // get all the nodes that are not between index1 and index2 inclusive.  
+    int count = 0;   
+    DLLNode<T>* curr = head;    
+    while (curr != nullptr) {        
         if (count < index1 || count > index2)
-			    new_list.add_to_tail(curr->val);
-    
-		curr = curr->next;
-		count++;
-	}
-    
-  // if curr == nullptr and count <= index1, then index1
-  // is outside the range of valid indices.
-  if (count <= index1)
-		throw "Error: Invalid index passed to sublist()";
-    
-  clear();
-  append(new_list);
+            new_list.add_to_tail(curr->val);
+        curr = curr->next;
+        count++;
+    }      
+
+    // if curr == nullptr and count <= index1, then index1  
+    // is outside the range of valid indices.  
+    if (count <= index1)      
+        throw "Error: Invalid index passed to sublist()";      
+
+    clear();  
+    append(new_list);
 }
 ```
 
@@ -463,7 +459,8 @@ void remove_all(const T& val);
 
 ```cpp
 template <class T>
-void DLList<T>::remove_all(const T& val) {
+void DLList<T>::remove_all(const T& val) 
+{
     if (is_empty())
         return;
 
@@ -477,17 +474,17 @@ void DLList<T>::remove_all(const T& val) {
         remove_tail();
 
     DLLNode<T>* curr = head->next;
+
     while (curr != nullptr) {
         if (curr->val == val) {
             DLLNode<T>* succ = curr->next;
             DLLNode<T>* pred = curr->prev;
-
             succ->prev = pred;
             pred->next = succ;
             delete curr;
             curr = succ;
         } else
-            curr = curr->next;
+            curr = curr->next;    
     }
 }
 ```
@@ -511,24 +508,24 @@ DLList find_common(const DLList& other) const;
 
 ```cpp
 template <class T>
-DLList<T> DLList<T>::find_common(const DLList<T>& other) const {
-  DLList<T> result;
-  
-  if (is_empty() || other.is_empty())
-    return result;
-  
-  for (DLLNode<T>* ptr1 = head; ptr1 != nullptr; ptr1 = ptr1->next) {
-    // search for ptr1->val in the other list
-    for (DLLNode<T>* ptr2 = other.head; ptr2 != nullptr; ptr2 = ptr2->next) {
-      if (ptr1->val == ptr2->val) {
-        result.add_to_tail(ptr1->val);
-        break;
-      }
+DLList<T> DLList<T>::find_common(const DLList<T>& other) const 
+{
+    DLList<T> result;
+
+    if (is_empty() || other.is_empty())    
+        return result;
+
+    for (DLLNode<T>* ptr1 = head; ptr1 != nullptr; ptr1 = ptr1->next) {    
+        // search for ptr1->val in the other list
+        for (DLLNode<T>* ptr2 = other.head; ptr2 != nullptr; ptr2 = ptr2->next) {
+            if (ptr1->val == ptr2->val) {
+                result.add_to_tail(ptr1->val);
+                break;
+            }
+        }
     }
-  }
-  
-  return result;
+
+    return result;
 }
 ```
 
-#### 
