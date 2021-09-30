@@ -150,7 +150,7 @@ void BST<T>::compute_heights(BSTNode<T>* node)
   if (node->right != nullptr)
     right_height = node->right->height;
   
-  node->height = 1 + max(left_height, right_height);
+	node->height = 1 + max(left_height, right_height);
 }
 
 template <class T>
@@ -364,13 +364,13 @@ void BST<T>::prune() {
 
 template <class T>
 BSTNode<T>* BST<T>::prune(BSTNode<T>* node) {
-  if (node == nullptr)
-    return nullptr;
+ 	if (node == nullptr)
+		return nullptr;
   
 	if (node->left == nullptr && node->right == nullptr) {
-    delete node;
-    return nullptr;
-  }
+		delete node;
+		return nullptr;
+	}
   
   node->left = prune(node->left);
   node->right = prune(node->right);
@@ -471,11 +471,11 @@ int BST<T>::rank(const T& val, BSTNode<T>* node) const
 		return 0;
 	
 	if (val == node->val)
-      return get_count(node->left);
-  else if (val < node->val)
-    return rank(val, node->left);
-  else
-      return 1 + get_count(node->left) + rank(val, node->right);
+		return get_count(node->left);
+	else if (val < node->val)
+		return rank(val, node->left);
+	else
+		return 1 + get_count(node->left) + rank(val, node->right);
 }
 ```
 
