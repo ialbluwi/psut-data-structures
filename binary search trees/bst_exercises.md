@@ -384,7 +384,7 @@ BSTNode<T>* BST<T>::prune(BSTNode<T>* node) {
 
 Assume that the `BSTNode` class has a data member `count` for storing the number of nodes in the subtree rooted at that node. The following figure illustrates the idea.
 
-<img src="counts.png" alt="Screen Shot 2021-09-30 at 8.09.40 AM" style="width:40%; display: block; margin-left: auto; margin-right: auto;" />
+<img src="counts.png" alt="Screen Shot 2021-09-30 at 8.09.40 AM" style="text-align: center; width:40%; display: block; margin-left: auto; margin-right: auto;" />
 
 ```cpp
 template <class T>
