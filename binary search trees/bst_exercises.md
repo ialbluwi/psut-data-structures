@@ -33,15 +33,15 @@ int count() const;
 template <class T>
 int BST<T>::count(BSTNode<T>* node) const 
 {
-  if (node == nullptr)
-    return 0;
-  return 1 + count(node->left) + count(node->right);
+    if (node == nullptr)
+        return 0;
+    return 1 + count(node->left) + count(node->right);
 }
 
 template <class T>
 int BST<T>::count() const 
 {
-  return count(root);
+    return count(root);
 }
 ```
 
@@ -51,23 +51,23 @@ int BST<T>::count() const
 template <class T>
 int BST<T>::count() const 
 {
-  if (is_empty())
-    return 0;
+    if (is_empty())
+        return 0;
   
-  int counter = 0;
-  QueueDLL<BSTNode<T>*> queue;
-  queue.enqueue(root);
+    int counter = 0;
+    QueueDLL<BSTNode<T>*> queue;
+    queue.enqueue(root);
   
-  while (!queue.is_empty()) {
-    counter++;
-    BSTNode<T>* node = queue.dequeue();
-    if (node->left != nullptr)
-      queue.enqueue(node->left);
-    if (node->right != nullptr)
-      queue.enqueue(node->right);
-  }
+    while (!queue.is_empty()) {
+        counter++;
+        BSTNode<T>* node = queue.dequeue();
+        if (node->left != nullptr)
+            queue.enqueue(node->left);
+        if (node->right != nullptr)
+            queue.enqueue(node->right);
+    }
   
-  return counter;
+    return counter;
 }
 ```
 
@@ -87,17 +87,17 @@ int count_leafs() const;
 template <class T>
 int BST<T>::count_leafs(BSTNode<T>* node) const 
 {
-  if (node == nullptr)
-    return 0;
-  if (node->left == nullptr && node->right == nullptr)
-    return 1;
-  return count_leafs(node->left) + count_leafs(node->right);
+    if (node == nullptr)
+        return 0;
+    if (node->left == nullptr && node->right == nullptr)
+        return 1;
+    return count_leafs(node->left) + count_leafs(node->right);
 }
 
 template <class T>
 int BST<T>::count_leafs() const 
 {
-  return count_leafs(root);
+    return count_leafs(root);
 }
 ```
 
@@ -116,11 +116,11 @@ template <class T>
 class BSTNode {
   // ... public members ...
 private:
-	T val;
-  BSTNode* left;
-  BSTNode* right;
-  int depth;
-  int height;
+    T val;
+    BSTNode* left;
+    BSTNode* right;
+    int depth;
+    int height;
 };
 ```
 
@@ -136,27 +136,27 @@ void compute_heights();
 template <class T>
 void BST<T>::compute_heights(BSTNode<T>* node) 
 {
-  if (node == nullptr)
-    return;
+    if (node == nullptr)
+        return;
   
-  compute_heights(node->left);
-  compute_heights(node->right);
+    compute_heights(node->left);
+    compute_heights(node->right);
   
-  int left_height = -1;
-  if (node->left != nullptr)
-    left_height = node->left->height;
+    int left_height = -1;
+    if (node->left != nullptr)
+        left_height = node->left->height;
   
-  int right_height = -1;
-  if (node->right != nullptr)
-    right_height = node->right->height;
+    int right_height = -1;
+    if (node->right != nullptr)
+        right_height = node->right->height;
   
-	node->height = 1 + max(left_height, right_height);
+    node->height = 1 + max(left_height, right_height);
 }
 
 template <class T>
 void BST<T>::compute_heights() 
 {
-	compute_heights(root);
+    compute_heights(root);
 }
 ```
 
@@ -176,22 +176,22 @@ void compute_depths();
 template <class T>
 void BST<T>::compute_depths(BSTNode<T>* node, BSTNode<T>* parent) 
 {
-  if (node == nullptr)
-    return;
+    if (node == nullptr)
+        return;
   
-  if (parent == nullptr)
-    node->depth = 0;
-  else
-    node->depth = parent->depth + 1;
-  
-  compute_depths(node->left, node);
-  compute_depths(node->right, node);
+    if (parent == nullptr)
+        node->depth = 0;
+    else
+        node->depth = parent->depth + 1;
+    
+    compute_depths(node->left, node);
+    compute_depths(node->right, node);
 }
 
 template <class T>
 void BST<T>::compute_depths() 
 {
-  compute_depths(root, nullptr);
+    compute_depths(root, nullptr);
 }
 ```
 
@@ -201,29 +201,29 @@ void BST<T>::compute_depths()
 template <class T>
 void BST<T>::compute_depths() 
 {
-  if (is_empty())
-    return;
+    if (is_empty())
+        return;
   
-  QueueDLL<BSTNode<T>*> queue;
-  queue.enqueue(root);
-  root->depth = 0;
+    QueueDLL<BSTNode<T>*> queue;
+    queue.enqueue(root);
+    root->depth = 0;
   
-  while (!queue.is_empty()) {
-    BSTNode<T>* node = queue.dequeue();
+    while (!queue.is_empty()) {
+        BSTNode<T>* node = queue.dequeue();
     
-    if (node->left != nullptr) {
-      node->left->depth = node->depth + 1;
-      queue.enqueue(node->left);
+        if (node->left != nullptr) {
+            node->left->depth = node->depth + 1;
+            queue.enqueue(node->left);
+        }
+        if (node->right != nullptr) {
+            node->right->depth = node->depth + 1;
+            queue.enqueue(node->right);
+        }
     }
-    if (node->right != nullptr) {
-      node->right->depth = node->depth + 1;
-      queue.enqueue(node->right);
-    }
-  }
 }
 ```
 
-#### 
+
 
 ## Exercise 5
 
@@ -239,29 +239,29 @@ bool is_full() const;
 template <class T>
 bool BST<T>::is_full() const 
 {
-	return is_full(root);
+    return is_full(root);
 }
 
 template <class T>
 bool BST<T>::is_full(BSTNode<T>* node) const
 {
-	if (node == nullptr)
-		return true;
-	
-	// Check if the heights of the children are the same.
-	int left_height = -1;
-	int right_height = -1;
-	
-	if (node->left != nullptr)
-		left_height = node->left->height;
-	if (node->right != nullptr)
-		right_height = node->right->height;
-	
-	if (left_height != right_height)
-		return false;
-	
-	// Check for the left child and for the right child.
-	return is_full(node->left) && is_full(node->right);
+    if (node == nullptr)
+        return true;
+    
+    // Check if the heights of the children are the same.
+    int left_height = -1;
+    int right_height = -1;
+    
+    if (node->left != nullptr)
+        left_height = node->left->height;
+    if (node->right != nullptr)
+        right_height = node->right->height;
+    
+    if (left_height != right_height)
+        return false;
+    
+    // Check for the left child and for the right child.
+    return is_full(node->left) && is_full(node->right);
 }
 ```
 
@@ -271,13 +271,13 @@ bool BST<T>::is_full(BSTNode<T>* node) const
 template <class T>
 bool BST<T>::is_full() const 
 {
-	if (root == nullptr)
-		return true;
-	
-	if (count() == (pow(2.0, root->height+1) - 1))
-		return true;
-	else
-		return false;
+    if (root == nullptr)
+        return true;
+    
+    if (count() == (pow(2.0, root->height+1) - 1))
+        return true;
+    else
+        return false;
 }
 ```
 
@@ -297,30 +297,30 @@ bool is_balanced() const;
 template <class T>
 bool BST<T>::is_balanced() const 
 {
-	compute_heights();
-	return is_balanced(root);
+    compute_heights();
+    return is_balanced(root);
 }
 
 template <class T>
 bool BST<T>::is_balanced(BSTNode<T>* node) const
 {
-	if (node == nullptr)
-		return true;
-	
-	// Check if the heights of the children are the same.
-	int left_height = -1;
-	int right_height = -1;
-	
-	if (node->left != nullptr)
-		left_height = node->left->height;
-	if (node->right != nullptr)
-		right_height = node->right->height;
-	
-	if (abs(left_height - right_height) > 1)
-		return false;
-	
-	// Check for the left child and for the right child.
-	return is_balanced(node->left) && is_balanced(node->right);
+    if (node == nullptr)
+        return true;
+    
+    // Check if the heights of the children are the same.
+    int left_height = -1;
+    int right_height = -1;
+    
+    if (node->left != nullptr)
+        left_height = node->left->height;
+    if (node->right != nullptr)
+        right_height = node->right->height;
+    
+    if (abs(left_height - right_height) > 1)
+        return false;
+    
+    // Check for the left child and for the right child.
+    return is_balanced(node->left) && is_balanced(node->right);
 }
 ```
 
@@ -359,22 +359,22 @@ void prune();
 ```cpp
 template <class T>
 void BST<T>::prune() {
-  root = prune(root);
+    root = prune(root);
 }
 
 template <class T>
 BSTNode<T>* BST<T>::prune(BSTNode<T>* node) {
- 	if (node == nullptr)
-		return nullptr;
+    if (node == nullptr)
+        return nullptr;
   
-	if (node->left == nullptr && node->right == nullptr) {
-		delete node;
-		return nullptr;
-	}
+    if (node->left == nullptr && node->right == nullptr) {
+        delete node;
+        return nullptr;
+    }
   
-  node->left = prune(node->left);
-  node->right = prune(node->right);
-  return node;
+    node->left = prune(node->left);
+    node->right = prune(node->right);
+    return node;
 }
 ```
 
@@ -384,17 +384,17 @@ BSTNode<T>* BST<T>::prune(BSTNode<T>* node) {
 
 Assume that the `BSTNode` class has a data member `count` for storing the number of nodes in the subtree rooted at that node. The following figure illustrates the idea.
 
-<img src="/Users/ialbluwi/Desktop/Screen Shot 2021-09-30 at 8.09.40 AM.png" alt="Screen Shot 2021-09-30 at 8.09.40 AM" style="zoom:33%;" />
+<img src="counts.png" alt="Screen Shot 2021-09-30 at 8.09.40 AM" style="zoom:33%;" />
 
 ```cpp
 template <class T>
 class BSTNode {
   // ... public members ...
 private:
-	T val;
-  BSTNode* left;
-  BSTNode* right;
-  int count;
+    T val;
+    BSTNode* left;
+    BSTNode* right;
+    int count;
 };
 ```
 
@@ -410,31 +410,31 @@ void store_counts();
 template <class T>
 void BST<T>::update_counts(BSTNode<T>* node) 
 {
-  if (node == nullptr)
-    return;
+    if (node == nullptr)
+        return;
   
-  update_counts(node->left);
-  update_counts(node->right);
+    update_counts(node->left);
+    update_counts(node->right);
   
-  int left_count = 0;
-  if (node->left != nullptr)
+    int left_count = 0;
+    if (node->left != nullptr)
     left_count = node->left->count;
   
-  int right_count = 0;
-  if (node->right != nullptr)
-    right_count = node->right->count;
+    int right_count = 0;
+    if (node->right != nullptr)
+    right_count = node->right->count;    
   
-  node->count = 1 + left_count + right_count;
+    node->count = 1 + left_count + right_count;
 }
 
 template <class T>
 void BST<T>::update_counts() 
 {
-	update_counts(root);
+    update_counts(root);
 }
 ```
 
-#### 
+ 
 
 ## Exercise 10
 
@@ -454,28 +454,27 @@ The goal of this exercise is to make use of the node counts to achieve a running
 // a helper function
 template <class T>
 int BST<T>::get_count(BSTNode<T>* node) const {
-  if (node == nullptr) return 0;
-  else return node->count;
+    if (node == nullptr) return 0;
+    else return node->count;
 }
 
 template <class T>
 int BST<T>::rank(const T& val) const 
 {
-	return rank(val, root);
+    return rank(val, root);
 }
 
 template <class T>
 int BST<T>::rank(const T& val, BSTNode<T>* node) const
 {
-	if (node == nullptr)
-		return 0;
-	
-	if (val == node->val)
-		return get_count(node->left);
-	else if (val < node->val)
-		return rank(val, node->left);
-	else
-		return 1 + get_count(node->left) + rank(val, node->right);
+    if (node == nullptr)
+        return 0;
+    
+    if (val == node->val)
+        return get_count(node->left);
+    else if (val < node->val)
+        return rank(val, node->left);
+    else
+        return 1 + get_count(node->left) + rank(val, node->right);
 }
 ```
-
