@@ -13,7 +13,7 @@ Linked List Exercises
 6. **Singly-Linked List:** `void reverse()` 
 7. **Doubly-Linked List:** `void reverse()` 
 8. **Doubly-Linked List:** `T get_at_index(int index) const` 
-9. **Doubly-Linked List:** `DLList<T> sublist(int index1, int index2)`
+9. **Doubly-Linked List:** `DLList<T> sublist(int index1, int index2) const `
 10. **Doubly-Linked List:** `void remove(int index1, int index2)`  
 11. **Doubly-Linked List:** `void remove_all(const T& val)` 
 12. **Doubly-Linked List:** `DLList find_common(const DLList& other) const`   
@@ -128,7 +128,7 @@ void List::selection_sort()
       if (ptr2->val < min_ptr->val)
         min_ptr = ptr2;
     }
-    swap(ptr1, min_ptr);
+    swap(ptr1->val, min_ptr->val);
   }
 }
 ```
@@ -332,9 +332,9 @@ If the index is invalid, the function should throw an exception.
 
 ```cpp
 template <class T>
-void DLList<T>::get_at_index(int index) const 
+T DLList<T>::get_at_index(int index) const 
 {
-	if (index < 0) {
+	if (index < 0)
 		throw "Error: Invalid index passed to get_at_index()";
 	
 	int count = 0;
@@ -372,7 +372,7 @@ The function should throw an exception if any of the indices is invalid. If `ind
 template <class T>
 DLList<T> DLList<T>::sublist(int index1, int index2) const 
 {
-	if (index1 < 0 || index2 < 0 || index1 > index2) {
+	if (index1 < 0 || index2 < 0 || index1 > index2)
 		throw "Error: Invalid index passed to sublist()";
 	
   // get to index1
@@ -420,9 +420,9 @@ The function should throw an exception if any of the indices is invalid. If `ind
 
 ```cpp
 template <class T>
-void DLList<T>::remove(int index1, int index2) const 
+void DLList<T>::remove(int index1, int index2) 
 {
-	if (index1 < 0 || index2 < 0 || index1 > index2) {
+	if (index1 < 0 || index2 < 0 || index1 > index2)
 		throw "Error: Invalid index passed to sublist()";
 	
   DLList<T> new_list;
@@ -431,7 +431,7 @@ void DLList<T>::remove(int index1, int index2) const
   int count = 0;
 	DLLNode<T>* curr = head;
 	while (curr != nullptr) {
-        if (count <= index1 || count >= index2)
+        if (count < index1 || count > index2)
 			    new_list.add_to_tail(curr->val);
     
 		curr = curr->next;
@@ -476,11 +476,11 @@ void DLList<T>::remove_all(const T& val) {
     while (tail->val == val)
         remove_tail();
 
-    Node<T>* curr = head->next;
+    DLLNode<T>* curr = head->next;
     while (curr != nullptr) {
         if (curr->val == val) {
-            Node<T>* succ = curr->next;
-            Node<T>* pred = curr->prev;
+            DLLNode<T>* succ = curr->next;
+            DLLNode<T>* pred = curr->prev;
 
             succ->prev = pred;
             pred->next = succ;
@@ -517,9 +517,9 @@ DLList<T> DLList<T>::find_common(const DLList<T>& other) const {
   if (is_empty() || other.is_empty())
     return result;
   
-  for (Node* ptr1 = head; ptr1 != nullptr; ptr1 = ptr1->next) {
+  for (DLLNode<T>* ptr1 = head; ptr1 != nullptr; ptr1 = ptr1->next) {
     // search for ptr1->val in the other list
-    for (Node* ptr2 = other.head; ptr2 != nullptr; ptr2 = ptr2->next) {
+    for (DLLNode<T>* ptr2 = other.head; ptr2 != nullptr; ptr2 = ptr2->next) {
       if (ptr1->val == ptr2->val) {
         result.add_to_tail(ptr1->val);
         break;

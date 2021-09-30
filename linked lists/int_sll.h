@@ -20,8 +20,8 @@ public:
     List();
     ~List();
 
-    Node* get_head() const;
-    Node* get_tail() const;
+    Node* head_node() const;
+    Node* tail_node() const;
     bool is_empty() const;
 
     bool contains(int val) const;
@@ -65,12 +65,12 @@ bool List::is_empty() const
     return head == nullptr; 
 }
 
-Node* List::get_head() const 
+Node* List::head_node() const 
 { 
     return head; 
 }
 
-Node* List::get_tail() const 
+Node* List::tail_node() const 
 { 
     return tail; 
 }
@@ -203,3 +203,17 @@ int List::get_at(int index) const {
 }
 
 
+ostream& operator<<(ostream& out, const List& list) {
+    out << "[";
+
+    Node* curr = list.head_node();
+    while (curr != nullptr) {
+        out << curr->val;
+        if (curr->next != nullptr)
+            out << ", ";
+        curr = curr->next;
+    }
+    out << "]";
+
+    return out;
+}

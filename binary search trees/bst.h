@@ -15,7 +15,7 @@ public:
     T get_val() const { return val; }
     BSTNode* get_left() const { return left; }
     BSTNode* get_right() const { return right; }
-    
+
 private:
     T val;
     BSTNode* left;
@@ -58,10 +58,10 @@ public:
         
     DLList<T> elements() const;
     DLList<T> elements_level_ordered() const;
-    BSTNode<T>* get_root() const;
+    BSTNode<T>* get_root() const { return root; }
 
     BST& operator=(const BST& other);
-    
+
 private:
     BSTNode<T> *root;
 
@@ -74,6 +74,7 @@ private:
     
     void clear(BSTNode<T>* node);
 };
+
 
 
 template <class T>

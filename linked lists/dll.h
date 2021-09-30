@@ -4,6 +4,7 @@
 using std::string;
 using std::ostream;
 
+
 template <class T>
 class DLList;
 
@@ -63,6 +64,7 @@ private:
     DLLNode<T>* head;
     DLLNode<T>* tail;
 };
+
 
 
 template <class T>

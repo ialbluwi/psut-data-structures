@@ -3,7 +3,7 @@
 #include "dll.h"
 #include <string>
 
-const int DEFAULT_TABLE_SIZE = 127;
+const int DEFAULT_TABLE_SIZE = 15;
 
 template <class T>
 class HashTable {
@@ -12,6 +12,7 @@ public:
     HashTable(const HashTable& other);
 
     ~HashTable();
+    bool is_empty() const;
 
     bool contains(const T&  val) const;
     void insert(const T&  val);
@@ -21,6 +22,13 @@ public:
 
     HashTable& operator=(const HashTable& other);
 
+    T max() const;
+    bool has_duplicates() const;
+    void remove_duplicates();
+    bool equals(const HashTable& other) const;
+    bool has_long_chains() const;
+    void print() const;
+
 private:
     DLList<T>* table;
     int n;   // number of elements in the table
@@ -29,6 +37,8 @@ private:
     int hash_value(const T &val) const;
     void resize(int new_size);
 };
+
+
 
 template <class T>
 HashTable<T>::HashTable()
@@ -58,6 +68,13 @@ HashTable<T>::~HashTable()
    delete [] table;
    // Note: deleting an array automatically calls the destructor for
    //       the array elements (the DLLists in this case).
+}
+
+
+template <class T>
+bool HashTable<T>::is_empty() const
+{
+   return n == 0;
 }
 
 
