@@ -30,6 +30,9 @@ int count() const;
 #### *Solution* # 1
 
 ```cpp
+// Use depth-first traversal:
+// the order of the recursive calls does not matter
+// (post-order, in-order and pre-order are all ok)
 template <class T>
 int BST<T>::count(BSTNode<T>* node) const 
 {
@@ -48,6 +51,7 @@ int BST<T>::count() const
 #### *Solution* # 2
 
 ```cpp
+// use breadth-first traversal
 template <class T>
 int BST<T>::count() const 
 {
@@ -133,6 +137,7 @@ void compute_heights();
 #### *Solution*
 
 ```cpp
+// post-order traversal
 template <class T>
 void BST<T>::compute_heights(BSTNode<T>* node) 
 {
@@ -173,6 +178,7 @@ void compute_depths();
 #### *Solution* # 1
 
 ```cpp
+// pre-order traversal
 template <class T>
 void BST<T>::compute_depths(BSTNode<T>* node, BSTNode<T>* parent) 
 {
@@ -198,6 +204,7 @@ void BST<T>::compute_depths()
 #### *Solution* # 2
 
 ```cpp
+// breadth-first traversal
 template <class T>
 void BST<T>::compute_depths() 
 {

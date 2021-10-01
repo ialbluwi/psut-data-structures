@@ -83,6 +83,7 @@ BST<T>::BST()
     root = nullptr;
 }
 
+// uses pre-order traversal
 template <class T>
 void BST<T>::copy_from(BSTNode<T>* node) {
     if (node == nullptr)
