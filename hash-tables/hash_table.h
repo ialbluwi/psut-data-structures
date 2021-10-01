@@ -22,13 +22,6 @@ public:
 
     HashTable& operator=(const HashTable& other);
 
-    T max() const;
-    bool has_duplicates() const;
-    void remove_duplicates();
-    bool equals(const HashTable& other) const;
-    bool has_long_chains() const;
-    void print() const;
-
 private:
     DLList<T>* table;
     int n;   // number of elements in the table
