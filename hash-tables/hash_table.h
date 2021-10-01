@@ -120,7 +120,7 @@ bool HashTable<T>::remove(const T&  val)
     return table[index].remove(val);
 
     n--;
-    if (n / m < 2)
+    if (n / m < 2 && m > DEFAULT_TABLE_SIZE)
         resize(m / 2);
 }
 
