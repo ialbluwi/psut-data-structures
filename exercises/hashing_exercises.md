@@ -1,7 +1,7 @@
 Hash Table Exercises
 =====================
 
-*These exercises are based on* [`hash_table.h`]().
+*These exercises are based on* [`hash_table.h`](../code/hash_table.h).
 
 ## Contents
 
