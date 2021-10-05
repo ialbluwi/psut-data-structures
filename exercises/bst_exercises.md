@@ -1,7 +1,7 @@
 Binary Search Trees Exercises
 =====================
 
-*These exercises are based on* [`bst.h`]().
+*These exercises are based on* [`bst.h`](../code/bst.h).
 
 ## Contents
 
