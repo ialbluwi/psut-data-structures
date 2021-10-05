@@ -1,7 +1,7 @@
 # Course Material
 
 ### Quick Links
-[[code](code/)] [[slides](https://drive.google.com/drive/folders/1pKm5KkEsBfC2UWBvvBaGgbt0QvtU3NaP)] [[exercises](exercises/)] [previous exams]
+[[code](code/)] [[slides](https://drive.google.com/drive/folders/1pKm5KkEsBfC2UWBvvBaGgbt0QvtU3NaP)] [[exercises](exercises/)] [[previous exams](https://drive.google.com/drive/folders/13e8MXoUnqkpg67tQXuThBoEF4IC6nV85)]
 
 
 ### Detailed Links
