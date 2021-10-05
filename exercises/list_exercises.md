@@ -1,7 +1,7 @@
 Linked List Exercises
 =====================
 
-*These exercises are based on* [`dll.h`](), [`int_sll.h`]() *and* [`ordered_dll.h`]().
+*These exercises are based on* [`dll.h`](../code/dll.h), [`int_sll.h`](../code/int_sll.h) *and* [`ordered_dll.h`](../code/ordered_dll.h).
 
 ## Contents
 
