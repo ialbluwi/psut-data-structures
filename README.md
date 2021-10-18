@@ -15,7 +15,7 @@
 
 ___
 
-_Material blow this banner has not been finalized yet_
+_Material below this banner has not been finalized yet_
 
 ___
 
