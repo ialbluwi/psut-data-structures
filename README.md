@@ -13,15 +13,15 @@
     * Linear & Binary Search [[slides](https://drive.google.com/file/d/1WdVifS5IhyhjgKRHumf9fUw5mwC1TDJU)]
     * Sorting [[slides](https://drive.google.com/file/d/12xXSnvu9KP7n1QAiNO4nKslAr0Myv6A9/)]
 
+* **Lists** [[exercises](exercises/list_exercises.md)] [previous exam questions]
+    * Singly-Linked Lists [[int_sll.h](code/int_sll.h)] [[int_sll_comments.h](code/int_sll_comments.h)] [[sll_test.cpp](code/sll_test.cpp)]
+    * Doubly-Linked Lists [[dll.h](code/dll.h)] [[dll_comments.h](code/dll_comments.h)] [[dll_test.cpp](code/dll_test.cpp)]
+
 ___
 
 _Material below this banner has not been finalized yet_
 
 ___
-
-* **Lists** [[exercises](exercises/list_exercises.md)] [previous exam questions]
-    * Singly-Linked Lists [[int_sll.h](code/int_sll.h)] [[int_sll_comments.h](code/int_sll_comments.h)] [[sll_test.cpp](code/sll_test.cpp)]
-    * Doubly-Linked Lists [[dll.h](code/dll.h)] [[dll_comments.h](code/dll_comments.h)] [[dll_test.cpp](code/dll_test.cpp)]
 
 * **Stacks and Queues** [stacks_queues.cpp] [previou exam questions]
     * Stacks [[stack_array.h](code/stack_array.h)] [[stack_dll.h](code/stack_dll.h)]
