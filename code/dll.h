@@ -255,6 +255,9 @@ T DLList<T>::tail_val() const
 template <class T>
 void DLList<T>::append(const DLList& other)
 {
+    if (this == &other)
+        throw "Can't append list to itself";
+
     DLLNode<T>* curr;
 
     for (curr = other.head; curr != nullptr; curr = curr->next)

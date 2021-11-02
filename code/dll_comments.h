@@ -367,6 +367,9 @@ bool DLList<T>::contains(const T& val) const
 template <class T>
 void DLList<T>::append(const DLList& other)
 {
+    if (this == &other)
+        throw "Can't append list to itself";    // THINK: Why?
+                                                // How can we handle this case?
     DLLNode<T>* curr;
 
     for (curr = other.head; curr != nullptr; curr = curr->next)
