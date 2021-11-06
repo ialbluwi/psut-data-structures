@@ -26,7 +26,7 @@ Exercise 1
 Implement the following member function of class `List`, which checks if a singly-linked list is sorted.
 
 ```cpp
-bool print_reverse() const;
+bool is_sorted() const;
 ```
 
 #### *Solution*
@@ -139,7 +139,7 @@ void List::selection_sort()
 Exercise 5
 ----------
 
-Implement the following member function of class `List`, which removes all the ocurrences of the given value from the singly-linked list.
+Implement the following member function of class `List`, which removes all the occurrences of the given value from the singly-linked list.
 
 ```cpp
 void remove_all(int val);
