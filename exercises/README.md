@@ -8,7 +8,6 @@ This folder contains programming exercises. Check also [this link](https://drive
 
 ### Links
 
-* Searching & Sorting
 * [Linked Lists](list_exercises.md)
 * Stacks and Queues
 * [Binary Search Trees](bst_exercises.md)
