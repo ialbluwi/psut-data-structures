@@ -38,7 +38,7 @@ template <class T>
 class DLList {
 public:
     DLList();
-    DLList(const DLList<T>& other);
+    DLList(const DLList& other);
     ~DLList();
 
     bool is_empty() const;
@@ -50,7 +50,7 @@ public:
 
     void add_to_head(const T& val);
     void add_to_tail(const T& val);
-    void append(const DLList<T>& otherList);
+    void append(const DLList& otherList);
     
     void remove_head();
     void remove_tail();

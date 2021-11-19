@@ -44,8 +44,8 @@ public:
 
     bool is_empty() const;
     
-    DLLNode<T>* get_head() const;
-    DLLNode<T>* get_tail() const;
+    DLLNode<T>* head_node() const;
+    DLLNode<T>* tail_node() const;
 
     void insert(const T& val);
     void merge(const OrderedDLList<T>& other);
@@ -217,13 +217,13 @@ bool OrderedDLList<T>::contains(const T& val) const
 }
 
 template <class T>
-DLLNode<T>* OrderedDLList<T>::get_head() const
+DLLNode<T>* OrderedDLList<T>::head_node() const
 {
     return head;
 }
 
 template <class T>
-DLLNode<T>* OrderedDLList<T>::get_tail() const 
+DLLNode<T>* OrderedDLList<T>::tail_node() const 
 {
     return tail;
 }
@@ -386,7 +386,7 @@ template<class T>
 ostream& operator<<(ostream& out, const OrderedDLList<T>& list) {
     out << "[";
 
-    DLLNode<T>* curr = list.get_head_node();
+    DLLNode<T>* curr = list.head_node();
     while (curr != nullptr) {
         out << curr->get_val();
         if (curr->get_next() != nullptr)
