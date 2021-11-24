@@ -322,8 +322,8 @@ bool DLList<T>::remove(const T& val)
         if (curr->val == val) {
             DLLNode<T>* pred = curr->prev;
             DLLNode<T>* succ = curr->next;
-            pred->next = curr->next; 
-            succ->prev = curr->prev;
+            pred->next = succ; 
+            succ->prev = pred;
             delete curr;
             return true;
         }
