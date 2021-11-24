@@ -311,11 +311,12 @@ void OrderedDLList<T>::insert(const T& val)
 // After calling this function, the current list becomes: 1 1 2 3 4 5 6 10.
 // The other list remains as is.
 //
-// A simple algorithm to perform this operation is to use the insert() function to insert
-// every element in "other" into the current list. This algorithm results in
-// an ordered merged list, which is what we want.
+// A simple algorithm to perform this operation is to use the insert() function 
+// to insert every element in "other" into the current list. This algorithm 
+// results in an ordered merged list, which is what we want.
 // The problem is that if the size of the current list is N and the size of the
-// other list is M, this algorithm requires O(N*M) operations.
+// other list is M, this algorithm requires O(N*M + M^2) operations in 
+// the worst case.
 //
 // The following algorithm is O(M+N):
 //      - Create a temporary empty list.
