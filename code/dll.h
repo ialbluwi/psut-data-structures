@@ -78,12 +78,7 @@ template <class T>
 DLList<T>::DLList(const DLList<T>& other) {
     head = nullptr;
     tail = nullptr;
-
-    DLLNode<T>* curr = other.head;
-    while (curr != nullptr) {
-        add_to_tail(curr->val);
-        curr = curr->next;
-    }
+    append(other);
 }
 
 template <class T>
@@ -191,15 +186,11 @@ bool DLList<T>::remove(const T& val)
         return true;
     }
 
-    DLLNode<T>* curr = nullptr;
-    DLLNode<T>* pred = nullptr;
-    DLLNode<T>* succ = nullptr;
-
     // traverse list to find the node to be deleted
-    for (curr = head->next; curr != nullptr; curr = curr->next) {
+    for (DLLNode<T>* curr = head->next; curr != nullptr; curr = curr->next) {
         if (curr->val == val) {
-            pred = curr->prev;
-            succ = curr->next;
+            DLLNode<T>* pred = curr->prev;
+            DLLNode<T>* succ = curr->next;
             pred->next = curr->next; 
             succ->prev = curr->prev;
             delete curr;
@@ -258,9 +249,7 @@ void DLList<T>::append(const DLList& other)
     if (this == &other)
         throw "Can't append list to itself";
 
-    DLLNode<T>* curr;
-
-    for (curr = other.head; curr != nullptr; curr = curr->next)
+    for (DLLNode<T>* curr = other.head; curr != nullptr; curr = curr->next)
         add_to_tail(curr->val);
 }
 
