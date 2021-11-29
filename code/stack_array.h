@@ -52,6 +52,8 @@ StackArray<T>& StackArray<T>::operator=(const StackArray<T>& other) {
     last = other.last;
     for (int i = 0; i <= last; i++)
         data[i] = other.data[i];
+
+    return *this;
 }
 
 template <class T>

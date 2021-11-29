@@ -168,12 +168,18 @@ T QueueArray<T>::dequeue()
 template <class T>
 T QueueArray<T>::get_first() const
 {
+    if (is_empty())
+        throw "An empty queue has no first element";
+
     return data[first];
 }
 
 template <class T>
 T QueueArray<T>::get_last() const
 {
+    if (is_empty())
+        throw "An empty queue has no last element";
+
     return data[last];
 }
 
