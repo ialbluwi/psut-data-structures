@@ -164,6 +164,9 @@ T QueueArray<T>::dequeue()
     else 
         first = (first + 1) % capacity;
 
+    if (size <= capacity / 4)
+        resize(capacity / 2);
+
     return val;
 }
 
