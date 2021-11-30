@@ -12,10 +12,10 @@ public:
 
     void push(const T& val);
     T pop();
-    T top();
+    T top() const;
 
-    bool is_empty();
-    bool is_full();
+    bool is_empty() const;
+    bool is_full() const;
 
     void clear();
     StackArray& operator=(const StackArray& other);
@@ -94,7 +94,7 @@ T StackArray<T>::pop()
 }
 
 template <class T>
-T StackArray<T>::top()
+T StackArray<T>::top() const
 {
     if (is_empty()) 
         throw "Attempting to retrieve an element from an empty stack!";
@@ -103,13 +103,13 @@ T StackArray<T>::top()
 }
 
 template <class T>
-bool StackArray<T>::is_empty()
+bool StackArray<T>::is_empty() const
 {
     return last == -1;
 }
 
 template <class T>
-bool StackArray<T>::is_full()
+bool StackArray<T>::is_full() const
 {
     return last == capacity - 1;
 }

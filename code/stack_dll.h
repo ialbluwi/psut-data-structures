@@ -18,8 +18,9 @@ class StackDLL
 public:
     void push(const T& val);  // adds an element to the stack
     T pop();                  // returns and Removes the last added element.
-    T top();                  // returns the last added element.
-    bool is_empty();    
+    T top() const;            // returns the last added element.
+
+    bool is_empty() const;    
     void clear();
 
 private:
@@ -49,7 +50,7 @@ T StackDLL<T>::pop()
 }
 
 template <class T>
-T StackDLL<T>::top()
+T StackDLL<T>::top() const
 {
     if (is_empty())
         throw "Stack underflow";
@@ -58,7 +59,7 @@ T StackDLL<T>::top()
 }
 
 template <class T>
-bool StackDLL<T>::is_empty()
+bool StackDLL<T>::is_empty() const
 {
     return list.is_empty();
 }

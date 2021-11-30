@@ -11,14 +11,13 @@ public:
 
     void enqueue(const T& val);
     T dequeue();
+    void clear();
 
+    int get_size() const;
     T get_first() const;
     T get_last() const;
-    
     bool is_empty() const;
-    bool is_full() const;
-    
-    void clear();
+
     QueueArray& operator=(const QueueArray& other);
 
 private:
@@ -27,6 +26,9 @@ private:
     int size;      // current number of elements in the queue.
     int first;     // index of the first element in the queue.
     int last;      // index of the last element in the queue.
+
+    bool is_full() const;
+    void resize(int new_cap);
 };
 
 
@@ -101,8 +103,8 @@ template <class T>
 void QueueArray<T>::enqueue(const T& val)
 {
     if (is_full())
-        throw "Can't enqueue to a full queue";
-
+        resize(capacity * 2);
+    
     if (is_empty()) {
         first = 0;
         last = 0;
@@ -204,7 +206,36 @@ void QueueArray<T>::clear()
 }
 
 template <class T>
-QueueArray<T>& QueueArray<T>::operator=(const QueueArray<T>& other) {
+int QueueArray<T>::get_size() const 
+{
+    return size;
+}
+
+template <class T>
+void QueueArray<T>::resize(int new_cap) 
+{
+    if (new_cap < size)
+        throw "Invalid new capacity";
+
+    int old_size = size;
+    T* new_data = new T[new_cap];
+    
+    for (int i = 0; !is_empty(); i++)
+        new_data[i] = dequeue();
+
+    delete [] data;
+    data = new_data;
+    size = old_size;
+    capacity = new_cap;
+
+    last = size-1;
+    if (size > 0)
+        first = 0;
+}
+
+template <class T>
+QueueArray<T>& QueueArray<T>::operator=(const QueueArray<T>& other) 
+{
     if (this == &other)
         return *this;
 
