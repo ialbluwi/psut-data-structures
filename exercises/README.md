@@ -9,7 +9,7 @@ This folder contains programming exercises. Check also [this link](https://drive
 ### Links
 
 * [Linked Lists](list_exercises.md)
-* Stacks and Queues
+* [Stacks and Queues](stacks_queues_exercises.md)
 * [Binary Search Trees](bst_exercises.md)
 * Priority Queues
 * [Hash Tables](hashing_exercises.md)
