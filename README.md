@@ -23,7 +23,7 @@ _Material below this banner has not been finalized yet_
 
 ___
 
-* **Stacks and Queues** [stacks_queues.cpp] [previou exam questions]
+* **Stacks and Queues** [[stack__queue.cpp](code/stack_queue.cpp)] [previou exam questions]
     * Stacks [[stack_array.h](code/stack_array.h)] [[stack_dll.h](code/stack_dll.h)]
     * Queues [[queue_array.h](code/queue_array.h)] [[queue_dll.h](code/queue_dll.h)]
     
