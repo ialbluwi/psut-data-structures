@@ -83,7 +83,7 @@ void QueueArray<T>::normalize()
     if (first == 0 || first == -1)
         return;
     
-	QueueArray<T> temp_q(capacity);
+    QueueArray<T> temp_q(capacity);
     while (!is_empty())
         temp_q.enqueue(dequeue());
     
@@ -92,6 +92,11 @@ void QueueArray<T>::normalize()
         
     // A better idea is to call resize(capacity) which
     // has a similar effect. 
+    
+    // Another more tedious idea is to create a new array, copy
+    // the elements from the old array into the new one starting
+    // at index 0, delete the old array and assign the data pointer
+    // to the new array.
 }
 ```
 
