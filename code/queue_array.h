@@ -39,10 +39,7 @@ QueueArray<T>::QueueArray(int cap)
 {
     capacity = cap;
     data = new T[capacity];
-    size = 0;
-
-    first = -1;
-    last = -1;
+    clear();
 }
 
 // Copy constructor
@@ -51,9 +48,7 @@ QueueArray<T>::QueueArray(const QueueArray& other)
 {
     capacity = other.capacity;
     data = new T[capacity];
-    first = -1;
-    last = -1;
-    size = 0;
+    clear();
 
     for (int i = other.first; size < other.size; i = (i+1) % capacity)
         enqueue(other.data[i]);
@@ -220,15 +215,16 @@ void QueueArray<T>::resize(int new_cap)
     if (new_cap < size)
         throw "Invalid new capacity";
 
-    int old_size = size;
     T* new_data = new T[new_cap];
     
-    for (int i = 0; !is_empty(); i++)
-        new_data[i] = dequeue();
+    int j = first;
+    for (int i = 0; i < size; i++) {
+        new_data[i] = data[j];
+        j = (j + 1) % capacity;
+    }
 
     delete [] data;
     data = new_data;
-    size = old_size;
     capacity = new_cap;
 
     last = size-1;
