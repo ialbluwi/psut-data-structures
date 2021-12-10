@@ -30,6 +30,29 @@ void print(QueueArray<int>& queue) {
     }
 }
 
+// OTHER POSSIBLE IMPLEMENTATIONS:
+//
+// 1)
+// void print(QueueArray<int>& queue) {
+//     QueueArray<int> temp(queue);
+// 
+//     while (!temp.is_empty())
+//         cout << temp.dequeue() << " ";
+// }
+//
+// 2)
+// void print(QueueArray<int>& queue) {
+//     QueueArray<int> temp;
+// 
+//     while (!queue.is_empty()) {
+//         cout << queue.get_first() << " ";
+//         temp.enqueue(queue.dequeue());
+//     }
+//
+//     queue = temp;
+// }
+
+
 void reverse(QueueArray<int>& queue) {
     StackDLL<int> stack;
     
@@ -39,3 +62,6 @@ void reverse(QueueArray<int>& queue) {
     while (!stack.is_empty())
         queue.enqueue(stack.pop());
 }
+// Note. To reverse a Stack, we can use a Queue
+//       following the same logic used for reverseing
+//       the queue in the above function.
