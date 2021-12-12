@@ -155,15 +155,15 @@ void move_first_to(QueueArray<T>& queue, int pos)
         throw string("Invalid argument(s)";
               
     QueueArray<T> temp_q(2);
-	T first_val = queue.dequeue();
+    T first_val = queue.dequeue();
                      
     for (int i = 0; i < pos; i++)
     	temp_q.enqueue(queue.dequeue());
                      
-	temp_q.enqueue(first_val);
+    temp_q.enqueue(first_val);
                      
-	while (!queue.is_empty())
-		temp_q.enqueue(queue.dequeue());
+    while (!queue.is_empty())
+	temp_q.enqueue(queue.dequeue());
     
     while (!temp_q.is_empty())
         queue.enqueue(temp_q.dequeue());
