@@ -29,11 +29,17 @@ template <class T>
 void QueueArray<T>::print() const 
 {
     cout << "[";
-	for (int i = 0; i < size; i = (i+1) % capacity) {
+    
+    int i = first;
+    int count = 0;
+    while (count < size) {
         cout << data[i];
-        if (i < size-1)
+        if (count < size-1)
             cout << ", ";
+	count++;
+	i = (i+1) % capacity;
     }
+    
     cout << "]";
 }
 ```
