@@ -143,7 +143,7 @@ Exercise 5
 
 Implement the following non-member function of class `QueueArray`, which moves the first element in the Queue to be at the given position, where positions start at `0` for the first and `size-1` for the last.
 
-**Example.** If the queue contains `[0, 1, 2, 3, 4, 5, 6, 7]` and `postpone()` is called with `pos=3`, the queue becomes 
+**Example.** If the queue contains `[0, 1, 2, 3, 4, 5, 6, 7]` and `move_first_to()` is called with `pos=3`, the queue becomes 
 `[1, 2, 3, 0, 4, 5, 6, 7]`
 
 ```cpp
