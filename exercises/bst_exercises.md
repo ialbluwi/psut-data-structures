@@ -9,7 +9,7 @@ Binary Search Trees Exercises
 2. `int count_leafs() const`
 3. `void compute_heights()`
 4. `void compute_depths()`
-5. `bool is_full() const`
+5. `bool is_perfect() const`
 6. `bool is_balanced() const`
 7. `int count_last_level() const`
 8. `void prune()`
@@ -234,23 +234,23 @@ void BST<T>::compute_depths()
 
 ## Exercise 5
 
-Using the `BSTNode` class defined in **Exercise 3**, implement the following member function of class `BST`, which checks if the tree is a full tree. You can assume that `compute_heights()` was already called.
+Using the `BSTNode` class defined in **Exercise 3**, implement the following member function of class `BST`, which checks if the tree is a perfect tree. You can assume that `compute_heights()` was already called.
 
 ```cpp
-bool is_full() const;
+bool is_perfect() const;
 ```
 
 #### *Solution* # 1
 
 ```cpp
 template <class T>
-bool BST<T>::is_full() const 
+bool BST<T>::is_perfect() const 
 {
-    return is_full(root);
+    return is_perfect(root);
 }
 
 template <class T>
-bool BST<T>::is_full(BSTNode<T>* node) const
+bool BST<T>::is_perfect(BSTNode<T>* node) const
 {
     if (node == nullptr)
         return true;
@@ -268,7 +268,7 @@ bool BST<T>::is_full(BSTNode<T>* node) const
         return false;
     
     // Check for the left child and for the right child.
-    return is_full(node->left) && is_full(node->right);
+    return is_perfect(node->left) && is_perfect(node->right);
 }
 ```
 
@@ -276,7 +276,7 @@ bool BST<T>::is_full(BSTNode<T>* node) const
 
 ```cpp
 template <class T>
-bool BST<T>::is_full() const 
+bool BST<T>::is_perfect() const 
 {
     if (root == nullptr)
         return true;
