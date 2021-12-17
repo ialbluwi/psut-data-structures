@@ -514,7 +514,7 @@ BST<T>& BST<T>::operator=(const BST<T>& other)
         return *this;
  
     clear();
-    copy_from(other);
+    copy_from(other.root);
 
     return *this;
 }
