@@ -67,7 +67,7 @@ StackArray<T>::StackArray(const StackArray<T>& other) {
 }
 
 template <class T>
-StackArray<T>::~StackArray(void)
+StackArray<T>::~StackArray()
 {
     delete [] data;
 }
