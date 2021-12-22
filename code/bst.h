@@ -170,12 +170,12 @@ bool BST<T>::contains(const T& val, BSTNode<T>* node) const
         return false;
 
     // search value is found in the current node
-    if(val == node->val)
+    if (val == node->val)
         return true;
 
     // search in either the left sub-tree or the right sub-tree, 
     // depending on the value of val  
-    if(val < node->val)
+    if (val < node->val)
         return contains(val, node->left);
     else
         return contains(val, node->right);
@@ -192,7 +192,7 @@ template <class T>
 void BST<T>::insert(const T& val)
 {
     // if the tree is empty, the root needs to point at the new node.
-    if (is_empty()){
+    if (is_empty()) {
         root = new BSTNode<T>(val, nullptr, nullptr);
         return;
     }
@@ -201,8 +201,7 @@ void BST<T>::insert(const T& val)
     BSTNode<T>* prev = nullptr;
 
     // Loop to search for the right position for val
-    while(curr != nullptr)
-    {
+    while(curr != nullptr) {
         prev = curr;
         if (val < curr->val)
             curr = curr->left;
@@ -322,8 +321,7 @@ bool BST<T>::remove(const T& val)
         return false;
 
     // This loop searches for the node to be deleted 
-    while (node != nullptr)
-    {
+    while (node != nullptr) {
         if (node->val == val)
             break;
         
