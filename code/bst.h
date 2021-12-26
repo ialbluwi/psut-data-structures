@@ -507,7 +507,7 @@ T BST<T>::remove_min() {
 template <class T>
 BST<T>& BST<T>::operator=(const BST<T>& other)
 {
-    // Guard self assignment
+    // Guard against self assignment
     if (this == &other)
         return *this;
  
