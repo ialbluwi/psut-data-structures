@@ -22,13 +22,14 @@
     * Stacks [[stack_array.h](code/stack_array.h)] [[stack_dll.h](code/stack_dll.h)]
     * Queues [[queue_array.h](code/queue_array.h)] [[queue_dll.h](code/queue_dll.h)]
 
+
+* **Binary Search Trees** [[slides](https://drive.google.com/file/d/1oQdqB4tVJ46PKBQC99C7xHT9mZ4SfrFP)] [[bst.h](code/bst.h)] [bst.cpp] [[exercises](exercises/bst_exercises.md)] [previou exam questions]
+
 ___
 
 _Material below this banner has not been finalized yet_
 
 ___
-
-* **Binary Search Trees** [[slides](https://drive.google.com/file/d/1oQdqB4tVJ46PKBQC99C7xHT9mZ4SfrFP)] [[bst.h](code/bst.h)] [bst.cpp] [[exercises](exercises/bst_exercises.md)] [previou exam questions]
 
 * **Priority Queues** [slides] [previous exam questions]
 
