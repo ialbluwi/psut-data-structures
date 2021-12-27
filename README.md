@@ -23,7 +23,7 @@
     * Queues [[queue_array.h](code/queue_array.h)] [[queue_dll.h](code/queue_dll.h)]
 
 
-* **Binary Search Trees** [[slides](https://drive.google.com/file/d/1oQdqB4tVJ46PKBQC99C7xHT9mZ4SfrFP)] [[bst.h](code/bst.h)] [bst.cpp] [[exercises](exercises/bst_exercises.md)] [previou exam questions]
+* **Binary Search Trees** [[slides](https://drive.google.com/file/d/1oQdqB4tVJ46PKBQC99C7xHT9mZ4SfrFP)] [[bst.h](code/bst.h)] [[bst.cpp](code/bst.cpp)] [[exercises](exercises/bst_exercises.md)] [previou exam questions]
 
 ___
 
