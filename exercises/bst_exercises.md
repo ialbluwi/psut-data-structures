@@ -425,11 +425,11 @@ void BST<T>::update_counts(BSTNode<T>* node)
   
     int left_count = 0;
     if (node->left != nullptr)
-    left_count = node->left->count;
+        left_count = node->left->count;
   
     int right_count = 0;
     if (node->right != nullptr)
-    right_count = node->right->count;    
+        right_count = node->right->count;    
   
     node->count = 1 + left_count + right_count;
 }
