@@ -316,9 +316,6 @@ bool BST<T>::remove(const T& val)
 {
     BSTNode<T>* node = root;
     BSTNode<T>* prev = nullptr;
-    
-    if (is_empty())
-        return false;
 
     // This loop searches for the node to be deleted 
     while (node != nullptr) {
@@ -332,11 +329,13 @@ bool BST<T>::remove(const T& val)
             node = node->right;
     }
     
-    // if node is not found, return false without deleting anything
+    // if val is not found, return false without deleting anything
+    // (this covers the case of an empty tree)
     if (node == nullptr)
         return false;
     
-    // if the node has 0 or 1 children, call del_single() else call del_double()
+    // if the node to be deleted has 0 or 1 children, 
+    // call del_single() else call del_double()
     if (node->left == nullptr || node->right == nullptr)
         del_single(node, prev);
     else
