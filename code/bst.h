@@ -83,7 +83,21 @@ BST<T>::BST()
     root = nullptr;
 }
 
-// uses pre-order traversal
+// Uses pre-order traversal to copy the tree rooted at the given node.
+// The result is an exact copy of the tree assuming:
+//      - The BST is empty before calling the function.
+//      - The insert function does not perform any rotations to re-balance
+//        the tree.
+//
+// This function can also be implemented using BFT (the result tree is
+// an exact copy regardless of whether the insert function re-balances
+// the tree or not)
+//
+// ---- Asymptotic Complexity:
+//      The running time of this function is O(n * height) 
+//      since n nodes are inserted:
+//         * Best case: O(nlogn) if the tree is balanced.
+//         * Worst case: O(n^2) if the tree is a chain.
 template <class T>
 void BST<T>::copy_from(BSTNode<T>* node) {
     if (node == nullptr)
