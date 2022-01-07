@@ -110,11 +110,15 @@ template <class T>
 bool HashTable<T>::remove(const T&  val)
 {
     int index = hash_value(val);
-    return table[index].remove(val);
+    bool deleted = table[index].remove(val);
 
-    n--;
-    if (n / m < 2 && m > DEFAULT_TABLE_SIZE)
-        resize(m / 2);
+    if (deleted) {
+        n--;
+        if (n / m < 2 && m > DEFAULT_TABLE_SIZE)
+            resize(m / 2);
+    }
+
+    return deleted;
 }
 
 // A hash function for integers
