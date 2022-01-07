@@ -210,6 +210,9 @@ void HashTable<T>::clear()
 template <class T>
 HashTable<T>& HashTable<T>::operator=(const HashTable<T>& other)
 {
+    if (this == &other)
+        return *this;
+    
     n = other.n;
     m = other.m;
 
