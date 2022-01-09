@@ -30,10 +30,10 @@
 
 * **Hash Tables** [[slides](https://drive.google.com/file/d/1Eka4poNVMNgdTKyUk06OUP2ufTFqCc3P)] [[hash_table.h](code/hash_table.h)] [[hashing.cpp](code/hashing.cpp)] [[exercises](exercises/hashing_exercises.md)] [previou exam questions]
 
+* **C++ Standard Template Library (STL)** [[STL.cpp](code/STL.cpp)] [previous exam questions]
+
 ___
 
 _Material below this banner has not been finalized yet_
 
 ___
-
-* **C++ Standard Template Library (STL)** [stl_test.cpp] [previous exam questions]
