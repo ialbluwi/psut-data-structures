@@ -159,6 +159,7 @@ int HashTable<string>::hash_value(const string& val) const
 
 // Returns all the elements in the table.
 // There is no guarantee on the order of the elements returned.
+// Runs in O(n + m)
 template <class T>
 DLList<T> HashTable<T>::elements() const 
 {
@@ -176,24 +177,29 @@ DLList<T> HashTable<T>::elements() const
 template <class T>
 void HashTable<T>::resize(int new_size)
 {
-    int old_m = m;
-    DLList<T>* old_table = table;
+    if (new_size < 1)
+        throw string("Invalid hash table size");
 
+    // get all the elements of the hash table before deleting them.
+    // O(n + m)
+    DLList<T> values = elements();
+    delete [] table;
+
+    // create a new table with the new size.
+    // O(m)
     m = new_size;
-    table = new DLList<T>[m]; // O(m)
+    table = new DLList<T>[m];
 
-    // Rehash all the values to the new table. Runs in O(old_m + n)
-    for (int i = 0; i < old_m; i++) {
-        DLLNode<T>* node = old_table[i].head_node();
-        while (node != nullptr) {
-            int index = hash_value(node->get_val());
-            table[index].add_to_tail(node->get_val());
-            node = node->get_next();
-        }
+    // re-insert all the values into the table.
+    // O(n * n) in the worst case.
+    // O(n * n/m) if the elements are uniformly distributed.
+    // O(n) if n/m is a small number.
+    while (!values.is_empty()) {
+        insert(values.head_val());
+        values.remove_head();
     }
-
-    delete [] old_table; // O(old_m)
 }
+
 
 // removes all the elements in the hash table and resizes it to be of the
 // DEFAULT_TABLE_SIZE
