@@ -177,9 +177,6 @@ DLList<T> HashTable<T>::elements() const
 template <class T>
 void HashTable<T>::resize(int new_size)
 {
-    if (new_size < 1)
-        throw string("Invalid hash table size");
-
     // get all the elements of the hash table before deleting them.
     // O(n + m)
     DLList<T> values = elements();
@@ -191,9 +188,7 @@ void HashTable<T>::resize(int new_size)
     table = new DLList<T>[m];
 
     // re-insert all the values into the table.
-    // O(n * n) in the worst case.
-    // O(n * n/m) if the elements are uniformly distributed.
-    // O(n) if n/m is a small number.
+    // Running Time: O(n) --> insert an remove_head = O(1) repeated n times.
     while (!values.is_empty()) {
         insert(values.head_val());
         values.remove_head();
