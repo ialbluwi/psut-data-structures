@@ -155,7 +155,7 @@ void BST<T>::compute_heights(BSTNode<T>* node)
     if (node->right != nullptr)
         right_height = node->right->height;
   
-    node->height = 1 + max(left_height, right_height);
+    node->height = 1 + std::max(left_height, right_height);
 }
 
 template <class T>
