@@ -145,9 +145,11 @@ bool HashTable<T>::equals(const HashTable<T>& other) const
   
     for (int i = 0; i < m; i++) {
         DLLNode<T>* curr = table[i].head_node();
-        while (curr != nullptr)
+        while (curr != nullptr) {
             if (!other.contains(curr->get_val()))
                 return false;
+            curr = curr->get_next();
+        }
     }
   
     return true;
