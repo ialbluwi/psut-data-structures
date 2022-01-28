@@ -200,7 +200,13 @@ Exercise 6
 Implement the following member function of class `HashTable`, which prints the hash table to the standard output according to the format shown below.
 
 ```cpp
-void print() const;// EXAMPLE FOR PRINTING A TABLE WITH 5 CHAINS// [0] {20, 10, 40}// [1] {11}// [2] {2, 12, 7, 2, 2, 27}// [3] {}// [4] {9, 19}
+void print() const;
+// EXAMPLE FOR PRINTING A TABLE WITH 5 CHAINS
+// [0] {20, 10, 40}
+// [1] {11}
+// [2] {2, 12, 7, 2, 2, 27}
+// [3] {}
+// [4] {9, 19}
 ```
 
 #### *Solution*
