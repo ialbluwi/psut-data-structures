@@ -1,3 +1,7 @@
+Princess Sumaya University for Technology<br>
+**Data Structures and Introduction to Algorithms**
+
+
 # Course Material
 
 ### Quick Links
