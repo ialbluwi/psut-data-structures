@@ -30,7 +30,7 @@ template <class T>
 T HashTable<T>::max() const 
 {
     if (is_empty())
-        throw "Error: Attempting to retrieve the max from an empty hash table."
+        throw string("ERROR: Attempting to retrieve the max from an empty hash table.");
   
     DLLNode<T>* max_node = nullptr;
     for (int i = 0; i < m; i++) {

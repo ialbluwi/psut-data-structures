@@ -62,7 +62,7 @@ int get_max() const;
 int List::get_max() const 
 {
     if (is_empty())
-        throw "Error: Attempting to get the max in an empty list";
+        throw string("ERROR: Attempting to get the max in an empty list");
   
     Node* max_node = head;
     for (Node* curr = head->next; curr != nullptr; curr = curr->next)
@@ -333,7 +333,7 @@ template <class T>
 T DLList<T>::get_at_index(int index) const 
 {  
     if (index < 0)
-        throw "Error: Invalid index passed to get_at_index()";
+        throw string("ERROR: Invalid index passed to get_at_index()");
     
     int count = 0;
     DLLNode<T>* curr = head;
@@ -346,7 +346,7 @@ T DLList<T>::get_at_index(int index) const
 
     // if execution reaches here, then index is larger than
     // the last index in the list    
-    throw "Error: Invalid index passed to get_at_index()";
+    throw string("ERROR: Invalid index passed to get_at_index()");
 }
 ```
 
@@ -370,7 +370,7 @@ template <class T>
 DLList<T> DLList<T>::sublist(int index1, int index2) const 
 {  
     if (index1 < 0 || index2 < 0 || index1 > index2)
-        throw "Error: Invalid index passed to sublist()";
+        throw string("ERROR: Invalid index passed to sublist()");
 
     // get to index1  
     int count = 0;  
@@ -384,7 +384,7 @@ DLList<T> DLList<T>::sublist(int index1, int index2) const
 
     // if null is reached before reaching index1
     if (curr == nullptr)
-        throw "Error: Invalid index passed to sublist()";
+        throw string("ERROR: Invalid index passed to sublist()");
 
     // collect all the values in the nodes between index1  
     // and index2 (stop if the end of the list is reached  
@@ -420,7 +420,7 @@ template <class T>
 void DLList<T>::remove(int index1, int index2) 
 {  
     if (index1 < 0 || index2 < 0 || index1 > index2)        
-        throw "Error: Invalid index passed to sublist()";     
+        throw string("ERROR: Invalid index passed to sublist()");     
 
     DLList<T> new_list;      
 
@@ -437,7 +437,7 @@ void DLList<T>::remove(int index1, int index2)
     // if curr == nullptr and count <= index1, then index1  
     // is outside the range of valid indices.  
     if (count <= index1)      
-        throw "Error: Invalid index passed to sublist()";      
+        throw string("ERROR: Invalid index passed to sublist()");      
 
     clear();  
     append(new_list);

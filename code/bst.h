@@ -2,6 +2,8 @@
 
 #include "queue_dll.h"
 #include "stack_dll.h"
+#include <string>
+using std::string;
 
 
 template <class T>
@@ -454,7 +456,7 @@ void BST<T>::clear(BSTNode<T>* node)
 template <class T>
 T BST<T>::max() const {
     if (is_empty())
-        throw "Attempting to retrieve the max value in an empty tree";
+        throw string("ERROR: Attempting to retrieve the max value in an empty tree");
 
     BSTNode<T>* curr = root;
     while (curr->right != nullptr)
@@ -470,7 +472,7 @@ T BST<T>::max() const {
 template <class T>
 T BST<T>::min() const {
     if (is_empty())
-        throw "Attempting to retrieve the min value in an empty tree";
+        throw string("ERROR: Attempting to retrieve the min value in an empty tree");
 
     BSTNode<T>* curr = root;
     while (curr->left != nullptr)
@@ -483,7 +485,7 @@ T BST<T>::min() const {
 template <class T>
 T BST<T>::remove_max() {
     if (is_empty())
-        throw "Attempting to remove the max value from an empty tree";
+        throw string("ERROR: Attempting to remove the max value from an empty tree");
 
     BSTNode<T>* curr = root;
     BSTNode<T>* prev = nullptr;
@@ -501,7 +503,7 @@ T BST<T>::remove_max() {
 template <class T>
 T BST<T>::remove_min() {
     if (is_empty())
-        throw "Attempting to remove the min value from an empty tree";
+        throw string("ERROR: Attempting to remove the min value from an empty tree");
 
     BSTNode<T>* curr = root;
     BSTNode<T>* prev = nullptr;

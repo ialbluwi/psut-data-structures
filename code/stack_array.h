@@ -31,7 +31,7 @@ template <class T>
 StackArray<T>::StackArray(int cap)
 {
     if (cap <= 0)
-        throw "Invalid capacity!";
+        throw string("ERROR: Invalid capacity!");
 
     capacity = cap;
     data = new T[capacity];
@@ -76,7 +76,7 @@ template <class T>
 void StackArray<T>::push(const T& val)
 {
     if (is_full())
-        throw "Stack overflow!";
+        throw string("ERROR: Stack overflow!");
 
     last++;
     data[last] = val;
@@ -86,7 +86,7 @@ template <class T>
 T StackArray<T>::pop()
 {
     if (is_empty())
-        throw "Stack underflow!";
+        throw string("ERROR: Stack underflow!");
         
     T val = data[last];
     last--;
@@ -97,7 +97,7 @@ template <class T>
 T StackArray<T>::top() const
 {
     if (is_empty()) 
-        throw "Attempting to retrieve an element from an empty stack!";
+        throw string("ERROR: Attempting to retrieve an element from an empty stack!");
 
     return data[last];
 }

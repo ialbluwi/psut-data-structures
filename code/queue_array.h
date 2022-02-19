@@ -1,5 +1,8 @@
 #pragma once
 
+#include <string>
+using std::string;
+
 // A Queue class based on a circular array implementation
 template <class T>
 class QueueArray
@@ -147,7 +150,7 @@ template <class T>
 T QueueArray<T>::dequeue()
 {
     if (is_empty())
-        throw "Can't remove from an empty queue.";
+        throw string("ERROR: Can't remove from an empty queue.");
 
     T val = data[first];
     size--;
@@ -169,7 +172,7 @@ template <class T>
 T QueueArray<T>::get_first() const
 {
     if (is_empty())
-        throw "An empty queue has no first element";
+        throw string("ERROR: An empty queue has no first element");
 
     return data[first];
 }
@@ -178,7 +181,7 @@ template <class T>
 T QueueArray<T>::get_last() const
 {
     if (is_empty())
-        throw "An empty queue has no last element";
+        throw string("ERROR: An empty queue has no last element");
 
     return data[last];
 }
@@ -213,7 +216,7 @@ template <class T>
 void QueueArray<T>::resize(int new_cap) 
 {
     if (new_cap < size)
-        throw "Invalid new capacity";
+        throw string("ERROR: Invalid new capacity");
 
     T* new_data = new T[new_cap];
     

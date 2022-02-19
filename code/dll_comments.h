@@ -163,6 +163,24 @@ DLLNode<T>* DLList<T>::tail_node() const
     return tail;
 }
 
+template <class T>
+T DLList<T>::head_val() const
+{
+    if (is_empty())
+        throw string("ERROR: Attempting to retrieve a value of the head from an empty list.");
+    
+    return head->val;
+}
+
+template <class T>
+T DLList<T>::tail_val() const 
+{
+    if (is_empty())
+        throw string("ERROR: Attempting to retrieve a value of the tail from an empty list.");
+
+    return tail->val;
+}
+
 // Adds a node to the beginning of the list.
 // Steps:
 //  1) Create a node with value "val". Set the next pointer to point at the 
@@ -362,8 +380,10 @@ template <class T>
 void DLList<T>::append(const DLList& other)
 {
     if (this == &other)
-        throw "Can't append the list to itself"; // THINK: Why not?
-                                                 // How can we handle this case?
+        throw string("ERROR: Can't append the list to itself"); 
+        // THINK: Why not?
+        // How can we handle this case?
+    
     DLLNode<T>* curr;
 
     for (curr = other.head; curr != nullptr; curr = curr->next)

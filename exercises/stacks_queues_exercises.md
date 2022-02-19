@@ -158,7 +158,7 @@ template <class T>
 void move_first_to(QueueArray<T>& queue, int pos)
 {
     if (pos < 0 || pos >= queue.get_size())
-        throw string("Invalid argument(s)";
+        throw string("ERROR: Invalid argument(s)");
               
     QueueArray<T> temp_q(2);
     T first_val = queue.dequeue();

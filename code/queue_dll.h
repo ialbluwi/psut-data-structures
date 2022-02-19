@@ -1,10 +1,10 @@
 #pragma once
 
 // A Queue class based on a DLL implementation.
-// Dvalegates work a DLList object.
+// Delegates the work to a DLList object.
 //
-// A queue can be implemented as a linked list by adding to one end and dvaleting 
-// from the other end. For example:
+// A queue can be implemented as a linked list by adding to one end 
+// and deleting from the other end. For example:
 //     add_to_tail() + remove_head()
 //  or add_to_head() + remove_tail()
 //
@@ -40,6 +40,9 @@ void QueueDLL<T>::enqueue(const T& val)
     list.add_to_tail(val);
 }
 
+
+// Removes and returns the first added element.
+// Throws an exception if the queue is empty.
 template <class T>
 T QueueDLL<T>::dequeue()
 {
@@ -48,17 +51,24 @@ T QueueDLL<T>::dequeue()
     return val;
 }
 
+
+// Returns the first added element.
+// Throws an exception if the queue is empty.
 template <class T>
 T QueueDLL<T>::get_first() const
 {
     return list.head_val();
 }
 
+
+// Returns the last added element.
+// Throws an exception if the queue is empty.
 template <class T>
 T QueueDLL<T>::get_last() const
 {
     return list.tail_val();
 }
+
 
 template <class T>
 bool QueueDLL<T>::is_empty() const

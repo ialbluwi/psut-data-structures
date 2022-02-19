@@ -2,6 +2,7 @@
 
 #include<iostream>
 using std::cout;
+using std::string;
 
 class Node {
 public:
@@ -181,7 +182,7 @@ bool List::contains(int val) const
 
 int List::get_at(int index) const {
     if (is_empty() || index < 0)    
-        throw "Invalid argument in function get_at(int)";
+        throw string("ERROR: Invalid argument in function get_at(int)");
     
     int count = 0;
     Node* curr = head;
@@ -194,7 +195,7 @@ int List::get_at(int index) const {
     if (curr != nullptr)
         return curr->val;
     else
-        throw "Invalid argument in function get_at(int)";
+        throw string("ERROR: Invalid argument in function get_at(int)");
 }
 
 void List::print() const 

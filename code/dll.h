@@ -230,7 +230,8 @@ template <class T>
 T DLList<T>::head_val() const
 {
     if (is_empty())
-        throw "Attempting to retrieve a value of the head from an empty list. ";
+        throw string("ERROR: Attempting to retrieve a value of the head from an empty list.");
+    
     return head->val;
 }
 
@@ -238,7 +239,7 @@ template <class T>
 T DLList<T>::tail_val() const 
 {
     if (is_empty())
-        throw "Attempting to retrieve a value of the tail from an empty list. ";
+        throw string("ERROR: Attempting to retrieve a value of the tail from an empty list.");
 
     return tail->val;
 }
@@ -247,7 +248,7 @@ template <class T>
 void DLList<T>::append(const DLList& other)
 {
     if (this == &other)
-        throw "Can't append list to itself";
+        throw string("ERROR: Can't append list to itself");
 
     for (DLLNode<T>* curr = other.head; curr != nullptr; curr = curr->next)
         add_to_tail(curr->val);
