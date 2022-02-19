@@ -1,7 +1,7 @@
 #pragma once
 
 #include<iostream>
-using std::ostream;
+using std::cout;
 
 class Node {
 public:
@@ -33,6 +33,8 @@ public:
     void remove_head();
     void remove_tail();
     bool remove(int val);
+
+    void print() const;
 
 private:
     Node* head;
@@ -101,10 +103,10 @@ void List::add_to_tail(int val)
 
 void List::remove_head()
 {
-    Node* del_node = head;
-
     if (is_empty())
         return;
+
+    Node* del_node = head;
 
     if (head == tail) {
         head = nullptr;
@@ -119,25 +121,18 @@ void List::remove_head()
 
 void List::remove_tail()
 {
-    if (is_empty())
-        return;
-
-    Node* del_node = tail;
-
     if (head == tail) {
-        head = nullptr;
-        tail = nullptr;
-    }
-    else {
-        Node* curr = head;
-        while (curr->next != tail)
-            curr = curr->next;
-
-        tail = curr;
-        tail->next = nullptr;   
+        remove_head();
+        return;
     }
 
-    delete del_node;
+    Node* prev = head;
+    while (prev->next != tail)
+        prev = prev->next;
+
+    delete tail;
+    tail = prev;
+    tail->next = nullptr;
 }
 
 
@@ -202,18 +197,19 @@ int List::get_at(int index) const {
         throw "Invalid argument in function get_at(int)";
 }
 
+void List::print() const 
+{
+    cout << "[";
 
-ostream& operator<<(ostream& out, const List& list) {
-    out << "[";
-
-    Node* curr = list.head_node();
+    Node* curr = head;
     while (curr != nullptr) {
-        out << curr->val;
+        cout << curr->val;
+
         if (curr->next != nullptr)
-            out << ", ";
+            cout << ", ";
+
         curr = curr->next;
     }
-    out << "]";
-
-    return out;
+    
+    cout << "]";
 }

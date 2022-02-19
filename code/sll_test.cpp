@@ -11,7 +11,8 @@ int main() {
         list1.add_to_head(i);
         list1.add_to_tail(i);
     }
-    cout << list1 << endl;
+    list1.print();
+    cout << endl;
     // should print: [4, 3, 2, 1, 0, 0, 1, 2, 3, 4]
 
 
@@ -19,7 +20,8 @@ int main() {
         list1.remove_head();
         list1.remove_tail();
     }
-    cout << list1 << endl;
+    list1.print();
+    cout << endl;
     // should print: [2, 1, 0, 0, 1, 2]
 
     return 0;

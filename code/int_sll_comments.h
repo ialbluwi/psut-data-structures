@@ -1,7 +1,7 @@
 #pragma once
 
 #include<iostream>
-using std::ostream;
+using std::cout;
 
 /*
  A Node in a singly linked list.
@@ -72,6 +72,8 @@ public:
     void remove_head();
     void remove_tail();
     bool remove(int val);
+
+    void print() const;
 
 private:
     Node* head;
@@ -164,10 +166,10 @@ void List::add_to_tail(int val)
 // --- Asymptotic complexity: O(1)
 void List::remove_head()
 {
-    Node* del_node = head;
-
     if (is_empty())
         return;
+
+    Node* del_node = head;
 
     if (head == tail) {
         head = nullptr;
@@ -189,28 +191,24 @@ void List::remove_head()
 // --- Asymptotic complexity: O(n)
 void List::remove_tail()
 {
-    if (is_empty())
-        return;
-
-    Node* del_node = tail;
-
-    // if there is only one node in the list
+    // if the list is empty or has one node
     if (head == tail) {
-        head = nullptr;
-        tail = nullptr;
-    }
-    else {
-        // get to the node before the tail
-        Node* curr = head;
-        while (curr->next != tail)
-            curr = curr->next;
-
-        tail = curr;
-        tail->next = nullptr;    
+        remove_head();
+        return;
     }
 
-    delete del_node;
+    // get to the node before the tail
+    Node* prev = head;
+    while (prev->next != tail)
+        prev = prev->next;
+
+    // remove the tail
+    delete tail;
+    tail = prev;
+    tail->next = nullptr;
 }
+
+
 
 // Serches for the first occurrence of "val" and deletes it.
 //    * If the list is empty, there is nothing to do.
@@ -312,6 +310,26 @@ int List::get_at(int index) const {
         return curr->val;
     else
         throw "Invalid argument in function get_at(int)";
+}
+
+
+// Prints the list to standard out according to the
+// following format: [item1, item2, item3, ...]
+void List::print() const 
+{
+    cout << "[";
+
+    Node* curr = head;
+    while (curr != nullptr) {
+        cout << curr->val;
+
+        if (curr->next != nullptr)
+            cout << ", ";
+
+        curr = curr->next;
+    }
+
+    cout << "]";
 }
 
 
