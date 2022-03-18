@@ -5,18 +5,20 @@ Linked List Exercises
 
 ## Contents
 
-1. **Singly-Linked List:** `bool is_sorted() const`  
-2. **Singly-Linked List:** `int get_max() const`  
-3. **Singly-Linked List:** `void print_reverse(Node* node)` 
-4. **Singly-Linked List:** `void selection_sort()`
-5. **Singly-Linked List:** `void remove_all(int val)`
-6. **Singly-Linked List:** `void reverse()` 
-7. **Doubly-Linked List:** `void reverse()` 
-8. **Doubly-Linked List:** `T get_at_index(int index) const` 
-9. **Doubly-Linked List:** `DLList<T> sublist(int index1, int index2) const `
-10. **Doubly-Linked List:** `void remove(int index1, int index2)`  
-11. **Doubly-Linked List:** `void remove_all(const T& val)` 
-12. **Doubly-Linked List:** `DLList find_common(const DLList& other) const`   
+1. **[Singly-Linked List](#exercise-1):** `bool is_sorted() const`  
+2. **[Singly-Linked List](#exercise-2):** `int get_max() const`  
+3. **[Singly-Linked List](#exercise-3):** `void print_reverse(Node* node)`
+4. **[Doubly-Linked List](#exercise-4):** `bool check_seq3(const T& val) const`
+5. **[Doubly-Linked List](#exercise-5):** `bool check_seq(int k, const T& val) const`
+6. **[Singly-Linked List](#exercise-6):** `void selection_sort()`
+7. **[Singly-Linked List](#exercise-7):** `void reverse()` 
+8. **[Doubly-Linked List](#exercise-8):** `void reverse()` 
+9. **[Doubly-Linked List](#exercise-9):** `T get_at_index(int index) const` 
+10. **[Doubly-Linked List](#exercise-10):** `DLList<T> sublist(int index1, int index2) const `
+11. **[Doubly-Linked List](#exercise-11):** `void remove(int index1, int index2)`  
+12. **[Doubly-Linked List](#exercise-12):** `void remove_all(const T& val)` 
+13. **[Doubly-Linked List](#exercise-13):** `DLList find_common(const DLList& other) const`
+14. **[Ordered Doubly-Linked List](#exercise-14):** `void remove_duplicates()`
 
 
 
@@ -103,8 +105,78 @@ void List::print_reverse(Node* node)
 ```
 
 
-
 Exercise 4
+----------
+
+Implement the following member function of class `DLList`, which returns `true` if the list contains a sequence of the 3 consequetive values equal to val.
+
+```cpp
+bool check_seq3(const T& val) const;
+```
+**Example:** `check_seq3(9)` is true for the list `1, 2, 5, 2, 9, 9, 9, 5` and the list `9, 9, 9, 9, 9, 9` but not for the list `1, 9, 1, 9, 1, 9` or the list `9, 9`.
+
+#### *Solution*
+
+```cpp
+template <class T>
+bool DLList<T>::check_seq3(const T& val) const
+{
+    // if the list has <= 2 elements
+    if (head == tail || head->next == tail)
+        return false;
+        
+    DLLNode<T>* curr = head;
+    while (curr->next->next != nullptr) {
+        if (curr->val == curr->next->val && curr->val == curr->next->next->val)
+            return true;
+        curr = curr->next;
+    }
+    
+    return false;
+}
+```
+
+
+Exercise 5
+----------
+
+Implement the following member function of class `DLList`, which returns `true` if `val` appears `k` times in the list in consecutive nodes and `false` otherwise. 
+
+```cpp
+bool check_seq(int k, const T& val) const;
+```
+**Example:** `check_seq(3, 9)` is true for the list `1, 2, 5, 2, 9, 9, 9, 5` and the list `9, 9, 9, 9, 9, 9` but not for the list `1, 9, 1, 9, 1, 9` or the list `9, 9`.
+
+#### *Solution*
+
+```cpp
+template <class T>
+bool DLList<T>::check_seq(int k, const T& val) const
+{
+    if (k < 0)  return false;
+    if (k == 0) return true;
+
+    int count = 0;
+    DLLNode<T>* curr = head;
+    while (curr != nullptr) {
+        if (curr->val != val)
+            count = 0;
+        else 
+            count++;
+        
+        if (count == k) 
+            return true;
+        else            
+            curr = curr->next;
+    }
+
+    return false;
+}
+```
+
+
+
+Exercise 6
 ----------
 
 Implement the following member function of class `List`, which sorts the singly-linked list using *selection sort*.
@@ -136,60 +208,7 @@ void List::selection_sort()
 
 
 
-Exercise 5
-----------
-
-Implement the following member function of class `List`, which removes all the occurrences of the given value from the singly-linked list.
-
-```cpp
-void remove_all(int val);
-```
-
-#### *Solution*
-
-```cpp
-void List::remove_all(int val) {
-    if (is_empty())
-        return;  
-
-    // remove val from the beginning of the list
-    while (head->val == val) {
-        remove_head();
-        if (head == nullptr)
-            return;  
-    }
-
-    // If we reach here, we know for sure that the   
-    // list has a head node that is not val
-
-    // remove val from the end of the list
-    while (tail->val == val)
-        remove_tail();
-
-    // If we get here, we know for sure that:
-    // - The list has at least one node.
-    // - The value to be deleted is not in the head or the tail.
-
-    Node* prev = head;
-    Node* curr = head->next;
-
-    while (curr != nullptr) {
-        if (curr->val == val) {
-            prev->next = curr->next;
-            delete curr;
-            curr = prev->next;
-        } 
-        else {
-            prev = curr;
-            curr = curr->next;
-        }
-    }
-}
-```
-
-
-
-Exercise 6
+Exercise 7
 ----------
 
 Implement the following member function of class `List`, which reverses the singly-linked list.
@@ -281,7 +300,7 @@ void List::reverse()
 
 
 
-Exercise 7
+Exercise 8
 ----------
 
 Implement the following member function of class `DLList`, which reverses the *doubly-linked* list.
@@ -315,7 +334,7 @@ void DLList<T>::reverse()
 
 #### 
 
-Exercise 8
+Exercise 9
 ----------
 
 Implement the following member function of class `DLList`, which returns the value at the given *index* in the *doubly-linked* list, where the `head` is assumed to be at index 0. 
@@ -352,7 +371,7 @@ T DLList<T>::get_at_index(int index) const
 
 #### 
 
-Exercise 9
+Exercise 10
 ----------
 
 Implement the following member function of class `DLList`, which returns the values in the nodes between the given indices (inclusive). 
@@ -402,7 +421,7 @@ DLList<T> DLList<T>::sublist(int index1, int index2) const
 
 #### 
 
-Exercise 10
+Exercise 11
 ----------
 
 Implement the following member function of class `DLList`, which removes the nodes between the given indices (inclusive). 
@@ -446,7 +465,7 @@ void DLList<T>::remove(int index1, int index2)
 
 #### 
 
-Exercise 11
+Exercise 12
 ----------
 
 Implement the following member function of class `DLList`, which removes all the occurrences of the given value from the doubly-linked list.
@@ -491,7 +510,7 @@ void DLList<T>::remove_all(const T& val)
 
 #### 
 
-Exercise 12
+Exercise 13
 ----------
 
 Implement the following member function of class `DLList`, which returns all the common values between the current doubly-linked list and the reived doubly-linked list.
@@ -529,3 +548,45 @@ DLList<T> DLList<T>::find_common(const DLList<T>& other) const
 }
 ```
 
+Exercise 14
+----------
+
+Implement the following member function of class `OrderedDLList`, which removes all duplicate elements in the list. After calling this function, the list must contain only distinct elements.
+
+```cpp
+void remove_duplicates();
+```
+**Example:** If the list is `1, 1, 1, 2, 3, 4, 4, 5, 5, 5` it should become `1, 2, 3, 4, 5`.
+
+
+#### *Solution*
+
+```cpp
+template <class T>
+void OrderedDLList<T>::remove_duplicates() 
+{
+    // 0 or 1 elements
+    if (head == tail) 
+        return;
+        
+    DLLNode<T>* curr = head->next;
+    DLLNode<T>* pred = head;
+    
+    while (curr != nullptr) {
+        if (pred->val == curr->val) {
+            if (curr == tail) {
+                remove_tail();
+                return;
+            } else {
+                curr = curr->next;
+                delete curr->prev;
+                curr->prev = pred;
+                pred->next = curr;
+            }
+        } else {
+            curr = curr->next;
+            pred = pred->next;
+        }
+    }
+}
+```
