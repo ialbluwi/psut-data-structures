@@ -18,7 +18,7 @@ Binary Search Trees Exercises
 11. [Exercise 11](#exercise-11): `bool is_chain() const`
 12. [Exercise 12](#exercise-12): `bool is_bst() const`
 13. [Exercise 13](#exercise-13): `BST<T> build_balanced_bst(T a[], int size)`
-14. [Exercise 14](#exercise-14): `T nearest_value(const T& val) const`
+14. [Exercise 14](#exercise-14): `int nearest_value(int val) const`
 15. [Exercise 15](#exercise-15): `int count_in_range(int val1, int val2) const`
 
 
