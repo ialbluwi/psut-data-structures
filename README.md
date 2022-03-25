@@ -27,12 +27,12 @@ _Material below this banner has not been finalized yet_
 
 ___
 
-* **Stacks and Queues** [[stack__queue.cpp](code/stack_queue.cpp)] [[exercises](exercises/stacks_queues_exercises.md)] [previou exam questions]
+* **Stacks and Queues** [[stack__queue.cpp](code/stack_queue.cpp)] [[exercises](exercises/stacks_queues_exercises.md)]
     * Stacks [[stack_array.h](code/stack_array.h)] [[stack_dll.h](code/stack_dll.h)]
     * Queues [[queue_array.h](code/queue_array.h)] [[queue_dll.h](code/queue_dll.h)]
 
 
-* **Binary Search Trees** [[bst.h](code/bst.h)] [[bst.cpp](code/bst.cpp)] [[exercises](exercises/bst_exercises.md)] [previou exam questions]
+* **Binary Search Trees** [[bst.h](code/bst.h)] [[bst.cpp](code/bst.cpp)] [[exercises](exercises/bst_exercises.md)]
     * Introduction, definitions and properties [[slides](https://drive.google.com/file/d/1TcKI5HOjJOk5t0Z07txprVguHT6KtAp3/view?usp=sharing)]
     * Insertion, deletion and re-balancing [[slides](https://drive.google.com/file/d/1YPTDM4HdVG9to-uCvjfE8V1ObwCwuc5H/view?usp=sharing)]
     * Traversals [[slides](https://drive.google.com/file/d/1fruIlAlGngGH0VZ9pGfoXCkrql9Obsrz/view?usp=sharing)]
@@ -40,6 +40,6 @@ ___
 
 * **Priority Queues** [[slides](https://drive.google.com/file/d/14AT2cFd0zpp7okcOEYhFHJ4eXQV8bsvQ)]
 
-* **Hash Tables** [[slides](https://drive.google.com/file/d/1Eka4poNVMNgdTKyUk06OUP2ufTFqCc3P)] [[hash_table.h](code/hash_table.h)] [[hashing.cpp](code/hashing.cpp)] [[exercises](exercises/hashing_exercises.md)] [previou exam questions]
+* **Hash Tables** [[slides](https://drive.google.com/file/d/1Eka4poNVMNgdTKyUk06OUP2ufTFqCc3P)] [[hash_table.h](code/hash_table.h)] [[hashing.cpp](code/hashing.cpp)] [[exercises](exercises/hashing_exercises.md)]
 
-* **C++ Standard Template Library (STL)** [[STL.cpp](code/STL.cpp)] [previous exam questions]
+* **C++ Standard Template Library (STL)** [[STL.cpp](code/STL.cpp)]
