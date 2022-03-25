@@ -5,16 +5,22 @@ Binary Search Trees Exercises
 
 ## Contents
 
-1. `int count() const`
-2. `int count_leafs() const`
-3. `void compute_heights()`
-4. `void compute_depths()`
-5. `bool is_perfect() const`
-6. `bool is_balanced() const`
-7. `int count_last_level() const`
-8. `void prune()`
-9. `void update_counts()`
-10. `int rank(const T& val) const`
+1. [Exercise 1](#exercise-1): `int count() const`
+2. [Exercise 2](#exercise-2): `int count_leafs() const`
+3. [Exercise 3](#exercise-3): `void compute_heights()`
+4. [Exercise 4](#exercise-4): `void compute_depths()`
+5. [Exercise 5](#exercise-5): `bool is_perfect() const`
+6. [Exercise 6](#exercise-6): `bool is_balanced() const`
+7. [Exercise 7](#exercise-7): `int count_last_level() const`
+8. [Exercise 8](#exercise-8): `void prune()`
+9. [Exercise 9](#exercise-9): `void update_counts()`
+10. [Exercise 10](#exercise-10): `int rank(const T& val) const`
+11. [Exercise 11](#exercise-11): `bool is_chain() const`
+12. [Exercise 12](#exercise-12): `bool is_bst() const`
+13. [Exercise 13](#exercise-13): `BST<T> build_balanced_bst(T a[], int size)`
+14. [Exercise 14](#exercise-14): `T nearest_value(const T& val) const`
+15. [Exercise 15](#exercise-15): `int count_in_range(int val1, int val2) const`
+
 
 
 
