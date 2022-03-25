@@ -32,7 +32,10 @@ ___
     * Queues [[queue_array.h](code/queue_array.h)] [[queue_dll.h](code/queue_dll.h)]
 
 
-* **Binary Search Trees** [[slides](https://drive.google.com/file/d/1oQdqB4tVJ46PKBQC99C7xHT9mZ4SfrFP)] [[bst.h](code/bst.h)] [[bst.cpp](code/bst.cpp)] [[exercises](exercises/bst_exercises.md)] [previou exam questions]
+* **Binary Search Trees** [[bst.h](code/bst.h)] [[bst.cpp](code/bst.cpp)] [[exercises](exercises/bst_exercises.md)] [previou exam questions]
+    * Introduction, definitions and properties [[slides](https://drive.google.com/file/d/1TcKI5HOjJOk5t0Z07txprVguHT6KtAp3/view?usp=sharing)]
+    * Insertion, deletion and re-balancing [[slides](https://drive.google.com/file/d/1YPTDM4HdVG9to-uCvjfE8V1ObwCwuc5H/view?usp=sharing)]
+    * Traversals [[slides](https://drive.google.com/file/d/1fruIlAlGngGH0VZ9pGfoXCkrql9Obsrz/view?usp=sharing)]
 
 
 * **Priority Queues** [[slides](https://drive.google.com/file/d/14AT2cFd0zpp7okcOEYhFHJ4eXQV8bsvQ)]
