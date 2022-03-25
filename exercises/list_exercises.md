@@ -4,21 +4,24 @@ Linked List Exercises
 *These exercises are based on* [`dll.h`](../code/dll.h), [`int_sll.h`](../code/int_sll.h) *and* [`ordered_dll.h`](../code/ordered_dll.h).
 
 ## Contents
+**Singly-Linked Lists:**
+1. [Exercise 1](#exercise-1): `bool is_sorted() const`
+2. [Exercise 2](#exercise-2): `int get_max() const`
+3. [Exercise 3](#exercise-3): `void selection_sort()`
+4. [Exercise 4](#exercise-4): `bool check_seq3(int val) const`
+5. [Exercise 5](#exercise-5): `bool check_seq(int k, int val) const`
+6. [Exercise 6](#exercise-6): `void print_reverse(Node* node)`
+7. [Exercise 7](#exercise-7): `void reverse()`
 
-1. **[Singly-Linked List](#exercise-1):** `bool is_sorted() const`  
-2. **[Singly-Linked List](#exercise-2):** `int get_max() const`  
-3. **[Singly-Linked List](#exercise-3):** `void print_reverse(Node* node)`
-4. **[Doubly-Linked List](#exercise-4):** `bool check_seq3(const T& val) const`
-5. **[Doubly-Linked List](#exercise-5):** `bool check_seq(int k, const T& val) const`
-6. **[Singly-Linked List](#exercise-6):** `void selection_sort()`
-7. **[Singly-Linked List](#exercise-7):** `void reverse()` 
-8. **[Doubly-Linked List](#exercise-8):** `void reverse()` 
-9. **[Doubly-Linked List](#exercise-9):** `T get_at_index(int index) const` 
-10. **[Doubly-Linked List](#exercise-10):** `DLList<T> sublist(int index1, int index2) const `
-11. **[Doubly-Linked List](#exercise-11):** `void remove(int index1, int index2)`  
-12. **[Doubly-Linked List](#exercise-12):** `void remove_all(const T& val)` 
-13. **[Doubly-Linked List](#exercise-13):** `DLList find_common(const DLList& other) const`
-14. **[Ordered Doubly-Linked List](#exercise-14):** `void remove_duplicates()`
+**Doubly-Linked Lists:**
+
+8. [Exercise 8](#exercise-8): `void reverse()` 
+9. [Exercise 9](#exercise-9): `T get_at_index(int index) const` 
+10. [Exercise 10](#exercise-10): `DLList<T> sublist(int index1, int index2) const `
+11. [Exercise 11](#exercise-11): `void remove(int index1, int index2)`  
+12. [Exercise 12](#exercise-12): `void remove_all(const T& val)` 
+13. [Exercise 13](#exercise-13): `DLList find_common(const DLList& other) const`
+14. [Exercise 14](#exercise-14): `void remove_duplicates()`
 
 
 
@@ -76,107 +79,7 @@ int List::get_max() const
 ```
 
 
-
 Exercise 3
-----------
-
-Implement the following member function of class `List`, which prints the contents of the singly-list in reverse.
-
-```cpp
-void print_reverse(Node* node);
-```
-
-Assume that this function is called as follows:
-
-```cpp
-print_reverse(head);
-```
-
-#### *Solution*
-
-```cpp
-void List::print_reverse(Node* node) 
-{
-    if (node == nullptr)
-        return;
-    print_reverse(node->next);
-    cout << node->val << " ";
-}
-```
-
-
-Exercise 4
-----------
-
-Implement the following member function of class `DLList`, which returns `true` if the list contains a sequence of the 3 consequetive values equal to val.
-
-```cpp
-bool check_seq3(const T& val) const;
-```
-**Example:** `check_seq3(9)` is true for the list `1, 2, 5, 2, 9, 9, 9, 5` and the list `9, 9, 9, 9, 9, 9` but not for the list `1, 9, 1, 9, 1, 9` or the list `9, 9`.
-
-#### *Solution*
-
-```cpp
-template <class T>
-bool DLList<T>::check_seq3(const T& val) const
-{
-    // if the list has <= 2 elements
-    if (head == tail || head->next == tail)
-        return false;
-        
-    DLLNode<T>* curr = head;
-    while (curr->next->next != nullptr) {
-        if (curr->val == curr->next->val && curr->val == curr->next->next->val)
-            return true;
-        curr = curr->next;
-    }
-    
-    return false;
-}
-```
-
-
-Exercise 5
-----------
-
-Implement the following member function of class `DLList`, which returns `true` if `val` appears `k` times in the list in consecutive nodes and `false` otherwise. 
-
-```cpp
-bool check_seq(int k, const T& val) const;
-```
-**Example:** `check_seq(3, 9)` is true for the list `1, 2, 5, 2, 9, 9, 9, 5` and the list `9, 9, 9, 9, 9, 9` but not for the list `1, 9, 1, 9, 1, 9` or the list `9, 9`.
-
-#### *Solution*
-
-```cpp
-template <class T>
-bool DLList<T>::check_seq(int k, const T& val) const
-{
-    if (k < 0)  return false;
-    if (k == 0) return true;
-
-    int count = 0;
-    DLLNode<T>* curr = head;
-    while (curr != nullptr) {
-        if (curr->val != val)
-            count = 0;
-        else 
-            count++;
-        
-        if (count == k) 
-            return true;
-        else            
-            curr = curr->next;
-    }
-
-    return false;
-}
-```
-
-
-
-Exercise 6
 ----------
 
 Implement the following member function of class `List`, which sorts the singly-linked list using *selection sort*.
@@ -207,6 +110,100 @@ void List::selection_sort()
 ```
 
 
+Exercise 4
+----------
+
+Implement the following member function of class `List`, which returns `true` if the list contains a sequence of the 3 consequetive values equal to val.
+
+```cpp
+bool check_seq3(int val) const;
+```
+**Example:** `check_seq3(9)` is true for the list `1, 2, 5, 2, 9, 9, 9, 5` and the list `9, 9, 9, 9, 9, 9` but not for the list `1, 9, 1, 9, 1, 9` or the list `9, 9`.
+
+#### *Solution*
+
+```cpp
+bool List::check_seq3(int val) const
+{
+    // if the list has <= 2 elements
+    if (head == tail || head->next == tail)
+        return false;
+        
+    Node* curr = head;
+    while (curr->next->next != nullptr) {
+        if (curr->val == curr->next->val && curr->val == curr->next->next->val)
+            return true;
+        curr = curr->next;
+    }
+    
+    return false;
+}
+```
+
+
+Exercise 5
+----------
+
+Implement the following member function of class `List`, which returns `true` if `val` appears `k` times in the list in consecutive nodes and `false` otherwise. 
+
+```cpp
+bool check_seq(int k, int val) const;
+```
+**Example:** `check_seq(3, 9)` is true for the list `1, 2, 5, 2, 9, 9, 9, 5` and the list `9, 9, 9, 9, 9, 9` but not for the list `1, 9, 1, 9, 1, 9` or the list `9, 9`.
+
+#### *Solution*
+
+```cpp
+bool List::check_seq(int k, int val) const
+{
+    if (k < 0)  return false;
+    if (k == 0) return true;
+
+    int count = 0;
+    Node* curr = head;
+    while (curr != nullptr) {
+        if (curr->val != val)
+            count = 0;
+        else 
+            count++;
+        
+        if (count == k) 
+            return true;
+        else            
+            curr = curr->next;
+    }
+
+    return false;
+}
+```
+
+
+Exercise 6
+----------
+
+Implement the following member function of class `List`, which prints the contents of the singly-list in reverse.
+
+```cpp
+void print_reverse(Node* node);
+```
+
+Assume that this function is called as follows:
+
+```cpp
+print_reverse(head);
+```
+
+#### *Solution*
+
+```cpp
+void List::print_reverse(Node* node) 
+{
+    if (node == nullptr)
+        return;
+    print_reverse(node->next);
+    cout << node->val << " ";
+}
+```
 
 Exercise 7
 ----------
