@@ -35,7 +35,7 @@ ___
 * **Binary Search Trees** [[slides](https://drive.google.com/file/d/1oQdqB4tVJ46PKBQC99C7xHT9mZ4SfrFP)] [[bst.h](code/bst.h)] [[bst.cpp](code/bst.cpp)] [[exercises](exercises/bst_exercises.md)] [previou exam questions]
 
 
-* **Priority Queues**
+* **Priority Queues** [[slides](https://drive.google.com/file/d/14AT2cFd0zpp7okcOEYhFHJ4eXQV8bsvQ)]
 
 * **Hash Tables** [[slides](https://drive.google.com/file/d/1Eka4poNVMNgdTKyUk06OUP2ufTFqCc3P)] [[hash_table.h](code/hash_table.h)] [[hashing.cpp](code/hashing.cpp)] [[exercises](exercises/hashing_exercises.md)] [previou exam questions]
 
