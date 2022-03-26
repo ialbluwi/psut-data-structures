@@ -18,8 +18,7 @@ Binary Search Trees Exercises
 11. [Exercise 11](#exercise-11): `bool is_chain() const`
 12. [Exercise 12](#exercise-12): `bool is_bst() const`
 13. [Exercise 13](#exercise-13): `BST<T> build_balanced_bst(T a[], int size)`
-14. [Exercise 14](#exercise-14): `int nearest_value(int val) const`
-15. [Exercise 15](#exercise-15): `int count_in_range(int val1, int val2) const`
+14. [Exercise 14](#exercise-14): `int count_in_range(const T& lo, const T& hi) const`
 
 
 
@@ -606,3 +605,102 @@ Use any traversal to check if every node is:
 2. Less than the minimum in its right subtree.
 
 This algorithm runs in `O(nlogn)`, which is why the code is not provided here.
+
+
+## Exercise 13
+
+Implement the following non-member function, which returns a balanced BST built from the elements of the received array. 
+
+```cpp
+template <class T> BST<T> build_balanced_bst(T a[], int size)
+```
+
+**Reminder.** The BST class implemented in `bst.h` is not a self-balancing BST.
+
+**Note.** You are allowed to sort the array.
+
+#### *Solution*
+```cpp
+template <class T>
+void build_balanced_bst(T a[], int lo, int hi, BST<T>& bst) {
+    if (lo > hi)
+        return;
+
+    int mid = lo + (hi - lo) / 2;
+    bst.insert(a[mid]);
+
+    build_balanced_bst(a, lo, mid-1, bst);
+    build_balanced_bst(a, mid+1, hi, bst);
+}
+
+template <class T>
+BST<T> build_balanced_bst(T a[], int size) {
+    BST<T> bst;
+    sort(a, a+size);
+    build_balanced_bst(a, 0, size-1, bst);
+    return bst;
+}
+```
+
+
+## Exercise 14
+
+Implement the following member function of class BST, which counts the number of keys in the tree that fall in the given range. 
+
+```cpp
+int count_in_range(const T& lo, const T& hi) const
+```
+
+#### *Solution # 1*
+
+```cpp
+template <class T>
+int BST<T>::count_in_range(const T& lo, const T& hi) const {
+    return count_in_range(root, lo, hi);
+}
+
+template <class T>
+int BST<T>::count_in_range(BSTNode<T>* node, const T& lo, const T& hi) const {
+    if (node == nullptr)
+        return 0;
+
+    if (node->val >= lo && node->val <= hi)
+        return 1 + count_in_range(node->left, lo, hi)
+                 + count_in_range(node->right, lo, hi);
+    else if (hi < node->val)
+        return count_in_range(node->left, lo, hi);
+    else
+        return count_in_range(node->right, lo, hi);
+}
+```
+
+#### *Solution # 2*
+```cpp
+template <class T>
+int BST<T>::count_in_range(const T& lo, const T& hi) const {
+    if (is_empty())
+        return 0;
+
+    int count = 0;
+    QueueDLL<BSTNode<T>*> queue;
+    queue.enqueue(root);
+
+    while (!queue.is_empty()) {
+        BSTNode<T>* node = queue.dequeue();
+        if (node->val >= lo && node->val <= hi)
+            count++;
+
+        if (node->left != nullptr && node->val >= lo)
+            queue.enqueue(node->left);
+
+        if (node->right != nullptr && node->val <= hi)
+            queue.enqueue(node->right);
+    }
+
+    return count;
+}
+```
+
+
+
+*Note*. Both of the above solutions run in `O(height + k)`, where `k` is the number of elements that are in the range. I.e., if the number of elements that are in the range = 0, the algorithm will not do more than `O(height)` comparisons. However, if the number of elements that are in the range = `n`, then the algorithm will do `O(n)` comparisons.
