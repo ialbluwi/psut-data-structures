@@ -703,4 +703,7 @@ int BST<T>::count_in_range(const T& lo, const T& hi) const {
 
 
 
-*Note*. Both of the above solutions run in `O(height + k)`, where `k` is the number of elements that are in the range. I.e., if the number of elements that are in the range = 0, the algorithm will not do more than `O(height)` comparisons. However, if the number of elements that are in the range = `n`, then the algorithm will do `O(n)` comparisons.
+**Note**. Both of the above solutions run in `O(height + k)`, where `k` is the number of elements that are in the range. I.e., if the number of elements that are in the range = 0, the algorithm will not do more than `O(height)` comparisons. However, if the number of elements that are in the range = `n`, then the algorithm will do `O(n)` comparisons.
+
+Note that this function can be easily solved in `O(n)` if we call the `elements()` function on the tree and then iterate over the returned list of elements. However, the above algorithms have a better running time.
+
