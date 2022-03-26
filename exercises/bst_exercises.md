@@ -491,3 +491,49 @@ int BST<T>::rank(const T& val, BSTNode<T>* node) const
         return 1 + get_count(node->left) + rank(val, node->right);
 }
 ```
+
+
+## Exercise 11
+
+Implement the following member function of class `BST`, which returns true if the tree is a left-leaning chain or a right leaning chain and returns false otherwise.
+
+```cpp
+bool is_chain() const;
+```
+
+A left-leaning chain is a tree where none of the nodes have a right child. A right-leaning chain is a tree where none of its nodes have a left child.
+
+
+#### *Solution*
+
+```cpp
+template <class T>
+bool BST<T>::is_chain() const {
+    if (root == nullptr)
+        return true;
+
+    // check if the tree is a left leaning chain
+    BSTNode<T>* curr = root;
+    bool left_chain = true;
+    while (curr != nullptr) {
+        if (curr->right != nullptr) {
+            left_chain = false;
+            break;
+        }
+        curr = curr->left;
+    }
+
+    if (left_chain)
+        return true;
+
+    // check if the tree is a right leaning chain
+    curr = root;
+    while (curr != nullptr) {
+        if (curr->left != nullptr)
+            return false;
+        curr = curr->right;
+    }
+
+    return true;
+}
+```
