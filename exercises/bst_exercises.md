@@ -537,3 +537,70 @@ bool BST<T>::is_chain() const {
     return true;
 }
 ```
+
+
+## Exercise 12
+
+Implement the following member function of class `BST`, which returns true if the tree is BST ordered and false otherwise.
+
+```cpp
+bool is_bst() const;
+```
+
+
+#### *Solution # 1*
+
+```cpp
+// If the in-order traversal of the tree gives a sorted list,
+// then the tree is a BST
+// Running Time: O(n)
+template <class T>
+bool BST<T>::is_bst() const {
+    DLList<T> list = elements();
+    
+    DLLNode<T>* curr = list.head_node();
+    while (curr != nullptr && curr->get_next() != nullptr) {
+        if (curr->get_val() > curr->get_next()->get_val())
+            return false;
+        curr = curr->get_next();
+    }
+
+    return true;
+}
+```
+
+#### *Solution # 2*
+
+```cpp
+template <class T>
+bool BST<T>::is_bst() const {
+    return is_bst(root, nullptr, nullptr);
+}
+
+// For every recursive call specify the lowest and highest nodes in the range.
+// Make sure the current node is not less than the lowest and not greater than
+// the highest
+// Running Time: O(n)
+template <class T>
+bool BST<T>::is_bst(BSTNode<T>* curr, BSTNode<T>* lo, BSTNode<T>* hi) const {
+    if (curr == nullptr)
+        return true;
+
+    if (lo != nullptr && curr->val < lo->val)
+        return false;
+    if (hi != nullptr && curr->val > hi->val)
+        return false;
+
+    bool left_bst = is_bst(curr->left, lo, curr);
+    bool right_bst = is_bst(curr->right, curr, hi);
+
+    return left_bst && right_bst;   
+}
+```
+
+#### *Solution # 3*
+Use any traversal to check if every node is:
+1. Greater than the maximum in its left subtree. 
+2. Less than the minimum in its right subtree.
+
+This algorithm runs in `O(nlogn)`, which is why the code is not provided here.
