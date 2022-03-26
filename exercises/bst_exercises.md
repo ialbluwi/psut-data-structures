@@ -551,13 +551,15 @@ bool is_bst() const;
 #### *Solution # 1*
 
 ```cpp
-// If the in-order traversal of the tree gives a sorted list,
-// then the tree is a BST
+// If the in-order traversal of the tree gives a
+// sorted list, then the tree is a BST.
 // Running Time: O(n)
 template <class T>
 bool BST<T>::is_bst() const {
+    // get the values in order
     DLList<T> list = elements();
     
+    // check if the list is sorted
     DLLNode<T>* curr = list.head_node();
     while (curr != nullptr && curr->get_next() != nullptr) {
         if (curr->get_val() > curr->get_next()->get_val())
