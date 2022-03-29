@@ -159,10 +159,11 @@ void List::add_to_tail(int val)
 
 // Deletes the head node.
 //    * If the list is empty, there is nothing to delete.
-//    * If there is only one node, the head and tail should 
-//      become null pointers.
-//    * If the list has more than one node, the head should 
+//    * The list has more than one node, the head should 
 //      move to the node after the current head.
+//    * If there is only one node in the list, moving the head
+//      forward makes it nullptr. In this case, the tail also
+//      must become nullptr.
 //
 // --- Asymptotic complexity: O(1)
 void List::remove_head()
@@ -170,16 +171,12 @@ void List::remove_head()
     if (is_empty())
         return;
 
-    Node* del_node = head;
+    Node* temp = head;
+    head = head->next;
+    delete temp;
 
-    if (head == tail) {
-        head = nullptr;
+    if (head == nullptr)
         tail = nullptr;
-    }
-    else
-        head = del_node->next;
-
-    delete del_node;
 }
 
 // Deletes the tail node.

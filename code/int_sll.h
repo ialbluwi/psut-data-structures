@@ -176,7 +176,8 @@ bool List::contains(int val) const
 }
 
 
-int List::get_at(int index) const {
+int List::get_at(int index) const 
+{
     if (is_empty() || index < 0)    
         throw string("ERROR: Invalid argument in function get_at(int)");
     
