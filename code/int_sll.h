@@ -107,16 +107,12 @@ void List::remove_head()
     if (is_empty())
         return;
 
-    Node* del_node = head;
+    Node* temp = head;
+    head = head->next;
+    delete temp;
 
-    if (head == tail) {
-        head = nullptr;
+    if (head == nullptr)
         tail = nullptr;
-    }
-    else
-        head = del_node->next;
-
-    delete del_node;
 }
 
 
