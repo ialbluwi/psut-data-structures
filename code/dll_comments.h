@@ -292,7 +292,8 @@ void DLList<T>::remove_tail()
 
 
 
-// Serches for the first occurrence of "val" and deletes it. 
+// Removes one occurrence of "val" from the list and returns true. 
+// Returns false if val is not in the list.
 //  * If the list is empty, there is nothing to do.
 //  * If "val" is at the head or the tail, then use remove_head() or 
 //    remove_tail().
