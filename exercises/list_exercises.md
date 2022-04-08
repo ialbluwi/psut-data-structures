@@ -110,7 +110,7 @@ void List::selection_sort()
 Exercise 4
 ----------
 
-Implement the following member function of class `List`, which returns `true` if the list contains a sequence of the 3 consequetive values equal to val.
+Implement the following member function of class `List`, which returns `true` if the list contains a sequence of 3 consequetive values equal to val.
 
 ```cpp
 bool check_seq3(int val) const;
