@@ -93,9 +93,6 @@ void selection_sort();
 ```cpp
 void List::selection_sort() 
 {
-    if (head == tail) // 0 or 1 nodes
-        return;
-
     for (Node* ptr1 = head; ptr1 != tail; ptr1 = ptr1->next) {
         // find the minimum from ptr1 to the tail
         Node* min_ptr = ptr1;
