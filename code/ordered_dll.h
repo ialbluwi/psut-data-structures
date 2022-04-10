@@ -247,7 +247,7 @@ void OrderedDLList<T>::append(const OrderedDLList& other)
 //      - If none of these cases are true, search for the appropriate place
 //        to insert in the list and preserve the order.
 //
-//                 pred              succ
+//                 pred              curr
 //                  V                 V
 //          +--+-------+--+    +--+-------+--+    +--+-------+--+ 
 //          |  |       | *|-X->|  |       |*-|--->|  |       |*-|--> 
@@ -285,23 +285,21 @@ void OrderedDLList<T>::insert(const T& val)
     // at this point, we know that the list has at least two nodes; otherwise
     // one of the three cases above would have been taken.
 
-    DLLNode<T>* new_node = new DLLNode<T>(val, nullptr, nullptr);
-    DLLNode<T>* succ = nullptr;
-    DLLNode<T>* pred = nullptr;
-
-    // traverse the list to find the right position for the new node
-    for (DLLNode<T>* curr = head; curr != nullptr; curr = curr->next)
-        if (val <= curr->val) { // insertion should be before "curr"
-            succ = curr;
-            pred = curr->prev;
-            break;
+    // Find the node before which the new node should be inserted
+    // and then insert.
+    DLLNode<T>* curr = head->next;
+    while (curr != nullptr) {
+        if (val <= curr->val) {
+            DLLNode<T>* pred = curr->prev;
+            DLLNode<T>* new_node = new DLLNode<T>(val, curr, pred);
+            curr->prev = new_node;
+            pred->next = new_node;
+            return;
         }
+        curr = curr->next;
+    }
 
-    // link the new node to its successor and predecessor
-    new_node->next = succ;
-    new_node->prev = pred;
-    succ->prev = new_node;
-    pred->next = new_node;
+    // The code should never reach here!
 }
 
 // Merges the ordered list "other" into the current list, which is also
