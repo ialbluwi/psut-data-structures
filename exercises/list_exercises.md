@@ -507,13 +507,13 @@ void DLList<T>::remove_all(const T& val)
 Exercise 13
 ----------
 
-Implement the following member function of class `DLList`, which returns all the common values between the current doubly-linked list and the reived doubly-linked list.
+Implement the following member function of class `DLList`, which returns all the common values between the current doubly-linked list and the recived doubly-linked list.
 
 ```cpp
 DLList find_common(const DLList& other) const;
 ```
 
-**Note 1.** that no value appears in the same list more than once.
+**Note 1.** No value appears in the same list more than once.
 
 **Note 2.** An `O(n^2)` solution is fine.
 
