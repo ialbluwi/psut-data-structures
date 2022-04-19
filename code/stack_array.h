@@ -89,7 +89,7 @@ T StackArray<T>::pop()
         throw string("ERROR: Stack underflow!");
         
     T val = data[last];
-    last--;
+    --last;
     return val;
 }
 
