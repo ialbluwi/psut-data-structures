@@ -21,15 +21,16 @@ Princess Sumaya University for Technology<br>
     * Singly-Linked Lists [[int_sll.h](code/int_sll.h)] [[int_sll_comments.h](code/int_sll_comments.h)] [[sll_test.cpp](code/sll_test.cpp)]
     * Doubly-Linked Lists [[dll.h](code/dll.h)] [[dll_comments.h](code/dll_comments.h)] [[dll_test.cpp](code/dll_test.cpp)][[ordered_dll.h](code/ordered_dll.h)]
 
+
+* **Stacks and Queues** [[stack__queue.cpp](code/stack_queue.cpp)] [[exercises](exercises/stacks_queues_exercises.md)]
+    * Stacks [[stack_array.h](code/stack_array.h)] [[stack_dll.h](code/stack_dll.h)]
+    * Queues [[queue_array.h](code/queue_array.h)] [[queue_dll.h](code/queue_dll.h)]
+
 ___
 
 _Material below this banner has not been finalized yet_
 
 ___
-
-* **Stacks and Queues** [[stack__queue.cpp](code/stack_queue.cpp)] [[exercises](exercises/stacks_queues_exercises.md)]
-    * Stacks [[stack_array.h](code/stack_array.h)] [[stack_dll.h](code/stack_dll.h)]
-    * Queues [[queue_array.h](code/queue_array.h)] [[queue_dll.h](code/queue_dll.h)]
 
 
 * **Binary Search Trees** [[bst.h](code/bst.h)] [[bst.cpp](code/bst.cpp)] [[exercises](exercises/bst_exercises.md)]
