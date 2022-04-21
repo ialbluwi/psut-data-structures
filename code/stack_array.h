@@ -43,7 +43,7 @@ StackArray<T>& StackArray<T>::operator=(const StackArray<T>& other) {
     if (this == &other)
         return *this;
 
-    clear();
+
     delete [] data;
 
     capacity = other.capacity;
