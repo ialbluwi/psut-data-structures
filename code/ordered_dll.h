@@ -317,7 +317,12 @@ void OrderedDLList<T>::insert(const T& val)
 // The problem is that if the size of the current list is N and the size of the
 // other list is M, this algorithm requires O(N*M + M^2) operations in 
 // the worst case.
-// (Running time = N + (N+1) + (N+2) + (N+3) + ... + (N+M-1)
+// (Consider the following case:
+//    Current List = 0 0 0 0 0 0 0 .... X    where X is larger than the largest
+//                                           value in the other list)
+//    Other List   = 1 2 3 4 5 6 7 .... M
+//
+//  Running time = N + (N+1) + (N+2) + (N+3) + ... + (N+M-1)
 //               = N*M + 1 + 2 + 3 + ... + M-1 = N*M + M(M-1)/2
 //               = O(NM + M^2))
 //
