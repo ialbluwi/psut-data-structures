@@ -603,7 +603,7 @@ void OrderedDLList<T>::remove_duplicates()
 }
 ```
 
-#### *Solution 1*
+#### *Solution 2*
 
 ```cpp
 template <class T>
