@@ -468,7 +468,7 @@ Implement the following member function of class `DLList`, which removes all the
 void remove_all(const T& val);
 ```
 
-#### *Solution*
+#### *Solution 1*
 
 ```cpp
 template <class T>
@@ -499,6 +499,24 @@ void DLList<T>::remove_all(const T& val)
         } else
             curr = curr->next;    
     }
+}
+```
+
+#### *Solution 2*
+
+```cpp
+template <class T>
+void DLList<T>::remove_all(const T& val) 
+{
+    DLList<T> temp_list;
+
+    while (!is_empty()) {
+        if (head->val != val)
+            temp_list.add_to_tail(head->val);
+        remove_head();
+    }
+
+    *this = temp_list;
 }
 ```
 
