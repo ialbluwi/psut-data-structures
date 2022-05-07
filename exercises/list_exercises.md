@@ -571,7 +571,7 @@ void remove_duplicates();
 **Example:** If the list is `1, 1, 1, 2, 3, 4, 4, 5, 5, 5` it should become `1, 2, 3, 4, 5`.
 
 
-#### *Solution*
+#### *Solution 1*
 
 ```cpp
 template <class T>
@@ -600,5 +600,24 @@ void OrderedDLList<T>::remove_duplicates()
             pred = pred->next;
         }
     }
+}
+```
+
+#### *Solution 1*
+
+```cpp
+template <class T>
+void OrderedDLList<T>::remove_duplicates() 
+{
+    DLList<T> temp_list;
+
+    DLLNode<T>* curr = head;
+    while (curr != nullptr) {
+        if (temp_list.is_empty() || curr->val != temp_list.tail->val)
+            temp_list.add_to_tail(curr->val);
+        curr = curr->next;
+    }
+
+    *this = temp_list;
 }
 ```
