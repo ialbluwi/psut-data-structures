@@ -452,8 +452,7 @@ void DLList<T>::remove(int index1, int index2)
     if (count <= index1)      
         throw string("ERROR: Invalid index passed to sublist()");      
 
-    clear();  
-    append(new_list);
+    *this = new_list;
 }
 ```
 
