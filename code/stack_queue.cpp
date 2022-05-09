@@ -63,5 +63,5 @@ void reverse(QueueArray<int>& queue) {
         queue.enqueue(stack.pop());
 }
 // Note. To reverse a Stack, we can use a Queue
-//       following the same logic used for reverseing
+//       following the same logic used for reversing
 //       the queue in the above function.
