@@ -452,8 +452,7 @@ void DLList<T>::remove(int index1, int index2)
     if (count <= index1)      
         throw string("ERROR: Invalid index passed to sublist()");      
 
-    clear();  
-    append(new_list);
+    *this = new_list;
 }
 ```
 
@@ -468,7 +467,7 @@ Implement the following member function of class `DLList`, which removes all the
 void remove_all(const T& val);
 ```
 
-#### *Solution*
+#### *Solution 1*
 
 ```cpp
 template <class T>
@@ -499,6 +498,24 @@ void DLList<T>::remove_all(const T& val)
         } else
             curr = curr->next;    
     }
+}
+```
+
+#### *Solution 2*
+
+```cpp
+template <class T>
+void DLList<T>::remove_all(const T& val) 
+{
+    DLList<T> temp_list;
+
+    while (!is_empty()) {
+        if (head->val != val)
+            temp_list.add_to_tail(head->val);
+        remove_head();
+    }
+
+    *this = temp_list;
 }
 ```
 
@@ -553,7 +570,7 @@ void remove_duplicates();
 **Example:** If the list is `1, 1, 1, 2, 3, 4, 4, 5, 5, 5` it should become `1, 2, 3, 4, 5`.
 
 
-#### *Solution*
+#### *Solution 1*
 
 ```cpp
 template <class T>
@@ -582,5 +599,24 @@ void OrderedDLList<T>::remove_duplicates()
             pred = pred->next;
         }
     }
+}
+```
+
+#### *Solution 2*
+
+```cpp
+template <class T>
+void OrderedDLList<T>::remove_duplicates() 
+{
+    DLList<T> temp_list;
+
+    DLLNode<T>* curr = head;
+    while (curr != nullptr) {
+        if (temp_list.is_empty() || curr->val != temp_list.tail->val)
+            temp_list.add_to_tail(curr->val);
+        curr = curr->next;
+    }
+
+    *this = temp_list;
 }
 ```
