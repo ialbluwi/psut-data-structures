@@ -40,6 +40,9 @@ private:
 template <class T>
 QueueArray<T>::QueueArray(int cap)
 {
+    if (cap <= 0)
+        throw string("Invalid capacity");
+
     capacity = cap;
     data = new T[capacity];
     clear();
