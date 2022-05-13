@@ -5,11 +5,11 @@ Queues Exercises
 
 ## Contents
 
-1. `void print() const`  
-2. `void postpone()`
-3. `void normalize()`
-4. ` void remove_all(QueueArray<T>& queue, const T& val) ` 
-5. `void move_first_to(QueueArray<T>& queue, int position) `
+1. [Exercise 1](#exercise-1): `void print() const`  
+2. [Exercise 2](#exercise-2): `void postpone()`
+3. [Exercise 3](#exercise-3): `void normalize()`
+4. [Exercise 4](#exercise-4): `void remove_all(QueueArray<T>& queue, const T& val) ` 
+5. [Exercise 5](#exercise-5): `void move_first_to(QueueArray<T>& queue, int position) `
 
 
 
@@ -93,10 +93,9 @@ void QueueArray<T>::normalize()
     while (!is_empty())
         temp_q.enqueue(dequeue());
     
-    while (!temp_q.is_empty())
-        enqueue(temp_q.dequeue());
+    *this = temp_q;
         
-    // A better idea is to call resize(capacity) which
+    // A better idea is to just call resize(capacity), which
     // has a similar effect. 
     
     // Another more tedious idea is to create a new array, copy
