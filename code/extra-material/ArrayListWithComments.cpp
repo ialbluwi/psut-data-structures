@@ -114,17 +114,17 @@ void ArrayList::clear()
 // 
 // For example: shif_left(2)
 //
-// Before:
-// [A | B | C| D | E | F | G |   |   |   ]
-//  0   1   2  3   4   5   6   7   8   9
-//			^			   ^
-//		startIndex		 last
+// Before:  *   *   *   *   *
+// [A | B | C | D | E | F | G |   |   |   ]
+//  0   1   2   3   4   5   6   7   8   9
+//	        ^               ^
+//	    startIndex        last
 //
-// After:
-// [A | B | C| C | D | E | F | G |   |   ]
-//  0   1   2  3   4   5   6   7   8   9
-//						       ^
-//							  last
+// After:       *   *   *   *   *
+// [A | B | C | C | D | E | F | G |   |   ]
+//  0   1   2   3   4   5   6   7   8   9
+//	        ^                   ^
+//	    startIndex             last
 // 
 // This function is used in order to create a vacant place at "startIndex", 
 // which can be used to insert a new value.
@@ -148,18 +148,18 @@ void ArrayList::shif_left(int start_index)
 // For example: shif_left(2)
 //
 // Before:
-//          *  *   *   *   * 
-// [A | B | C| D | E | F | G |   |   |   ]
-//  0   1   2  3   4   5   6   7   8   9
-//			^			   ^
-//		startIndex		 last
+//          *   *   *   *   * 
+// [A | B | C | D | E | F | G |   |   |   ]
+//  0   1   2   3   4   5   6   7   8   9
+//	        ^               ^
+//	     startIndex	       last
 //
 // After:
 //      *   *   *   *   *
 // [A | C | D | E | F | G | G |   |   |   ]
 //  0   1   2   3   4   5   6   7   8   9
-//						^
-//					   last
+//	                    ^
+//	                  last
 // 
 // This function is used in order to delete the element at "startIndex - 1", 
 // which can be used to insert a new value.
