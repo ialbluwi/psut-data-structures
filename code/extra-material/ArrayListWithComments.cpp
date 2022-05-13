@@ -42,6 +42,11 @@ private:
 // Constructor. Creates a new array of size "capacity".
 ArrayList::ArrayList(int cap)
 {
+	if (cap < 1) {
+		cout << "Invalid capacity";
+		exit(1);
+	}
+		
 	capacity = cap;
 	data = new int[capacity];
 	last = -1;
@@ -112,7 +117,7 @@ void ArrayList::clear()
 // Shifts all of the elements between "startIndex" and "last" (inclusive)
 // towards the end of the list. 
 // 
-// For example: shif_left(2)
+// For example: shif_right(2)
 //
 // Before:  *   *   *   *   *
 // [A | B | C | D | E | F | G |   |   |   ]
@@ -132,7 +137,7 @@ void ArrayList::clear()
 // No validity checks are made on the passed parameter since this is a private
 // function, which is called from public functions with proper validity checks.
 //
-void ArrayList::shif_left(int start_index)
+void ArrayList::shif_right(int start_index)
 {
 	int i;
 
@@ -167,7 +172,7 @@ void ArrayList::shif_left(int start_index)
 // No validity checks are made on the passed parameter since this is a private
 // function, which is called from public functions with proper validity checks.
 //
-void ArrayList::shift_right(int start_index)
+void ArrayList::shift_left(int start_index)
 {
 	int i;
 
@@ -183,7 +188,7 @@ void ArrayList::add_front(int val)
 	if (is_full())
 		resize(capacity * 2);
 	
-	shif_left(0);
+	shif_right(0);
 	data[0] = val;
 }
 
@@ -206,7 +211,7 @@ void ArrayList::remove_front()
 		cout << "Can't delete from an empty list" << endl;
 		return;
 	}
-	shift_right(1);
+	shift_left(1);
 }
 
 
@@ -229,7 +234,7 @@ bool ArrayList::remove(int val)
 	if (index == -1) 
 		return false;
 
-	shift_right(index+1);
+	shift_left(index+1);
 	return true;
 }
 
