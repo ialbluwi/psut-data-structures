@@ -29,9 +29,9 @@ public:
 private:
 	int* data;
 	int capacity;
-	int last;	// The index of the last element in the ArrayList. We are
-				// interested only in the values that are stored between 0
-				// and last (inclusive).
+	int last    // The index of the last element in the ArrayList. We are
+	            // interested only in the values that are stored between 0
+                // and last (inclusive).
 
 	void shif_left(int i);
 	void shift_right(int i);
@@ -117,14 +117,14 @@ void ArrayList::clear()
 // Before:  *   *   *   *   *
 // [A | B | C | D | E | F | G |   |   |   ]
 //  0   1   2   3   4   5   6   7   8   9
-//	        ^               ^
-//	    startIndex        last
+//          ^               ^
+//      startIndex        last
 //
 // After:       *   *   *   *   *
 // [A | B | C | C | D | E | F | G |   |   ]
 //  0   1   2   3   4   5   6   7   8   9
-//	        ^                   ^
-//	    startIndex             last
+//          ^                   ^
+//      startIndex             last
 // 
 // This function is used in order to create a vacant place at "startIndex", 
 // which can be used to insert a new value.
@@ -151,15 +151,15 @@ void ArrayList::shif_left(int start_index)
 //          *   *   *   *   * 
 // [A | B | C | D | E | F | G |   |   |   ]
 //  0   1   2   3   4   5   6   7   8   9
-//	        ^               ^
-//	     startIndex	       last
+//          ^               ^
+//       startIndex	       last
 //
 // After:
 //      *   *   *   *   *
 // [A | C | D | E | F | G | G |   |   |   ]
 //  0   1   2   3   4   5   6   7   8   9
-//	                    ^
-//	                  last
+//                      ^
+//                    last
 // 
 // This function is used in order to delete the element at "startIndex - 1", 
 // which can be used to insert a new value.
