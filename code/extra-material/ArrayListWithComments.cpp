@@ -29,11 +29,11 @@ public:
 private:
 	int* data;
 	int capacity;
-	int last    // The index of the last element in the ArrayList. We are
-	            // interested only in the values that are stored between 0
-                // and last (inclusive).
+	int last;    // The index of the last element in the ArrayList. We are
+	             // interested only in the values that are stored between 0
+                 // and last (inclusive).
 
-	void shif_left(int i);
+	void shift_left(int i);
 	void shift_right(int i);
 	void resize(int new_size);
 };
@@ -137,7 +137,7 @@ void ArrayList::clear()
 // No validity checks are made on the passed parameter since this is a private
 // function, which is called from public functions with proper validity checks.
 //
-void ArrayList::shif_right(int start_index)
+void ArrayList::shift_right(int start_index)
 {
 	int i;
 
@@ -188,7 +188,7 @@ void ArrayList::add_front(int val)
 	if (is_full())
 		resize(capacity * 2);
 	
-	shif_right(0);
+	shift_right(0);
 	data[0] = val;
 }
 
