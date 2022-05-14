@@ -61,7 +61,7 @@ QueueArray<T>::QueueArray(const QueueArray& other)
 }
 
 
-// Destrucotr.
+// Destructor.
 template <class T>
 QueueArray<T>::~QueueArray()
 {
