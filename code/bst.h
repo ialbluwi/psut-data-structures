@@ -71,8 +71,8 @@ private:
     void elements(DLList<T>& result, BSTNode<T>* node) const;
     bool contains(const T& val, BSTNode<T>* node) const;
 
-    void del_single(BSTNode<T>* ptr, BSTNode<T>* prev);
-    void del_double(BSTNode<T>* node);
+    void remove_1(BSTNode<T>* ptr, BSTNode<T>* prev);
+    void remove_2(BSTNode<T>* node);
     
     void clear(BSTNode<T>* node);
 };
@@ -351,11 +351,11 @@ bool BST<T>::remove(const T& val)
         return false;
     
     // if the node to be deleted has 0 or 1 children, 
-    // call del_single() else call del_double()
+    // call remove_1() else call remove_2()
     if (node->left == nullptr || node->right == nullptr)
-        del_single(node, prev);
+        remove_1(node, prev);
     else
-        del_double(node);
+        remove_2(node);
     
     return true;
 }
@@ -364,7 +364,7 @@ bool BST<T>::remove(const T& val)
 // Deletes a node with at most one child.
 // This function is O(1) in the best and worst case.
 template <class T>
-void BST<T>::del_single(BSTNode<T>* ptr, BSTNode<T>* prev)
+void BST<T>::remove_1(BSTNode<T>* ptr, BSTNode<T>* prev)
 {
     // if the node to be deleted is the root
     if (ptr == root) {
@@ -403,7 +403,7 @@ void BST<T>::del_single(BSTNode<T>* ptr, BSTNode<T>* prev)
 // Deletes a node with exactly two children.
 // This function is O(height) in the worst case and O(1) in the best case.
 template <class T>
-void BST<T>::del_double(BSTNode<T>* node)
+void BST<T>::remove_2(BSTNode<T>* node)
 {
     // the replacement will be the largest node in the left subtree.
     // So, start searching for a replacement by going left
@@ -421,9 +421,9 @@ void BST<T>::del_double(BSTNode<T>* node)
     // copy the value of the replacement into the node to be deleted 
     node->val = rep->val;
 
-    // delete the replacement node using del_single, because that
+    // delete the replacement node using remove_1, because that
     // node does not have a right child.
-    del_single(rep, prev);
+    remove_1(rep, prev);
 }
 
 
@@ -495,7 +495,7 @@ T BST<T>::remove_max() {
     }
 
     T val = curr->val;
-    del_single(curr, prev);
+    remove_1(curr, prev);
     return val;
 }
 
@@ -513,7 +513,7 @@ T BST<T>::remove_min() {
     }
 
     T val = curr->val;
-    del_single(curr, prev);
+    remove_1(curr, prev);
     return val;
 }
 
