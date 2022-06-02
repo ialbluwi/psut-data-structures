@@ -118,6 +118,8 @@ void HashTable<T>::remove_duplicates()
         insert(curr->get_val());
         curr = curr->get_next();
     }
+    
+    // NOTE. Lines 112 - 120 can be replaced with: *this = tmep_table;
 }
 ```
 
