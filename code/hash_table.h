@@ -185,6 +185,7 @@ void HashTable<T>::resize(int new_size)
     // create a new table with the new size.
     // O(m)
     m = new_size;
+    n = 0;
     table = new DLList<T>[m];
 
     // re-insert all the values into the table.
