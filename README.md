@@ -32,14 +32,13 @@ Princess Sumaya University for Technology<br>
     * Insertion, deletion and re-balancing [[slides](https://drive.google.com/file/d/1YPTDM4HdVG9to-uCvjfE8V1ObwCwuc5H/view?usp=sharing)]
     * Traversals [[slides](https://drive.google.com/file/d/1fruIlAlGngGH0VZ9pGfoXCkrql9Obsrz/view?usp=sharing)]
 
+* **Hash Tables** [[slides](https://drive.google.com/file/d/1Eka4poNVMNgdTKyUk06OUP2ufTFqCc3P)] [[hash_table.h](code/hash_table.h)] [[hashing.cpp](code/hashing.cpp)] [[exercises](exercises/hashing_exercises.md)]
+
+* **Priority Queues** [[slides](https://drive.google.com/file/d/14AT2cFd0zpp7okcOEYhFHJ4eXQV8bsvQ)]
 ___
 
 _Material below this banner has not been finalized yet_
 
 ___
-
-* **Priority Queues** [[slides](https://drive.google.com/file/d/14AT2cFd0zpp7okcOEYhFHJ4eXQV8bsvQ)]
-
-* **Hash Tables** [[slides](https://drive.google.com/file/d/1Eka4poNVMNgdTKyUk06OUP2ufTFqCc3P)] [[hash_table.h](code/hash_table.h)] [[hashing.cpp](code/hashing.cpp)] [[exercises](exercises/hashing_exercises.md)]
 
 * **C++ Standard Template Library (STL)** [[STL.cpp](code/STL.cpp)]
