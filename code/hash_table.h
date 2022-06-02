@@ -129,6 +129,8 @@ int HashTable<int>::hash_value(const int& val) const
 }
 
 // A simplified version of the string hash function
+// Sum and R in this version can overflow. The code
+// is provided here for teaching purposes only.
 // int HashTable<string>::hash_value(const string& val) const 
 // {
 //     int sum = 0; 
