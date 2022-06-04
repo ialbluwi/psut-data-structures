@@ -49,6 +49,8 @@
  *		6.	Access the values using * or *(iterator +/- step).
  *
  *		7.	Know how to use the two iterators: begin() and end().
+ *		
+ *		8.  Know how to use Range-based for loops
  *
  *	F)	Priority Queues:
  *		1.	push
@@ -114,7 +116,9 @@ int main() {
 	//				them in descending order.
 	cout << endl << endl << "Printing the contents of a priority queue: \n";
 	
-	priority_queue<int> pq;
+	priority_queue<int> pq; // define a max-priority queue
+	// to define a min-priority queue use:
+	// priority_queue<int, vector<int>, std::greater<int>> pq;
 	
 	for (int i=0; i<10; i++) {
 		int x = rand() % 10;
@@ -138,28 +142,36 @@ int main() {
 	
 	list<int> myList;
 	
-	for (int i=0; i<10; i++) {
+	// Create the following list:
+	// 0 1 2 3 4 5 6 7 8 9
+	for (int i = 0; i <= 10; i++)
 		myList.push_back(i);
+	for (int i = 10; i >= 0; i--)
 		myList.push_front(i);
-	}
 	
+	// printing forward
 	list<int>::iterator temp;
 	for (temp = myList.begin(); temp != myList.end(); temp++)
 		cout << *temp << ", ";
 	cout << endl;
 	
-	
+	// printing backward
 	temp--;
 	for (; temp != myList.begin(); temp--)
 		cout << *temp << ", ";
 	cout << *temp << endl;
+
+	// printing using the range-based for loop:
+	// for (int val : myList)
+	// 		cout << val << ", ";
+	// cout << endl;
 	//--------------------------------------------------------------------------
 	
 	
 	
 	
 	// Example 4: Using vectors and vector iterators.
-	cout << endl << endl << "Printing the contents of a vector using three "
+	cout << endl << endl << "Printing the contents of a vector using four "
 	<< "different ways." << endl;
 	
 	vector<int> myVector;
@@ -182,6 +194,11 @@ int main() {
 	for (int i = 0; i < myVector.size(); i++)
 		cout << myVector[i] << ", ";
 	cout << endl;
+
+
+	for (int val : myVector)
+			cout << val << ", ";
+	cout << endl;
 	//--------------------------------------------------------------------------
 	
 	
@@ -196,13 +213,12 @@ int main() {
 	
 	
 	// Example 6: Removing the duplicates from a stack.
-	
 	while (!myStack.empty())
 		myStack.pop();
 	
 	
 	cout << "\n\nContents of the stack reversed are: " << endl;
-	for (int i=0; i<10; i++) {
+	for (int i = 0; i < 10; i++) {
 		int x = rand() % 10;
 		cout << x << ", ";
 		
