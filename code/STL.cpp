@@ -69,6 +69,7 @@
 #include <queue>
 #include <list>
 #include <vector>
+#include <set>
 #include <algorithm>
 #include <iostream>
 
@@ -251,6 +252,25 @@ int main() {
 	
 	
 	
-	
+	// ---------------------------- OPTIONAL -------------------------------- //
+
+	// "set"				: an AVL tree that does not allow duplicates
+	// "multiset"			: an AVL tree that allows duplicates
+	// "unordered_set"		: a hash table that does not allow duplicates
+	// "unordered_multiset" : a hash table that allows duplicates
+
+	// use a set to generate 25 distinct random numbers between 0 and 50
+	set<int> numbers;
+	while (numbers.size() < 25) {
+		int x = rand() % 51;
+		if (numbers.find(x) == numbers.end())
+			numbers.insert(x);
+	}
+
+	cout << "\n\n25 distinct random numbers:\n";
+	for (int val : numbers)
+		cout << val << ", ";
+	cout << endl;
+
 	return 0;
 }
