@@ -235,7 +235,7 @@ void List::remove_tail()
 
 //
 // --- Asymptotic complexity: 
-//        * Best Case:    O(1) If the value is at the head or the tail.
+//        * Best Case:    O(1) If the value is at the head.
 //        * Worst Case:   O(n) If the value is at the node before the tail.
 //        COMMON ERROR: Considering an empty list as the best case.
 //        WHY IS THIS WRONG? Specifying the best and worst cases is
