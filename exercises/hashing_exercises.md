@@ -98,28 +98,16 @@ void remove_duplicates();
 template <class T>
 void HashTable<T>::remove_duplicates()
 {
-    HashTable<T> temp_table;
     DLList<T> temp_list = elements();
-  
-    // insert into temp_table only distinct elements
-    DLLNode<T>* curr = temp_list.head_node();
-    while (curr != nullptr) {
-        if (!temp_table.contains(curr->get_val()))
-            temp_table.insert(curr->get_val());
-        curr = curr->get_next();
-    }
-  
     clear();
   
-    // insert back the elements from temp_table
-    temp_list = temp_table.elements();
-    curr = temp_list.head_node(); 
+    // insert back only distinct elements
+    DLLNode<T>* curr = temp_list.head_node();
     while (curr != nullptr) {
-        insert(curr->get_val());
+        if (!contains(curr->get_val()))
+            insert(curr->get_val());
         curr = curr->get_next();
     }
-    
-    // NOTE. Lines 112 - 120 can be replaced with: *this = tmep_table;
 }
 ```
 
