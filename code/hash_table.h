@@ -187,13 +187,13 @@ void HashTable<T>::resize(int new_size)
     // create a new table with the new size.
     // O(m)
     m = new_size;
-    n = 0;
     table = new DLList<T>[m];
 
     // re-insert all the values into the table.
     // Running Time: O(n) --> insert an remove_head = O(1) repeated n times.
     while (!values.is_empty()) {
-        insert(values.head_val());
+        int index = hash_value(values.head_val());
+        table[index].add_to_tail(values.head_val()); 
         values.remove_head();
     }
 }
