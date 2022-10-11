@@ -10,13 +10,13 @@ Princess Sumaya University for Technology<br>
 
 ### Detailed Links
 
+* **Algorithm Analysis** [[slides](https://drive.google.com/file/d/17l0dOvNT5tSNCrhB0xFHg-RQ6hcttQU-)] [[exercises](https://drive.google.com/file/d/13y1PejyoEpSdo5xig_6Pmy9lClzZpfBu)] [[previous exam questions](https://docs.google.com/document/d/1Eln96RuMHlePVwB3BgCIuSqlLDhR6-mvYqqlHxKpGcU)] [[math cheatsheet](https://drive.google.com/file/d/197IIsUG1I_Ys1rFXhi1l6QRuLahQwDoh)]
+
 ___
 
 _Material below this banner has not been finalized yet_
 
 ___
-
-* **Algorithm Analysis** [[slides](https://drive.google.com/file/d/17l0dOvNT5tSNCrhB0xFHg-RQ6hcttQU-)] [[exercises](https://drive.google.com/file/d/13y1PejyoEpSdo5xig_6Pmy9lClzZpfBu)] [[previous exam questions](https://docs.google.com/document/d/1Eln96RuMHlePVwB3BgCIuSqlLDhR6-mvYqqlHxKpGcU)] [[math cheatsheet](https://drive.google.com/file/d/197IIsUG1I_Ys1rFXhi1l6QRuLahQwDoh)]
 
 * **Searching and Sorting** [[previous exam questions](https://docs.google.com/document/d/17SfDcoqVTrXCOfDPthRuwgHJCGsZWg3NGwCRDc56Vh8)]
     * Linear & Binary Search [[slides](https://drive.google.com/file/d/1WdVifS5IhyhjgKRHumf9fUw5mwC1TDJU)]
