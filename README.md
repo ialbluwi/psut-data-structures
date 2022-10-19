@@ -12,16 +12,16 @@ Princess Sumaya University for Technology<br>
 
 * **Algorithm Analysis** [[slides](https://drive.google.com/file/d/17l0dOvNT5tSNCrhB0xFHg-RQ6hcttQU-)] [[exercises](https://drive.google.com/file/d/13y1PejyoEpSdo5xig_6Pmy9lClzZpfBu)] [[previous exam questions](https://docs.google.com/document/d/1Eln96RuMHlePVwB3BgCIuSqlLDhR6-mvYqqlHxKpGcU)] [[math cheatsheet](https://drive.google.com/file/d/197IIsUG1I_Ys1rFXhi1l6QRuLahQwDoh)]
 
-___
-
-_Material below this banner has not been finalized yet_
-
-___
 
 * **Searching and Sorting** [[previous exam questions](https://docs.google.com/document/d/17SfDcoqVTrXCOfDPthRuwgHJCGsZWg3NGwCRDc56Vh8)]
     * Linear & Binary Search [[slides](https://drive.google.com/file/d/1WdVifS5IhyhjgKRHumf9fUw5mwC1TDJU)]
     * Sorting [[slides (full)](https://drive.google.com/file/d/12xXSnvu9KP7n1QAiNO4nKslAr0Myv6A9/)][[slides (short)](https://drive.google.com/file/d/1e_VIPMUpYJxKL6tvSRhS9tet9tsTeDUQ/view?usp=sharing)]
 
+___
+
+_Material below this banner has not been finalized yet_
+
+___
 
 * **Lists** [[exercises](exercises/list_exercises.md)] [[previous exam questions](https://docs.google.com/document/d/15BVMhjwFnGattwKcs6xEZKDmKR7CzMbF-gSj-buPzY4/edit?usp=sharing)]
     * Singly-Linked Lists [[int_sll.h](code/int_sll.h)] [[int_sll_comments.h](code/int_sll_comments.h)] [[sll_test.cpp](code/sll_test.cpp)]
