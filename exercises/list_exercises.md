@@ -128,7 +128,7 @@ bool List::check_seq3(int val) const
         
     Node* curr = head;
     while (curr->next->next != nullptr) {
-        if (curr->val == curr->next->val && curr->val == curr->next->next->val)
+        if (curr->val == val && curr->next->val == val && curr->next->next->val == val)
             return true;
         curr = curr->next;
     }
