@@ -182,21 +182,20 @@ T DLList<T>::tail_val() const
 }
 
 // Adds a node to the beginning of the list.
-// Steps:
-//  1) Create a node with value "val". Set the next pointer to point at the 
-//     head and prev to be nullptr.
-//  2) Set the prev pointer of the current head to point at the new node.
-//  3) If the list is empty, move the tail to point at the new node.
-//  4) Move the head to point at the new node.
 // --- Asymptotic complexity: O(1)
 template <class T>
 void DLList<T>::add_to_head(const T& val)
 {
+    // The next of the new node is the old head, and the previous is nullptr
     DLLNode<T>* new_node = new DLLNode<T>(val, head, nullptr);
 
+    // If there is a head in the list, then its previous must
+    // point at the newly crated node
     if (head != nullptr)
         head->prev = new_node;
 
+    // The head must become the new node.
+    // The tail changes only if it is the first node added to the list
     head = new_node;
     if (tail == nullptr)
         tail = new_node;
@@ -205,21 +204,21 @@ void DLList<T>::add_to_head(const T& val)
 
 
 // Adds a node to the end of the list.
-// Steps:
-//  1) Create a node with value "val". Set the next pointer to nullptr
-//     and prev to point at the current tail.
-//  2) Set the next pointer of the current tail to point at the new node.
-//  3) If the list is empty, move the head to point at the new node.
-//  4) Move the tail to point at the new node.
 // --- Asymptotic complexity: O(1)
 template <class T>
 void DLList<T>::add_to_tail(const T& val)
 {
+    // The next of the new tail is nullptr, and the previous is the old tail
     DLLNode<T>* new_node = new DLLNode<T>(val, nullptr, tail);
 
+    // If there is a tail already in the list, then its next
+    // must point at the newly created node
     if (tail != nullptr)
         tail->next = new_node;
 
+    // The tail pointer must always move to point at the
+    // newly created node. The head changes only if it is
+    // the first node added to the list.
     tail = new_node;
     if (head == nullptr)
         head = new_node;
@@ -229,48 +228,37 @@ void DLList<T>::add_to_tail(const T& val)
 
 
 // Deletes the head node.
-//  * If the list is empty, there is nothing to delete.
-//  * If there is only one node, the node is deleted 
-//    and the head and tail are set to null.
-//  * If the list has more than one node:
-//     - Create a node del_node to point at the current head.
-//     - Move the current head to the next node.
-//     - Set the prev pointer of the new head to null.
-//     - Delete the node pointed at by del_node.
-//     
 // --- Asymptotic complexity: O(1)
 template <class T>
 void DLList<T>::remove_head()
 {
-    DLLNode<T>* del_node = head;
-
     if (is_empty())
         return;
 
-    if (head == tail) // if only one node in list
-        head = tail = nullptr;
-    else {
-        head = del_node->next;
+    // save a pointer to the current head
+    // and move the head forward.
+    DLLNode<T>* del_node = head;
+    head = del_node->next;
+
+    // if the head is now nullptr, it means that
+    // there is only one node in the list. Hence,
+    // the tail must also become nullptr.
+    if (head == nullptr)
+        tail = nullptr;
+    else
         head->prev = nullptr;
-    }
+        // if the head is not nullptr, its prev
+        // must be set to nullptr 
+
     delete del_node;
 }
 
 
 // Deletes the tail node.
-//  * If the list is empty, there is nothing to delete.
-//  * If there is only one node, the node is deleted 
-//    and the head and tail are set to null.
-//  * If the list has more than one node:
-//        - Create a node del_node to point at the current tail.
-//        - Move the current tail to the previous node.
-//        - Set the next pointer of the new tail to null.
-//        - Delete the node pointed at by del_node.
-//
 // --- Asymptotic complexity: O(1)
 // --- Note that this operation was O(n) in the singly-linked list.
 // --- The prev pointer allows moving the tail easily one step backward, which
-// --- was not possible in the SLL without traversing the list upto the node
+// --- was not possible in the SLL without traversing the list up to the node
 // --- preceding the tail.
 template <class T>
 void DLList<T>::remove_tail()
@@ -278,14 +266,20 @@ void DLList<T>::remove_tail()
     if (is_empty())
         return;
 
+    // save a pointer to the current tail
+    // and move the tail pointer backwards
     DLLNode<T>* del_node = tail;
+    tail = tail->prev;
 
-    if (head == tail) // if only one node in list
-        head = tail = nullptr;
-    else {
-        tail = del_node->prev;
-        tail->next = nullptr;    
-    }
+    // if the tail is now nullptr, this means that
+    // there is only one node in the list. Hence,
+    // the head must also point at nullptr
+    if (tail == nullptr) 
+        head = nullptr;
+    else
+        tail->next = nullptr;
+        // if the tail is not nullptr, its next
+        // must be set to nullptr
 
     delete del_node;
 }
