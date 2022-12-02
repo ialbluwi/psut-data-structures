@@ -1,14 +1,16 @@
 #pragma once
 
-#include <string>
-using std::string;
+#include <iostream>
+using namespace std;
+
+const int DEFAULT_CAPACITY = 8;
 
 // A Queue class based on a circular array implementation
 template <class T>
 class QueueArray
 {
 public:
-    QueueArray(int cap);
+    QueueArray();
     QueueArray(const QueueArray& other);
     ~QueueArray();
 
@@ -36,36 +38,70 @@ private:
 
 
 // Constructor.
-// Initially no values are in the queue, so first and last are -1.
+// Initially no values are in the queue, 
+// so first and last are -1.
 template <class T>
-QueueArray<T>::QueueArray(int cap)
+QueueArray<T>::QueueArray()
 {
-    if (cap <= 0)
-        throw string("Invalid capacity");
-
-    capacity = cap;
+    capacity = DEFAULT_CAPACITY;
     data = new T[capacity];
-    clear();
+    last = -1;
+    first = -1;
+    size = 0;
 }
-
-// Copy constructor
-template <class T>
-QueueArray<T>::QueueArray(const QueueArray& other)
-{
-    capacity = other.capacity;
-    data = new T[capacity];
-    clear();
-
-    for (int i = other.first; size < other.size; i = (i+1) % capacity)
-        enqueue(other.data[i]);
-}
-
 
 // Destructor.
 template <class T>
 QueueArray<T>::~QueueArray()
 {
     delete [] data;
+}
+
+template <class T>
+T QueueArray<T>::get_first() const
+{
+    if (is_empty())
+        throw string("ERROR: An empty queue has no first element");
+
+    return data[first];
+}
+
+template <class T>
+T QueueArray<T>::get_last() const
+{
+    if (is_empty())
+        throw string("ERROR: An empty queue has no last element");
+
+    return data[last];
+}
+
+template <class T>
+bool QueueArray<T>::is_empty() const
+{
+    return size == 0;
+}
+
+template <class T>
+bool QueueArray<T>::is_full() const
+{
+    return size == capacity;
+}
+
+template <class T>
+int QueueArray<T>::get_size() const 
+{
+    return size;
+}
+
+template <class T>
+void QueueArray<T>::clear()
+{
+    first = -1;
+    last = -1;
+    size = 0;
+
+    delete [] data;
+    data = new T[DEFAULT_CAPACITY];
 }
 
 
@@ -99,22 +135,19 @@ QueueArray<T>::~QueueArray()
 //    0   1   2   3   4   6   7
 //    ^       ^               
 //  last    first           
-
+//
 template <class T>
 void QueueArray<T>::enqueue(const T& val)
 {
     if (is_full())
         resize(capacity * 2);
     
-    if (is_empty()) {
-        first = 0;
-        last = 0;
-    }
-    else 
-        last = (last + 1) % capacity;
-
+    last = (last + 1) % capacity;
     data[last] = val;
     size++;
+
+    if (first == -1)
+        first = 0;
 }
 
 
@@ -165,55 +198,65 @@ T QueueArray<T>::dequeue()
     else 
         first = (first + 1) % capacity;
 
-    if (size <= capacity / 4)
+    if (size < capacity / 4 && capacity > DEFAULT_CAPACITY)
         resize(capacity / 2);
 
     return val;
 }
 
-template <class T>
-T QueueArray<T>::get_first() const
-{
-    if (is_empty())
-        throw string("ERROR: An empty queue has no first element");
 
-    return data[first];
+// Copy constructor
+template <class T>
+QueueArray<T>::QueueArray(const QueueArray& other)
+{
+    capacity = other.capacity;
+    data     = new T[capacity];
+
+    int j = other.first;
+    for (int i = 0; i < other.size; i++) {
+        data[i] = other.data[j];
+        j = (j + 1) % other.capacity;
+    }
+
+    size = other.size;
+    if (size == 0) {
+        first = -1;
+        last  = -1;
+    } else {
+        first = 0;
+        last  = size - 1;
+    }
 }
 
-template <class T>
-T QueueArray<T>::get_last() const
-{
-    if (is_empty())
-        throw string("ERROR: An empty queue has no last element");
-
-    return data[last];
-}
 
 template <class T>
-bool QueueArray<T>::is_empty() const
+QueueArray<T>& QueueArray<T>::operator=(const QueueArray<T>& other) 
 {
-    return size == 0;
+    if (this == &other)
+        return *this;
+
+    delete [] data;
+    capacity = other.capacity;
+    data     = new T[capacity];
+
+    int j = other.first;
+    for (int i = 0; i < other.size; i++) {
+        data[i] = other.data[j];
+        j = (j + 1) % other.capacity;
+    }
+
+    size = other.size;
+    if (size == 0) {
+        first = -1;
+        last  = -1;
+    } else {
+        first = 0;
+        last  = size - 1;
+    }
+
+    return *this;
 }
 
-template <class T>
-bool QueueArray<T>::is_full() const
-{
-    return size == capacity;
-}
-
-template <class T>
-void QueueArray<T>::clear()
-{
-    first = -1;
-    last = -1;
-    size = 0;
-}
-
-template <class T>
-int QueueArray<T>::get_size() const 
-{
-    return size;
-}
 
 template <class T>
 void QueueArray<T>::resize(int new_cap) 
@@ -222,7 +265,6 @@ void QueueArray<T>::resize(int new_cap)
         throw string("ERROR: Invalid new capacity");
 
     T* new_data = new T[new_cap];
-    
     int j = first;
     for (int i = 0; i < size; i++) {
         new_data[i] = data[j];
@@ -233,25 +275,11 @@ void QueueArray<T>::resize(int new_cap)
     data = new_data;
     capacity = new_cap;
 
-    last = size-1;
-    if (size > 0)
+    if (size == 0) {
+        first = -1;
+        last  = -1;
+    } else {
         first = 0;
-}
-
-template <class T>
-QueueArray<T>& QueueArray<T>::operator=(const QueueArray<T>& other) 
-{
-    if (this == &other)
-        return *this;
-
-    clear();
-    delete [] data;
-
-    capacity = other.capacity;
-    data = new T[capacity];
-
-    for (int i = other.first; size < other.size; i = (i+1) % capacity)
-        enqueue(other.data[i]);
-
-    return *this;
+        last  = size - 1;
+    }
 }

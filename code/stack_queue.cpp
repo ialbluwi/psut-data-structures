@@ -8,14 +8,16 @@ void print(QueueArray<int>& queue);
 void reverse(QueueArray<int>& queue);
 
 int main() {
-    QueueArray<int> queue(2);
+    QueueArray<int> queue;
 
     for (int i = 0; i < 20; i++)
         queue.enqueue(i);
 
+    cout << "Queue:    ";
     print(queue);
     cout << endl;
 
+    cout << "Reversed: ";
     reverse(queue);
     print(queue);
     cout << endl;
@@ -58,7 +60,7 @@ void reverse(QueueArray<int>& queue) {
     
     while (!queue.is_empty())
         stack.push(queue.dequeue());
-    
+
     while (!stack.is_empty())
         queue.enqueue(stack.pop());
 }
