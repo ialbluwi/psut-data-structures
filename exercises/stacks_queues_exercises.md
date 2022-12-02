@@ -36,8 +36,8 @@ void QueueArray<T>::print() const
         cout << data[i];
         if (count < size-1)
             cout << ", ";
-	count++;
-	i = (i+1) % capacity;
+        count++;
+        i = (i+1) % capacity;
     }
     
     cout << "]";
