@@ -89,7 +89,7 @@ void QueueArray<T>::normalize()
     if (first == 0 || first == -1)
         return;
     
-    QueueArray<T> temp_q(capacity);
+    QueueArray<T> temp_q;
     while (!is_empty())
         temp_q.enqueue(dequeue());
     
@@ -123,7 +123,7 @@ void remove_all(QueueArray<T>& queue, const T& val);
 template <class T>
 void remove_all(QueueArray<T>& queue, const T& val)
 {
-    QueueArray<T> temp_q(2);
+    QueueArray<T> temp_q;
     while (!queue.is_empty()) {
         T curr_val = queue.dequeue();
         if (curr_val != val)
@@ -159,7 +159,7 @@ void move_first_to(QueueArray<T>& queue, int pos)
     if (pos < 0 || pos >= queue.get_size())
         throw string("ERROR: Invalid argument(s)");
               
-    QueueArray<T> temp_q(2);
+    QueueArray<T> temp_q;
     T first_val = queue.dequeue();
                      
     for (int i = 0; i < pos; i++)
