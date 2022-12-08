@@ -102,6 +102,7 @@ void QueueArray<T>::clear()
 
     delete [] data;
     data = new T[DEFAULT_CAPACITY];
+    capacity = DEFAULT_CAPACITY;
 }
 
 
