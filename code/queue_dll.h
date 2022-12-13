@@ -75,3 +75,10 @@ bool QueueDLL<T>::is_empty() const
 {
     return list.is_empty();
 }
+
+
+template <class T>
+void QueueDLL<T>::clear()
+{
+    list.clear();
+}
