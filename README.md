@@ -10,12 +10,7 @@ Princess Sumaya University for Technology<br>
 
 ### Detailed Links
 
-* **Algorithm Analysis** [[slides](https://drive.google.com/file/d/17l0dOvNT5tSNCrhB0xFHg-RQ6hcttQU-)] [[exercises](https://drive.google.com/file/d/13y1PejyoEpSdo5xig_6Pmy9lClzZpfBu)] [[previous exam questions](https://docs.google.com/document/d/1Eln96RuMHlePVwB3BgCIuSqlLDhR6-mvYqqlHxKpGcU)] [[math cheatsheet](https://drive.google.com/file/d/197IIsUG1I_Ys1rFXhi1l6QRuLahQwDoh)]
- <!--   * Counting operations [[exercises 1](https://drive.google.com/file/d/13y1PejyoEpSdo5xig_6Pmy9lClzZpfBu)] [[exercises 2](https://drive.google.com/file/d/13y1PejyoEpSdo5xig_6Pmy9lClzZpfBu)]
-    * Orders of growth [[exercises](https://drive.google.com/file/d/13y1PejyoEpSdo5xig_6Pmy9lClzZpfBu)]
-    * Running time calculations [[exercises](https://drive.google.com/file/d/13y1PejyoEpSdo5xig_6Pmy9lClzZpfBu)]
-    * Other topics [[exercises](https://drive.google.com/file/d/13y1PejyoEpSdo5xig_6Pmy9lClzZpfBu)]
--->
+* **Algorithm Analysis** [[slides](https://drive.google.com/file/d/17l0dOvNT5tSNCrhB0xFHg-RQ6hcttQU-)] [[exercises](https://drive.google.com/file/d/13y1PejyoEpSdo5xig_6Pmy9lClzZpfBu) + [solutions](https://drive.google.com/file/d/1fsJcFL_rYMu_Yw9ANS1qkh2Y4-u2jB1e/view?usp=share_link)] [[previous exam questions](https://docs.google.com/document/d/1Eln96RuMHlePVwB3BgCIuSqlLDhR6-mvYqqlHxKpGcU)] [[math cheatsheet](https://drive.google.com/file/d/197IIsUG1I_Ys1rFXhi1l6QRuLahQwDoh)]
 
 * **Searching and Sorting** [[previous exam questions](https://docs.google.com/document/d/17SfDcoqVTrXCOfDPthRuwgHJCGsZWg3NGwCRDc56Vh8)]
     * Linear & Binary Search [[slides](https://drive.google.com/file/d/1WdVifS5IhyhjgKRHumf9fUw5mwC1TDJU)]
