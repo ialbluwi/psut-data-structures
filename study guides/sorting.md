@@ -2,7 +2,7 @@
 
 We advise you to study in the following order:
 
-1. Begin by understanding the slides. 
+1. Begin by understanding the slides 
 (_ignore for now the **Advanced Exercises** that are at the end of the sorting slides_.)
 
 2. Solve the following tracing question:
