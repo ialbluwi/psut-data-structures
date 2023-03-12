@@ -5,12 +5,12 @@ Princess Sumaya University for Technology<br>
 # Course Material
 
 ### Quick Links
-[[code](code/)] [[slides](https://drive.google.com/drive/folders/1pKm5KkEsBfC2UWBvvBaGgbt0QvtU3NaP)] [[exercises](exercises/)] [[previous exams](https://drive.google.com/drive/folders/13e8MXoUnqkpg67tQXuThBoEF4IC6nV85)]
+[[code](code/)] [[slides](https://drive.google.com/drive/folders/1pKm5KkEsBfC2UWBvvBaGgbt0QvtU3NaP)] [[study guides](study%20guides/)] [[exercises](exercises/)] [[previous exams](https://drive.google.com/drive/folders/13e8MXoUnqkpg67tQXuThBoEF4IC6nV85)]
 
 
 ### Detailed Links
 
-* **Algorithm Analysis** [[slides](https://drive.google.com/file/d/17l0dOvNT5tSNCrhB0xFHg-RQ6hcttQU-)] [[exercises](https://drive.google.com/file/d/13y1PejyoEpSdo5xig_6Pmy9lClzZpfBu) + [solutions](https://drive.google.com/file/d/1fsJcFL_rYMu_Yw9ANS1qkh2Y4-u2jB1e/view?usp=share_link)] [[previous exam questions](https://docs.google.com/document/d/1Eln96RuMHlePVwB3BgCIuSqlLDhR6-mvYqqlHxKpGcU)] [[math cheatsheet](https://drive.google.com/file/d/197IIsUG1I_Ys1rFXhi1l6QRuLahQwDoh)]
+* **Algorithm Analysis** [[slides](https://drive.google.com/file/d/17l0dOvNT5tSNCrhB0xFHg-RQ6hcttQU-)] [[study guide](study%20guides/analysis.md)] [[math cheatsheet](https://drive.google.com/file/d/197IIsUG1I_Ys1rFXhi1l6QRuLahQwDoh)]
 
 * **Searching and Sorting** [[previous exam questions](https://docs.google.com/document/d/17SfDcoqVTrXCOfDPthRuwgHJCGsZWg3NGwCRDc56Vh8)]
     * Linear & Binary Search [[slides](https://drive.google.com/file/d/1WdVifS5IhyhjgKRHumf9fUw5mwC1TDJU)]
