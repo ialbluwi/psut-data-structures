@@ -12,7 +12,7 @@ Princess Sumaya University for Technology<br>
 
 * **Algorithm Analysis** [[slides](https://drive.google.com/file/d/17l0dOvNT5tSNCrhB0xFHg-RQ6hcttQU-)] [[study guide](study%20guides/analysis.md)] [[math cheatsheet](https://drive.google.com/file/d/197IIsUG1I_Ys1rFXhi1l6QRuLahQwDoh)]
 
-* **Searching and Sorting** [[previous exam questions](https://docs.google.com/document/d/17SfDcoqVTrXCOfDPthRuwgHJCGsZWg3NGwCRDc56Vh8)]
+* **Searching and Sorting** [[study guide](study%20guides/sorting.md)]
     * Linear & Binary Search [[slides](https://drive.google.com/file/d/1WdVifS5IhyhjgKRHumf9fUw5mwC1TDJU)]
     * Sorting [[slides (full)](https://drive.google.com/file/d/12xXSnvu9KP7n1QAiNO4nKslAr0Myv6A9/)][[slides (short)](https://drive.google.com/file/d/1e_VIPMUpYJxKL6tvSRhS9tet9tsTeDUQ/view?usp=sharing)]
 
