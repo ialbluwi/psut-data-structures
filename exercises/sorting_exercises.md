@@ -1,4 +1,4 @@
-# Binary Search Trees Exercises
+# Searching & Sorting Exercises
 
 ## Basic Tracing
 
