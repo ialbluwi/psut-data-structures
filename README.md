@@ -16,8 +16,8 @@ Princess Sumaya University for Technology<br>
     * Linear & Binary Search [[slides](https://drive.google.com/file/d/1WdVifS5IhyhjgKRHumf9fUw5mwC1TDJU)]
     * Sorting [[slides (full)](https://drive.google.com/file/d/12xXSnvu9KP7n1QAiNO4nKslAr0Myv6A9/)][[slides (short)](https://drive.google.com/file/d/1e_VIPMUpYJxKL6tvSRhS9tet9tsTeDUQ/view?usp=sharing)]
 
-* **Lists** [[exercises](exercises/list_exercises.md)] [[previous exam questions](https://docs.google.com/document/d/15BVMhjwFnGattwKcs6xEZKDmKR7CzMbF-gSj-buPzY4/edit?usp=sharing)]
-    * Singly-Linked Lists [[int_sll.h](code/int_sll.h)] [[int_sll_comments.h](code/int_sll_comments.h)] [[sll_test.cpp](code/sll_test.cpp)]
+* **Lists** [[exercises](exercises/list_exercises.md)]
+    * Singly-Linked Lists [[study guide](study%20guides/sll.md)][[int_sll.h](code/int_sll.h)] [[int_sll_comments.h](code/int_sll_comments.h)] [[sll_test.cpp](code/sll_test.cpp)]
     * Doubly-Linked Lists [[dll.h](code/dll.h)] [[dll_comments.h](code/dll_comments.h)] [[dll_test.cpp](code/dll_test.cpp)][[ordered_dll.h](code/ordered_dll.h)]
 
 
