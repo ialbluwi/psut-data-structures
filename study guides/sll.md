@@ -2,7 +2,7 @@
 
 We advise you to study in the following order:
 
-1. Make sure that you can write and analyze the [code](../main/code/int_sll_comments.h) we have written in class.
+1. Make sure that you can write and analyze the [code](../code/int_sll_comments.h) we have written in class.
 
 2. Practice using [Exercises 1-7](../exercises/list_exercises.md).
 
