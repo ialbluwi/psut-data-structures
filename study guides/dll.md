@@ -2,7 +2,7 @@
 
 We advise you to study in the following order:
 
-1. Make sure that you can write and analyze the code for the [DLList](../main/code/dll_comments.h) and [OrderedList](../main/code/ordered_list.h) classes.
+1. Make sure that you can write and analyze the code for the [DLList](../code/dll_comments.h) and [OrderedList](../code/ordered_list.h) classes.
 
 2. Practice using [Exercises 8-14](../exercises/list_exercises.md).
 
