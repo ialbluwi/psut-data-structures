@@ -18,7 +18,7 @@ Princess Sumaya University for Technology<br>
 
 * **Lists** [[exercises](exercises/list_exercises.md)]
     * Singly-Linked Lists [[study guide](study%20guides/sll.md)][[int_sll.h](code/int_sll.h)] [[int_sll_comments.h](code/int_sll_comments.h)] [[sll_test.cpp](code/sll_test.cpp)]
-    * Doubly-Linked Lists [[dll.h](code/dll.h)] [[dll_comments.h](code/dll_comments.h)] [[dll_test.cpp](code/dll_test.cpp)][[ordered_dll.h](code/ordered_dll.h)]
+    * Doubly-Linked Lists [[study guide](study%20guides/dll.md)][[dll.h](code/dll.h)] [[dll_comments.h](code/dll_comments.h)] [[dll_test.cpp](code/dll_test.cpp)][[ordered_dll.h](code/ordered_dll.h)]
 
 
 * **Stacks and Queues** [[stack__queue.cpp](code/stack_queue.cpp)] [[exercises](exercises/stacks_queues_exercises.md)]
