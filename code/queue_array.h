@@ -211,21 +211,15 @@ template <class T>
 QueueArray<T>::QueueArray(const QueueArray& other)
 {
     capacity = other.capacity;
+    size     = other.size;
+    first    = other.first;
+    last     = other.last;
     data     = new T[capacity];
 
     int j = other.first;
-    for (int i = 0; i < other.size; i++) {
-        data[i] = other.data[j];
+    for (int i = 0; i < size; i++) {
+        data[j] = other.data[j];
         j = (j + 1) % other.capacity;
-    }
-
-    size = other.size;
-    if (size == 0) {
-        first = -1;
-        last  = -1;
-    } else {
-        first = 0;
-        last  = size - 1;
     }
 }
 
@@ -237,22 +231,17 @@ QueueArray<T>& QueueArray<T>::operator=(const QueueArray<T>& other)
         return *this;
 
     delete [] data;
+    
     capacity = other.capacity;
+    size     = other.size;
+    first    = other.first;
+    last     = other.last;
     data     = new T[capacity];
 
     int j = other.first;
-    for (int i = 0; i < other.size; i++) {
-        data[i] = other.data[j];
+    for (int i = 0; i < size; i++) {
+        data[j] = other.data[j];
         j = (j + 1) % other.capacity;
-    }
-
-    size = other.size;
-    if (size == 0) {
-        first = -1;
-        last  = -1;
-    } else {
-        first = 0;
-        last  = size - 1;
     }
 
     return *this;
