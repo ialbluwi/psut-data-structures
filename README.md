@@ -21,7 +21,7 @@ Princess Sumaya University for Technology<br>
     * Doubly-Linked Lists [[study guide](study%20guides/dll.md)][[dll.h](code/dll.h)] [[dll_comments.h](code/dll_comments.h)] [[dll_test.cpp](code/dll_test.cpp)][[ordered_dll.h](code/ordered_dll.h)]
 
 
-* **Stacks and Queues** [[slides]](https://drive.google.com/file/d/19-77mLPaoml67yXhG03oivqTIC5y8oEX)[[stack__queue.cpp](code/stack_queue.cpp)] [[exercises](exercises/stacks_queues_exercises.md)]
+* **Stacks and Queues** [[study guide](study%20guides/stacks_queues.md)][[slides](https://drive.google.com/file/d/19-77mLPaoml67yXhG03oivqTIC5y8oEX)][[stack__queue.cpp](code/stack_queue.cpp)] 
     * Stacks [[stack_array.h](code/stack_array.h)] [[stack_dll.h](code/stack_dll.h)]
     * Queues [[queue_array.h](code/queue_array.h)] [[queue_dll.h](code/queue_dll.h)]
 
