@@ -2,7 +2,7 @@
 
 We advise you to study in the following order:
 
-1. Make sure that you understand the slides and can write and analyze the code in the following files: [stack_dll.h](../code/stack_dll.h), [stack_array.h](../code/stack_array.h), [queue_dll.h](../code/queue_dll.h), [queue_array.h](../code/queue_array.h), [stack_queue.cpp](stack_queue.cpp).
+1. Make sure that you understand the slides and can write and analyze the code in the following files: [stack_dll.h](../code/stack_dll.h), [stack_array.h](../code/stack_array.h), [queue_dll.h](../code/queue_dll.h), [queue_array.h](../code/queue_array.h), [stack_queue.cpp](../code/stack_queue.cpp).
 
 2. Practice using the [Exercises](../exercises/stacks_queues_exercises.md).
 
