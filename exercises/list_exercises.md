@@ -608,7 +608,7 @@ void OrderedDLList<T>::remove_duplicates()
 template <class T>
 void OrderedDLList<T>::remove_duplicates() 
 {
-    DLList<T> temp_list;
+    OrderedList<T> temp_list;
 
     DLLNode<T>* curr = head;
     while (curr != nullptr) {
