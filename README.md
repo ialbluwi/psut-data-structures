@@ -15,6 +15,12 @@ Princess Sumaya University for Technology<br>
 * **Searching and Sorting** [[study guide](study%20guides/sorting.md)]
     * Linear & Binary Search [[slides](https://drive.google.com/file/d/1WdVifS5IhyhjgKRHumf9fUw5mwC1TDJU)]
     * Sorting [[slides (full)](https://drive.google.com/file/d/12xXSnvu9KP7n1QAiNO4nKslAr0Myv6A9/)][[slides (short)](https://drive.google.com/file/d/1e_VIPMUpYJxKL6tvSRhS9tet9tsTeDUQ/view?usp=sharing)]
+       * Selection Sort: [[exercises](https://docs.google.com/document/d/1PFK_hDCkCq92s5yjkQOvukkTaA7aT17UYLYRUld4yjA)]
+                         [[solutions](https://docs.google.com/document/d/1iVeF7Xrv6psQvEpvfhsJnshfqeOiHm0b6o7q8unvszw)]
+       * Bubble Sort:    [[exercises](https://docs.google.com/document/d/1woKyVhQ65CvYBTjLVt5hzTZfMSNOLB7Pfz1e6Hg9L3Q)]
+                         [[solutions](https://docs.google.com/document/d/1KrBXubdPcXwfFM3R88OirCDm2pHZb0ff3Qyj6GUfdBQ)]
+       * Insertion Sort: [[exercises](https://to.do/)]
+                         [[solutions](https://to.do/)]
 
 * **Lists** [[exercises](exercises/list_exercises.md)]
     * Singly-Linked Lists [[study guide](study%20guides/sll.md)][[int_sll.h](code/int_sll.h)] [[int_sll_comments.h](code/int_sll_comments.h)] [[sll_test.cpp](code/sll_test.cpp)]
