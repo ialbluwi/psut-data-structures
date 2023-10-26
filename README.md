@@ -19,8 +19,8 @@ Princess Sumaya University for Technology<br>
                          [[solutions](https://docs.google.com/document/d/1iVeF7Xrv6psQvEpvfhsJnshfqeOiHm0b6o7q8unvszw)]
        * Bubble Sort:    [[exercises](https://docs.google.com/document/d/1woKyVhQ65CvYBTjLVt5hzTZfMSNOLB7Pfz1e6Hg9L3Q)]
                          [[solutions](https://docs.google.com/document/d/1KrBXubdPcXwfFM3R88OirCDm2pHZb0ff3Qyj6GUfdBQ)]
-       * Insertion Sort: [[exercises](https://to.do/)]
-                         [[solutions](https://to.do/)]
+       * Insertion Sort: [[exercises](https://docs.google.com/document/d/19JQzSO_Lo37xYBLKE1lRYr2Jll_l1Pr_Nx34-lS-lsc)]
+                         [[solutions](https://docs.google.com/document/d/1ZhTBS8dUuZe404gel1JzQ3Q-hZDEECo_IU1pS9DJanQ)]
 
 * **Lists** [[exercises](exercises/list_exercises.md)]
     * Singly-Linked Lists [[study guide](study%20guides/sll.md)][[int_sll.h](code/int_sll.h)] [[int_sll_comments.h](code/int_sll_comments.h)] [[sll_test.cpp](code/sll_test.cpp)]
