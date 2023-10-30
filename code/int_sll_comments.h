@@ -65,7 +65,6 @@ public:
     bool is_empty() const;
 
     bool contains(int val) const;
-    int get_at(int index) const;
     
     void add_to_head(int val);
     void add_to_tail(int val);
@@ -284,32 +283,6 @@ bool List::contains(int val) const
             return true;
 
     return false;
-}
-
-
-// Returns the value at the given index.
-// If the given index is invalid, the program outputs an error message and
-// terminates.
-//
-// --- Asymptotic complexity: 
-//        * Best Case: O(1) If the given index is 0.
-//        * Worst Case: O(n) If the given index is the last index in the list.
-int List::get_at(int index) const {
-    if (is_empty() || index < 0)    
-        throw string("ERROR: Invalid argument in function get_at(int)");
-    
-    int count = 0;
-    Node* curr = head;
-    
-    while (count != index && curr != nullptr) {
-        curr = curr->next;
-        count++;
-    }
-            
-    if (curr != nullptr)
-        return curr->val;
-    else
-        throw string("ERROR: Invalid argument in function get_at(int)");
 }
 
 

@@ -24,9 +24,6 @@ public:
     Node* head_node() const;
     Node* tail_node() const;
     bool is_empty() const;
-
-    bool contains(int val) const;
-    int  get_at(int index) const;
     
     void add_to_head(int val);
     void add_to_tail(int val);
@@ -35,6 +32,7 @@ public:
     void remove_tail();
     bool remove(int val);
 
+    bool contains(int val) const;
     void print() const;
 
 private:
@@ -173,26 +171,6 @@ bool List::contains(int val) const
             return true;
 
     return false;
-}
-
-
-int List::get_at(int index) const 
-{
-    if (is_empty() || index < 0)    
-        throw string("ERROR: Invalid argument in function get_at(int)");
-    
-    int count = 0;
-    Node* curr = head;
-    
-    while (count != index && curr != nullptr) {
-        curr = curr->next;
-        count++;
-    }
-            
-    if (curr != nullptr)
-        return curr->val;
-    else
-        throw string("ERROR: Invalid argument in function get_at(int)");
 }
 
 void List::print() const 
