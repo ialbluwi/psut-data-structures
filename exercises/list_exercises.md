@@ -246,7 +246,7 @@ void List::reverse() {
     swap(head, tail);}
 ```
 
-#### *Solution* # 3 
+#### *Solution* # 3 (for recursion fans)
 
 ```cpp
 void List::reverse(Node* first) 
@@ -265,7 +265,7 @@ void List::reverse() {
 }
 ```
 
-#### *Solution* # 4
+#### *Solution* # 4 (for recursion fans)
 
 explanation: https://static.us.edusercontent.com/files/lsgyClOC9HqQgPYpusojm1ls
 
