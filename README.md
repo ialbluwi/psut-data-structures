@@ -17,8 +17,8 @@ Princess Sumaya University for Technology<br>
     * Sorting [[slides (full)](https://drive.google.com/file/d/12xXSnvu9KP7n1QAiNO4nKslAr0Myv6A9/)][[slides (short)](https://drive.google.com/file/d/1e_VIPMUpYJxKL6tvSRhS9tet9tsTeDUQ/view?usp=sharing)]
        * Selection Sort: [[exercises](https://docs.google.com/document/d/1PFK_hDCkCq92s5yjkQOvukkTaA7aT17UYLYRUld4yjA)]
                          [[solutions](https://docs.google.com/document/d/1iVeF7Xrv6psQvEpvfhsJnshfqeOiHm0b6o7q8unvszw)]
-       * Bubble Sort:    [[exercises](https://docs.google.com/document/d/1woKyVhQ65CvYBTjLVt5hzTZfMSNOLB7Pfz1e6Hg9L3Q)]
-                         [[solutions](https://docs.google.com/document/d/1KrBXubdPcXwfFM3R88OirCDm2pHZb0ff3Qyj6GUfdBQ)]
+       * Bubble Sort:    [[exercises](https://docs.google.com/document/d/1KrBXubdPcXwfFM3R88OirCDm2pHZb0ff3Qyj6GUfdBQ)]
+                         [[solutions](https://docs.google.com/document/d/1woKyVhQ65CvYBTjLVt5hzTZfMSNOLB7Pfz1e6Hg9L3Q)]
        * Insertion Sort: [[exercises](https://docs.google.com/document/d/19JQzSO_Lo37xYBLKE1lRYr2Jll_l1Pr_Nx34-lS-lsc)]
                          [[solutions](https://docs.google.com/document/d/1ZhTBS8dUuZe404gel1JzQ3Q-hZDEECo_IU1pS9DJanQ)]
 
