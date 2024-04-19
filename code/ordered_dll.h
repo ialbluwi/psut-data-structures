@@ -308,7 +308,7 @@ void OrderedDLList<T>::insert(const T& val)
 //
 // For example:
 // If the current list is 1 3 4 5 10. and the other list is: 1 2 3 6.
-// After calling this function, the current list becomes: 1 1 2 3 4 5 6 10.
+// After calling this function, the current list becomes: 1 1 2 3 3 4 5 6 10.
 // The other list remains as is.
 //
 // A simple algorithm to perform this operation is to use the insert() function 
