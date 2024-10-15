@@ -4,7 +4,7 @@ We advise you to study in the following order:
 
 1. Begin by understanding all the examples that are in the slides.
 
-2. Practice using  [this exercises sheet](https://drive.google.com/file/d/13y1PejyoEpSdo5xig_6Pmy9lClzZpfBu) ([solutions](https://drive.google.com/file/d/1fsJcFL_rYMu_Yw9ANS1qkh2Y4-u2jB1e/view?usp=share_link)).
+2. Practice using  [this exercises sheet](https://drive.google.com/file/d/13y1PejyoEpSdo5xig_6Pmy9lClzZpfBu).
 
 3. Practice using previous quizzes:
    1.  Spring 2023 [version 1](https://drive.google.com/file/d/15KJRlGxRWHOZtGiXPAuvhYFbnvDbG9Lg/view?usp=share_link) ([solution](https://drive.google.com/file/d/1d-7KF36tC0--v9uXJL3Z8exTb2hylnwi/view?usp=share_link))
