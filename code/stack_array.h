@@ -18,7 +18,7 @@ public:
     bool is_full() const;
 
     void clear();
-    StackArray& operator=(const StackArray& other);
+    StackArray& operator=(StackArray other);
 
 private:
     T* data;
@@ -39,17 +39,10 @@ StackArray<T>::StackArray(int cap)
 }
 
 template <class T>
-StackArray<T>& StackArray<T>::operator=(const StackArray<T>& other) {
-    if (this == &other)
-        return *this;
-
-    delete [] data;
-    capacity = other.capacity;
-    data = new T[capacity];
-
-    last = other.last;
-    for (int i = 0; i <= last; i++)
-        data[i] = other.data[i];
+StackArray<T>& StackArray<T>::operator=(StackArray<T> other) {
+    swap(data, other.data);
+    swap(capacity, other.capacity);
+    swap(last, other.last);
 
     return *this;
 }
