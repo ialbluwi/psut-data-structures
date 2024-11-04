@@ -23,7 +23,7 @@ public:
     T get_last() const;
     bool is_empty() const;
 
-    QueueArray& operator=(const QueueArray& other);
+    QueueArray& operator=(QueueArray other);
 
 private:
     T* data;
@@ -225,24 +225,13 @@ QueueArray<T>::QueueArray(const QueueArray& other)
 
 
 template <class T>
-QueueArray<T>& QueueArray<T>::operator=(const QueueArray<T>& other) 
+QueueArray<T>& QueueArray<T>::operator=(QueueArray<T> other) 
 {
-    if (this == &other)
-        return *this;
-
-    delete [] data;
-    
-    capacity = other.capacity;
-    size     = other.size;
-    first    = other.first;
-    last     = other.last;
-    data     = new T[capacity];
-
-    int j = other.first;
-    for (int i = 0; i < size; i++) {
-        data[j] = other.data[j];
-        j = (j + 1) % other.capacity;
-    }
+    swap(data, other.data);
+    swap(first, other.first);
+    swap(last, other.last);
+    swap(capacity, other.capacity);
+    swap(size, other.size);
 
     return *this;
 }
