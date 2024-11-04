@@ -58,7 +58,7 @@ public:
     void clear();   
 
     bool contains(const T& val) const;
-    DLList& operator=(const DLList& other);
+    DLList& operator=(DLList other);
 
 private:
     DLLNode<T>* head;
@@ -256,13 +256,10 @@ void DLList<T>::append(const DLList& other)
 
 // copy assignment
 template <class T>
-DLList<T>& DLList<T>::operator=(const DLList<T>& other)
+DLList<T>& DLList<T>::operator=(DLList<T> other)
 {
-    if (this == &other)
-        return *this;
- 
-    clear();
-    append(other);
+    swap(head, other.head);
+    swap(tail, other.tail);
 
     return *this;
 }
