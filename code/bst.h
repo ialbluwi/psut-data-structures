@@ -62,7 +62,7 @@ public:
     DLList<T> elements_level_ordered() const;
     BSTNode<T>* get_root() const { return root; }
 
-    BST& operator=(const BST& other);
+    BST& operator=(BST other);
 
 private:
     BSTNode<T> *root;
@@ -519,15 +519,10 @@ T BST<T>::remove_min() {
 
 
 // copy assignment
+// uses the copy-swap idiom
 template <class T>
-BST<T>& BST<T>::operator=(const BST<T>& other)
+BST<T>& BST<T>::operator=(BST<T> other)
 {
-    // Guard against self assignment
-    if (this == &other)
-        return *this;
- 
-    clear();
-    copy_from(other.root);
-
+    swap(root, other.root);
     return *this;
 }
