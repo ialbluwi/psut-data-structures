@@ -56,7 +56,7 @@ public:
     void clear();   
 
     bool contains(const T& val) const;
-    OrderedDLList& operator=(const OrderedDLList& other);
+    OrderedDLList& operator=(OrderedDLList other);
 
 private:
     DLLNode<T>* head;
@@ -379,13 +379,10 @@ void OrderedDLList<T>::merge(const OrderedDLList<T>& other)
 
 // copy assignment
 template <class T>
-OrderedDLList<T>& OrderedDLList<T>::operator=(const OrderedDLList<T>& other)
+OrderedDLList<T>& OrderedDLList<T>::operator=(OrderedDLList<T> other)
 {
-    if (this == &other)
-        return *this;
- 
-    clear();
-    append(other);
+    swap(head, other.head);
+    swap(tail, other.tail);
 
     return *this;
 }
