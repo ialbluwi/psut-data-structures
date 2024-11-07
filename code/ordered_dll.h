@@ -231,12 +231,16 @@ DLLNode<T>* OrderedDLList<T>::tail_node() const
 template <class T>
 void OrderedDLList<T>::append(const OrderedDLList& other)
 {
-    if (this == &other)
-        throw string("ERROR: Can't append list to itself");
-
-    DLLNode<T>* curr;
-    for (curr = other.head; curr != nullptr; curr = curr->next)
-        add_to_tail(curr->val);
+    DLLNode<T>* temp1 = other.head;
+    DLLNode<T>* temp2 = other.tail;
+    
+    while (temp1 != temp2) {
+        add_to_tail(temp1->val);
+        temp1 = temp1->next;
+    }
+    
+    if (temp1 != nullptr)
+        add_to_tail(temp1->val);
 }
 
 // Inserts an element into an ordered doubly-linked list.
