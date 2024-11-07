@@ -20,7 +20,7 @@ public:
     void clear();
     DLList<T> elements() const; // returns all the elements of the hash table
 
-    HashTable& operator=(const HashTable& other);
+    HashTable& operator=(const HashTable other);
 
 private:
     DLList<T>* table;
@@ -211,20 +211,13 @@ void HashTable<T>::clear()
 }
 
 // performs a deep copy of the other table.
+// Uses the copy-swap idiom.
 template <class T>
-HashTable<T>& HashTable<T>::operator=(const HashTable<T>& other)
+HashTable<T>& HashTable<T>::operator=(HashTable<T> other)
 {
-    if (this == &other)
-        return *this;
-    
-    n = other.n;
-    m = other.m;
-
-    delete [] table;
-    table = new DLList<T>[m];
-
-    for (int i = 0; i < m; i++)
-        table[i] = other.table[i];
+    swap(table, other.table);
+    swap(n, other.n);
+    swap(m, other.m);
 
     return *this;
 }

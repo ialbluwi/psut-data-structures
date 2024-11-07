@@ -86,7 +86,7 @@ public:
     void clear();    
     
     bool contains(const T& val) const;
-    DLList& operator=(const DLList& other);
+    DLList& operator=(DLList other);
 
 private:
     DLLNode<T>* head;
@@ -389,16 +389,23 @@ void DLList<T>::append(const DLList& other)
 
 // copy assignment
 // This function is important to avoid shallow copying when using the
-// assignment operator
+// assignment operator.
+//
+// Here is how the code works:
+//     * "other" is received by value. This will call the copy constructor 
+//       and create a temporary local object.
+//     * Swapping the head and tail with the temporary object has the following effect:
+//           - The nodes of "other" become the nodes of the current list.
+//           - The nodes of the current list become the nodes of "other".
+//     * When the function ends, the destructor is called for "other", because it is a local 
+//       variable. This deletes all of its nodes (which are the old nodes of the current list!)
+//
+// [NOTE. This is called the Copy-Swap Idiom]
 template <class T>
-DLList<T>& DLList<T>::operator=(const DLList<T>& other)
+DLList<T>& DLList<T>::operator=(DLList<T> other)
 {
-    // Guard against self assignment
-    if (this == &other)
-        return *this;
- 
-    clear();
-    append(other);
+    swap(head, other.head);
+    swap(tail, other.tail);
 
     return *this;
 }

@@ -4,7 +4,7 @@ We advise you to study in the following order:
 
 1. Begin by understanding all the examples that are in the slides.
 
-2. Practice using  [this exercises sheet](https://drive.google.com/file/d/13y1PejyoEpSdo5xig_6Pmy9lClzZpfBu) ([solutions](https://drive.google.com/file/d/1fsJcFL_rYMu_Yw9ANS1qkh2Y4-u2jB1e/view?usp=share_link)).
+2. Practice using  [this exercise sheet](https://drive.google.com/file/d/13y1PejyoEpSdo5xig_6Pmy9lClzZpfBu).
 
 3. Practice using previous quizzes:
    1.  Spring 2023 [version 1](https://drive.google.com/file/d/15KJRlGxRWHOZtGiXPAuvhYFbnvDbG9Lg/view?usp=share_link) ([solution](https://drive.google.com/file/d/1d-7KF36tC0--v9uXJL3Z8exTb2hylnwi/view?usp=share_link))
@@ -15,8 +15,10 @@ We advise you to study in the following order:
     4.  Fall 2022 - [version 2](https://drive.google.com/file/d/1xRFps2EfcCu3MvXYEy96Su1ArUvCf9sA/view?usp=share_link) ([solution](https://drive.google.com/file/d/1-iu5Qf7H4Ak5_v9F4OaoTuQNfMqC1xpz/view?usp=share_link))
 
 4. Practice using (recent) previous exams:
-   1. [First Exam - Fall 2022: Question 1](https://drive.google.com/file/d/1nJui0DRtQ-2B6baLzgz5yASaCvtnL9eT/view?usp=share_link) ([solution](https://drive.google.com/file/d/14YsAGziZOqFDc40crCYj0pAkfAUY9wMb/view?usp=share_link))
-    2.  First Exam - Spring 2022: Question 1 ([solution](https://drive.google.com/file/d/1-f3Cn9s9qJGn0LVN4a268UyDiBexRouo/view?usp=share_link))
-    3.  [Midterm Exam - Fall 2021: Question 1](https://drive.google.com/file/d/1dAMSwZIaUHxgv95D3pNuzg9Qh0bcr_UY/view?usp=share_link) ([solution](https://drive.google.com/file/d/1JJMzZyC2iNYfi3XsEUYSThoFLZ-pvitw/view?usp=share_link))
+   1. Midterm Exam - Spring 2024: Question 1 ([solution](https://drive.google.com/file/d/1vpR-ErE-rOogbdpeoj2gxU0xqG5B2XXE/view?usp=sharing))
+   2. [Midterm Exam - Fall 2023: Question 4](https://drive.google.com/file/d/1ZDBgEq_-6c9EE40-BJ28IVPCliq64qQ5/view?usp=sharing) ([solution](https://drive.google.com/file/d/1KQOtgiGkMRCtZ1UREmBnkSfM-7TsYXEb/view?usp=drive_link))
+   3. [First Exam - Fall 2022: Question 1](https://drive.google.com/file/d/1nJui0DRtQ-2B6baLzgz5yASaCvtnL9eT/view?usp=share_link) ([solution](https://drive.google.com/file/d/14YsAGziZOqFDc40crCYj0pAkfAUY9wMb/view?usp=share_link))
+    4.  First Exam - Spring 2022: Question 1 ([solution](https://drive.google.com/file/d/1-f3Cn9s9qJGn0LVN4a268UyDiBexRouo/view?usp=share_link))
+    5.  [Midterm Exam - Fall 2021: Question 1](https://drive.google.com/file/d/1dAMSwZIaUHxgv95D3pNuzg9Qh0bcr_UY/view?usp=share_link) ([solution](https://drive.google.com/file/d/1JJMzZyC2iNYfi3XsEUYSThoFLZ-pvitw/view?usp=share_link))
 
 6. Practice using [old previous exams](https://docs.google.com/document/d/1Eln96RuMHlePVwB3BgCIuSqlLDhR6-mvYqqlHxKpGcU/edit) ([student solutions](https://drive.google.com/drive/folders/1AZDzDTIBJIAKXb6o5SgMXMBceJcVp0gd))
