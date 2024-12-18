@@ -139,7 +139,7 @@ Implement the following member function in class `BST`, which computes the heigh
 void compute_heights();
 ```
 
-#### *Solution*
+#### *Solution 1*
 
 ```cpp
 // post-order traversal
@@ -161,6 +161,26 @@ void BST<T>::compute_heights(BSTNode<T>* node)
         right_height = node->right->height;
   
     node->height = 1 + std::max(left_height, right_height);
+}
+
+template <class T>
+void BST<T>::compute_heights() 
+{
+    compute_heights(root);
+}
+```
+
+#### *Solution 2*
+
+```cpp
+template<class T>
+int BST<T>::compute_heights(BSTNode<T>* node){
+    if(node == nullptr)
+        return -1;
+
+    node->height = 1 + max(compute_heights(node->left),
+                           compute_heights(node->right));
+    return node->height;
 }
 
 template <class T>
