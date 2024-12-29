@@ -41,5 +41,5 @@ Princess Sumaya University for Technology<br>
 
 * **Priority Queues** [[slides](https://drive.google.com/file/d/14AT2cFd0zpp7okcOEYhFHJ4eXQV8bsvQ)]
 
-* **C++ Standard Template Library (STL)** [[STL.cpp](code/STL.cpp)]
+* **C++ Standard Template Library (STL)** [[study guide](study%20guides/stl.md)]
 
