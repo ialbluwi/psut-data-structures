@@ -34,7 +34,7 @@ This video covers what you need for this course's exams and assignments.
 This is provided below and is similar in scope to what is in the video.
 
 There are tons of online resources on the STL. Feel free to learn from wherever you like.  
-[This is a video](https://drive.google.com/file/d/1dywBBjQJd7yDoEGd8fcMfNgf6Pg5nLvX/view?usp=drive_link) recorded for this course, which covers iterators, priority queues, and some STL algorithms (these are not required for the exams, but are important to know).
+[This is a video](https://drive.google.com/file/d/1dywBBjQJd7yDoEGd8fcMfNgf6Pg5nLvX/view?usp=drive_link) recorded for this course, which covers iterators, priority queues, and some STL algorithms (these are not required for the exams, but are important to know). Here is also a [link](https://github.com/ialbluwi/psut-data-structures/blob/main/code/STL.cpp) to the code used in the video.
 
 # STL Simplified Reference
 
