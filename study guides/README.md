@@ -1,8 +1,8 @@
 * [Analysis](analysis.md)
-* [Sorting]
-* [Singly-Linked Lists]
-* [Doubly-Linked Lists]
-* [Stacks and Queues]
+* [Sorting](sorting.md)
+* [Singly-Linked Lists](sll.md)
+* [Doubly-Linked Lists](dll.md)
+* [Stacks and Queues](stacks_queues.md)
 * Binary Search Trees
 * Hash Tables
 * Heaps
