@@ -4,7 +4,7 @@
 * [Doubly-Linked Lists](dll.md)
 * [Stacks and Queues](stacks_queues.md)
 * Binary Search Trees
-* Hash Tables
+* [Hash Tables](hashing.md)
 * Heaps
 * STL
 
