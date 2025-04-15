@@ -524,7 +524,7 @@ void DLList<T>::remove_all(const T& val)
 Exercise 13
 ----------
 
-Implement the following member function of class `DLList`, which returns all the common values between the current doubly-linked list and the recived doubly-linked list.
+Implement the following member function of class `DLList`, which returns all the common values between the current doubly-linked list and the received doubly-linked list. The common values must be stored in the returned list in ascending order.
 
 ```cpp
 DLList find_common(const DLList& other) const;
@@ -552,6 +552,13 @@ DLList<T> DLList<T>::find_common(const DLList<T>& other) const
                 result.add_to_tail(ptr1->val);
                 break;
             }
+        }
+    }
+
+    for (DLLNode<T>* i = result.head; i != result.tail; i = i->next) {
+        for (DLLNode<T>* j = result.tail; j != i; j = j->prev) {
+            if (j->val < j->prev->val)
+                std::swap(j->val, j->prev->val);
         }
     }
 
