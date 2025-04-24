@@ -31,6 +31,7 @@ Princess Sumaya University for Technology<br>
     * Stacks [[stack_array.h](code/stack_array.h)] [[stack_dll.h](code/stack_dll.h)]
     * Queues [[queue_array.h](code/queue_array.h)] [[queue_dll.h](code/queue_dll.h)]
 
+* **C++ Standard Template Library (STL)** [[study guide](study%20guides/stl.md)]
 
 * **Binary Search Trees** [[bst.h](code/bst.h)] [[bst.cpp](code/bst.cpp)] [[exercises](exercises/bst_exercises.md)]
     * Introduction, definitions and properties [[slides](https://drive.google.com/file/d/1TcKI5HOjJOk5t0Z07txprVguHT6KtAp3/view?usp=sharing)]
@@ -40,6 +41,3 @@ Princess Sumaya University for Technology<br>
 * **Hash Tables** [[slides](https://drive.google.com/file/d/1Eka4poNVMNgdTKyUk06OUP2ufTFqCc3P)] [[hash_table.h](code/hash_table.h)] [[hashing.cpp](code/hashing.cpp)] [[exercises](exercises/hashing_exercises.md)][[study guide](study%20guides/hashing.md)]
 
 * **Priority Queues** [[slides](https://drive.google.com/file/d/14AT2cFd0zpp7okcOEYhFHJ4eXQV8bsvQ)]
-
-* **C++ Standard Template Library (STL)** [[study guide](study%20guides/stl.md)]
-
